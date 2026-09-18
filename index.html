@@ -4,7 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan</title>
-  
+
+  <!-- SEO & Social Preview -->
+  <meta name="description" content="Abhinaya Group adalah holding company yang menaungi Abhinaya Store, Abhinaya Rides, Abhinaya Parfume, dan Lucky Cheese — ekosistem retail, wahana hiburan, dan kuliner di Kalimantan.">
+  <meta property="og:title" content="Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan">
+  <meta property="og:description" content="Menaungi Abhinaya Store, Abhinaya Rides, Abhinaya Parfume, dan Lucky Cheese — satu ekosistem bisnis terpadu di Kalimantan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abhinaya-web.pages.dev/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon (emoji, ganti ke logo asli kalau sudah ada) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%92%8E</text></svg>">
+
   <!-- Tailwind CSS & Konfigurasi Tema -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -31,11 +43,11 @@
       }
     }
   </script>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- FontAwesome untuk Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <style>
     /* Efek Animasi Fade-In Kustom */
     .fade-in-up {
@@ -46,9 +58,19 @@
     .delay-100 { animation-delay: 0.1s; }
     .delay-200 { animation-delay: 0.2s; }
     .delay-300 { animation-delay: 0.3s; }
-    
+
     @keyframes fadeInUp {
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    #mobile-menu.open {
+      max-height: 240px;
     }
   </style>
 </head>
@@ -65,6 +87,18 @@
         <a href="#bisnis" class="hover:text-gold-main transition-colors">Pilar Bisnis</a>
         <a href="#kontak" class="hover:text-gold-main transition-colors">Kontak</a>
       </div>
+      <!-- Tombol Hamburger (Mobile) -->
+      <button id="menu-toggle" class="md:hidden text-gold-main text-2xl" aria-label="Buka menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="md:hidden max-w-7xl mx-auto">
+      <div class="flex flex-col space-y-4 pt-6 pb-2 text-gray-300 text-sm font-medium">
+        <a href="#profil" class="hover:text-gold-main transition-colors">Profil</a>
+        <a href="#bisnis" class="hover:text-gold-main transition-colors">Pilar Bisnis</a>
+        <a href="#kontak" class="hover:text-gold-main transition-colors">Kontak</a>
+      </div>
     </div>
   </nav>
 
@@ -73,7 +107,7 @@
     <!-- Ornamen Lingkaran Emas Tipis di Background -->
     <div class="absolute top-1/4 left-10 w-64 h-64 border border-gold-main/20 rounded-full blur-sm"></div>
     <div class="absolute bottom-1/4 right-10 w-96 h-96 border border-corporate-500/20 rounded-full blur-md"></div>
-    
+
     <div class="relative z-10 text-center max-w-4xl mx-auto mt-20">
       <span class="block text-gold-main font-semibold tracking-[0.3em] uppercase text-sm mb-4 fade-in-up">Membangun Ekosistem Berkualitas</span>
       <h1 class="text-5xl md:text-7xl font-bold text-white font-serif leading-tight mb-6 fade-in-up delay-100">
@@ -88,7 +122,7 @@
         </a>
       </div>
     </div>
-    
+
     <!-- Panah Scroll ke Bawah -->
     <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
       <a href="#profil" class="text-gold-main/50 hover:text-gold-main transition-colors">
@@ -103,14 +137,12 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="relative">
           <div class="w-full h-[500px] bg-corporate-100 rounded-2xl overflow-hidden shadow-2xl relative z-10">
-            <!-- Gambar Gedung / Suasana Mall Premium (Bisa diganti nanti) -->
             <img src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop" alt="Abhinaya Management" class="w-full h-full object-cover opacity-90">
             <div class="absolute inset-0 bg-corporate-900/20"></div>
           </div>
-          <!-- Elemen Estetika -->
           <div class="absolute -bottom-6 -right-6 w-3/4 h-full border-2 border-gold-main rounded-2xl z-0 hidden md:block"></div>
         </div>
-        
+
         <div>
           <div class="flex items-center space-x-4 mb-4">
             <div class="h-px w-12 bg-gold-main"></div>
@@ -118,12 +150,12 @@
           </div>
           <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6 leading-tight">Manajemen Operasional & Tenant Retail Profesional</h2>
           <p class="text-gray-600 mb-6 leading-relaxed">
-            Abhinaya Group hadir sebagai *holding company* yang berfokus pada pengelolaan dan pengembangan ekosistem komersial terpadu. Kami memadukan visi bisnis jangka panjang dengan presisi operasional sehari-hari.
+            Abhinaya Group hadir sebagai <em>holding company</em> yang berfokus pada pengelolaan dan pengembangan ekosistem komersial terpadu. Kami memadukan visi bisnis jangka panjang dengan presisi operasional sehari-hari.
           </p>
           <p class="text-gray-600 mb-8 leading-relaxed">
-            Berpengalaman mengelola ragam *tenant* strategis di berbagai pusat perbelanjaan terkemuka di wilayah Kalimantan, kami memastikan setiap pilar bisnis kami—mulai dari ritel aksesoris, wahana hiburan keluarga, hingga kuliner—beroperasi dengan standar mutu dan pelayanan tertinggi.
+            Berpengalaman mengelola ragam <em>tenant</em> strategis di berbagai pusat perbelanjaan terkemuka di wilayah Kalimantan, kami memastikan setiap pilar bisnis kami — mulai dari ritel aksesoris, wahana hiburan keluarga, hingga kuliner — beroperasi dengan standar mutu dan pelayanan tertinggi.
           </p>
-          
+
           <div class="grid grid-cols-2 gap-6">
             <div class="border-l-2 border-gold-main pl-4">
               <h4 class="text-2xl font-serif font-bold text-corporate-800">4+</h4>
@@ -163,8 +195,7 @@
   <footer id="kontak" class="bg-corporate-900 text-white pt-20 pb-10 border-t-4 border-gold-main">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-        
-        <!-- Kolom 1: Brand -->
+
         <div>
           <div class="text-gold-main font-serif text-3xl font-bold tracking-wider mb-6">
             ABHINAYA <span class="text-white font-light block text-xl mt-1">GROUP</span>
@@ -178,7 +209,6 @@
           </div>
         </div>
 
-        <!-- Kolom 2: Navigasi -->
         <div>
           <h4 class="text-lg font-serif font-bold mb-6 text-gold-main">Jelajahi Cepat</h4>
           <ul class="space-y-3">
@@ -188,7 +218,6 @@
           </ul>
         </div>
 
-        <!-- Kolom 3: Kontak -->
         <div>
           <h4 class="text-lg font-serif font-bold mb-6 text-gold-main">Kantor Operasional</h4>
           <ul class="space-y-4 text-sm text-gray-400">
@@ -214,6 +243,25 @@
     </div>
   </footer>
 
+  <!-- SCRIPT: TOGGLE MENU MOBILE -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    // Tutup menu otomatis kalau salah satu link diklik
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
   <!-- SCRIPT PENGHUBUNG SANITY CMS -->
   <script>
     const PROJECT_ID = 'mwiphyyy';
@@ -221,56 +269,55 @@
     const QUERY = encodeURIComponent('*[_type == "business"]{name, category, description, "imageUrl": image.asset->url}');
     const URL = `https://${PROJECT_ID}.api.sanity.io/v2022-03-07/data/query/${DATASET}?query=${QUERY}`;
 
+    // Peta nama unit bisnis ke sub-halamannya masing-masing
+    const UNIT_SLUG_MAP = {
+      'Abhinaya Store': '/store/',
+      'Abhinaya Rides': '/rides/',
+      'Abhinaya Parfume': '/parfume/',
+      'Lucky Cheese': '/lucky-cheese/'
+    };
+
     fetch(URL)
       .then(response => response.json())
       .then(({ result }) => {
         const container = document.getElementById('business-container');
-        container.innerHTML = ''; // Hapus loader
-        
-        if(result.length === 0) {
+        container.innerHTML = '';
+
+        if (result.length === 0) {
           container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-10">Belum ada unit bisnis yang dipublikasikan.</div>';
           return;
         }
 
-        // Render kartu bisnis dengan UI Premium
         result.forEach((item, index) => {
-          // Memberikan delay animasi berurutan
           const delayClass = `delay-${(index % 4) * 100}`;
-          
+          const unitHref = UNIT_SLUG_MAP[item.name] || '#';
+
           const card = `
-            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 fade-in-up ${delayClass}">
-              
-              <!-- Bungkus Gambar dengan Animasi Zoom -->
+            <a href="${unitHref}" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 fade-in-up ${delayClass}">
               <div class="relative h-56 overflow-hidden bg-corporate-900 flex items-center justify-center p-6">
                 <div class="absolute inset-0 bg-corporate-900/10 group-hover:bg-transparent transition-all z-10"></div>
-                <img 
-                  src="${item.imageUrl || 'https://via.placeholder.com/400x300?text=Logo+Unit'}" 
-                  alt="${item.name}" 
+                <img
+                  src="${item.imageUrl || 'https://via.placeholder.com/400x300?text=Logo+Unit'}"
+                  alt="${item.name}"
                   class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-700 ease-in-out relative z-0 drop-shadow-md"
                 >
-                
-                <!-- Badge Kategori Mengambang -->
                 <div class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur text-corporate-900 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full shadow-sm">
                   ${item.category}
                 </div>
               </div>
-              
-              <!-- Konten Kartu -->
+
               <div class="p-8">
                 <h3 class="text-2xl font-serif font-bold text-corporate-800 mb-3 group-hover:text-corporate-500 transition-colors">${item.name}</h3>
-                
                 <p class="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
                   ${item.description}
                 </p>
-                
-                <!-- Tombol CTA Palsu -->
                 <div class="w-full text-center border-t border-gray-100 pt-4">
                   <span class="text-corporate-800 text-sm font-semibold group-hover:text-gold-main transition-colors inline-flex items-center">
                     Eksplorasi Unit <i class="fas fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
                   </span>
                 </div>
               </div>
-            </div>
+            </a>
           `;
           container.innerHTML += card;
         });
