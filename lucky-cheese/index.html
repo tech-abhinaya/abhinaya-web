@@ -212,7 +212,7 @@
       grid.innerHTML = filtered.map(p => `
         <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
           <div class="h-56 bg-corporate-100 overflow-hidden">
-            <img src="${p.imageUrl || 'https://via.placeholder.com/400x400?text=Produk'}" alt="${p.name}" class="w-full h-full object-cover">
+            <img src="${p.imageUrl ? p.imageUrl + '?w=600&h=600&fit=crop' : 'https://via.placeholder.com/400x400?text=Produk'}" alt="${p.name}" class="w-full h-full object-cover">
           </div>
           <div class="p-5">
             <span class="text-[11px] uppercase tracking-wide text-corporate-500 font-semibold">${CATEGORY_LABEL[p.category] || p.category}</span>
