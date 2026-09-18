@@ -262,14 +262,7 @@
     });
   </script>
 
-  <!-- SCRIPT PENGHUBUNG SANITY CMS -->
-  <script>
-    const PROJECT_ID = 'mwiphyyy';
-    const DATASET = 'production';
-    const QUERY = encodeURIComponent('*[_type == "business"]{name, category, description, "imageUrl": image.asset->url}');
-    const URL = `https://${PROJECT_ID}.api.sanity.io/v2022-03-07/data/query/${DATASET}?query=${QUERY}`;
-
-    <!-- SCRIPT PENGHUBUNG SANITY CMS (FLEKSIBEL) -->
+<!-- SCRIPT PENGHUBUNG SANITY CMS (FLEKSIBEL) -->
   <script>
     const PROJECT_ID = 'mwiphyyy';
     const DATASET = 'production';
@@ -299,61 +292,6 @@
           else if (namaBisnis.includes('rides') || namaBisnis.includes('wahana')) unitHref = '/rides/';
           else if (namaBisnis.includes('cheese') || namaBisnis.includes('lucky')) unitHref = '/lucky-cheese/';
           else if (namaBisnis.includes('store') || namaBisnis.includes('aksesoris')) unitHref = '/store/';
-
-          const card = `
-            <a href="${unitHref}" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 fade-in-up ${delayClass}">
-              <div class="relative h-56 overflow-hidden bg-corporate-900 flex items-center justify-center p-6">
-                <div class="absolute inset-0 bg-corporate-900/10 group-hover:bg-transparent transition-all z-10"></div>
-                <img
-                  src="${item.imageUrl || 'https://via.placeholder.com/400x300?text=Logo+Unit'}"
-                  alt="${item.name}"
-                  class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-700 ease-in-out relative z-0 drop-shadow-md"
-                >
-                <div class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur text-corporate-900 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full shadow-sm">
-                  ${item.category}
-                </div>
-              </div>
-
-              <div class="p-8">
-                <h3 class="text-2xl font-serif font-bold text-corporate-800 mb-3 group-hover:text-corporate-500 transition-colors">${item.name}</h3>
-                <p class="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
-                  ${item.description}
-                </p>
-                <div class="w-full text-center border-t border-gray-100 pt-4">
-                  <span class="text-corporate-800 text-sm font-semibold group-hover:text-gold-main transition-colors inline-flex items-center">
-                    Eksplorasi Unit <i class="fas fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
-                  </span>
-                </div>
-              </div>
-            </a>
-          `;
-          container.innerHTML += card;
-        });
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-        document.getElementById('business-container').innerHTML = `
-          <div class="col-span-full bg-red-50 border-l-4 border-red-500 p-4 rounded text-center">
-            <p class="text-red-700 font-medium">Gagal memuat data portofolio dari server pusat.</p>
-          </div>
-        `;
-      });
-  </script>
-
-    fetch(URL)
-      .then(response => response.json())
-      .then(({ result }) => {
-        const container = document.getElementById('business-container');
-        container.innerHTML = '';
-
-        if (result.length === 0) {
-          container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-10">Belum ada unit bisnis yang dipublikasikan.</div>';
-          return;
-        }
-
-        result.forEach((item, index) => {
-          const delayClass = `delay-${(index % 4) * 100}`;
-          const unitHref = UNIT_SLUG_MAP[item.name] || '#';
 
           const card = `
             <a href="${unitHref}" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 fade-in-up ${delayClass}">
