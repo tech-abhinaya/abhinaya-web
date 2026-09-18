@@ -1,0 +1,16 @@
+# File ini otomatis dibaca Cloudflare Pages, taruh di root repo (sejajar index.html)
+# Referensi: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Catatan soal Content-Security-Policy (CSP):
+# Sengaja belum diaktifkan di sini karena situs ini pakai Tailwind Play CDN,
+# yang butuh 'unsafe-inline' dan kadang 'unsafe-eval' untuk jalan.
+# Kalau mau aktifkan CSP, tes dulu pakai header "Content-Security-Policy-Report-Only"
+# selama beberapa hari sebelum ganti ke "Content-Security-Policy" beneran, contoh baseline:
+#
+#   Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' https: data:; connect-src 'self' https://mwiphyyy.api.sanity.io;
