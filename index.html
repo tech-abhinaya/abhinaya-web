@@ -1,50 +1,220 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhinaya Group | Ekosistem Retail & Hiburan</title>
+  <title>Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan</title>
   
-  <!-- Memanggil Tailwind CSS untuk styling cepat -->
+  <!-- Tailwind CSS & Konfigurasi Tema -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            corporate: {
+              900: '#2D1B2E', // Ungu Sangat Gelap
+              800: '#4A2C4D', // Ungu Abhinaya Utama
+              500: '#8B5A8C', // Ungu Aksen
+              100: '#F7F3F9', // Background Lembut
+            },
+            gold: {
+              main: '#C9A96A',
+              light: '#E6D3A3'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
   
-  <!-- Memanggil Font Playfair Display (Corporate) & Plus Jakarta Sans (Modern) -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome untuk Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F7F3F9; }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    /* Efek Animasi Fade-In Kustom */
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
-<body class="text-[#4A2C4D]">
+<body class="bg-corporate-100 text-gray-800 font-sans antialiased overflow-x-hidden">
 
-  <!-- Bagian Header (Kepala Web) -->
-  <header class="bg-[#4A2C4D] text-[#F7F3F9] py-16 text-center shadow-lg">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[#C9A96A]">Abhinaya Group</h1>
-    <p class="text-lg md:text-xl font-light text-[#C8A8D8] max-w-2xl mx-auto px-4">
-      Mengelola ekosistem retail, hiburan keluarga, dan gaya hidup modern secara profesional.
-    </p>
-  </header>
-
-  <!-- Bagian Utama Konten -->
-  <main class="max-w-7xl mx-auto px-4 py-16">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold mb-4">Pilar Bisnis Kami</h2>
-      <div class="w-24 h-1 bg-[#8B5A8C] mx-auto rounded"></div>
+  <!-- NAVBAR KORPORAT -->
+  <nav class="fixed w-full z-50 bg-corporate-900/95 backdrop-blur-md border-b border-white/10 transition-all py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="text-gold-main font-serif text-2xl font-bold tracking-wider">
+        ABHINAYA <span class="text-white font-light">GROUP</span>
+      </div>
+      <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+        <a href="#profil" class="hover:text-gold-main transition-colors">Profil</a>
+        <a href="#bisnis" class="hover:text-gold-main transition-colors">Pilar Bisnis</a>
+        <a href="#kontak" class="hover:text-gold-main transition-colors">Kontak</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- INI WADAH KOSONGNYA: Tempat kartu bisnis bakal muncul -->
-    <div id="business-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <p class="text-center text-[#8B5A8C] col-span-full font-semibold animate-pulse">Memuat data dari server Sanity...</p>
+  <!-- HERO BANNER SECTION -->
+  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900 overflow-hidden px-4">
+    <!-- Ornamen Lingkaran Emas Tipis di Background -->
+    <div class="absolute top-1/4 left-10 w-64 h-64 border border-gold-main/20 rounded-full blur-sm"></div>
+    <div class="absolute bottom-1/4 right-10 w-96 h-96 border border-corporate-500/20 rounded-full blur-md"></div>
+    
+    <div class="relative z-10 text-center max-w-4xl mx-auto mt-20">
+      <span class="block text-gold-main font-semibold tracking-[0.3em] uppercase text-sm mb-4 fade-in-up">Membangun Ekosistem Berkualitas</span>
+      <h1 class="text-5xl md:text-7xl font-bold text-white font-serif leading-tight mb-6 fade-in-up delay-100">
+        Sinergi Retail & Gaya Hidup Modern
+      </h1>
+      <p class="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up delay-200">
+        Mengelola dan mengembangkan beragam portofolio bisnis dengan standar operasional tinggi untuk menghadirkan pengalaman tak terlupakan.
+      </p>
+      <div class="fade-in-up delay-300">
+        <a href="#bisnis" class="inline-block bg-gold-main text-corporate-900 font-semibold px-8 py-4 rounded-full hover:bg-gold-light hover:shadow-[0_0_20px_rgba(201,169,106,0.4)] transition-all duration-300 transform hover:-translate-y-1">
+          Jelajahi Portofolio Kami <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
     </div>
-  </main>
+    
+    <!-- Panah Scroll ke Bawah -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#profil" class="text-gold-main/50 hover:text-gold-main transition-colors">
+        <i class="fas fa-chevron-down text-2xl"></i>
+      </a>
+    </div>
+  </section>
 
-  <!-- Bagian Footer (Bawah Web) -->
-  <footer class="bg-white text-center py-8 border-t border-[#C8A8D8]">
-    <p class="text-sm text-[#8B5A8C] font-medium">&copy; 2026 Abhinaya Group. All rights reserved.</p>
+  <!-- PROFIL / TENTANG KAMI SECTION -->
+  <section id="profil" class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <div class="w-full h-[500px] bg-corporate-100 rounded-2xl overflow-hidden shadow-2xl relative z-10">
+            <!-- Gambar Gedung / Suasana Mall Premium (Bisa diganti nanti) -->
+            <img src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop" alt="Abhinaya Management" class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-corporate-900/20"></div>
+          </div>
+          <!-- Elemen Estetika -->
+          <div class="absolute -bottom-6 -right-6 w-3/4 h-full border-2 border-gold-main rounded-2xl z-0 hidden md:block"></div>
+        </div>
+        
+        <div>
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="h-px w-12 bg-gold-main"></div>
+            <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm">Tentang Perusahaan</span>
+          </div>
+          <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6 leading-tight">Manajemen Operasional & Tenant Retail Profesional</h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Abhinaya Group hadir sebagai *holding company* yang berfokus pada pengelolaan dan pengembangan ekosistem komersial terpadu. Kami memadukan visi bisnis jangka panjang dengan presisi operasional sehari-hari.
+          </p>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            Berpengalaman mengelola ragam *tenant* strategis di berbagai pusat perbelanjaan terkemuka di wilayah Kalimantan, kami memastikan setiap pilar bisnis kami—mulai dari ritel aksesoris, wahana hiburan keluarga, hingga kuliner—beroperasi dengan standar mutu dan pelayanan tertinggi.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-6">
+            <div class="border-l-2 border-gold-main pl-4">
+              <h4 class="text-2xl font-serif font-bold text-corporate-800">4+</h4>
+              <p class="text-sm text-gray-500 font-medium">Lini Bisnis Aktif</p>
+            </div>
+            <div class="border-l-2 border-gold-main pl-4">
+              <h4 class="text-2xl font-serif font-bold text-corporate-800">100%</h4>
+              <p class="text-sm text-gray-500 font-medium">Fokus Layanan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILAR BISNIS SECTION (TERHUBUNG KE SANITY CMS) -->
+  <section id="bisnis" class="py-24 bg-corporate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Portofolio Kami</span>
+        <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6">Pilar Bisnis Abhinaya</h2>
+        <div class="w-24 h-1 bg-gold-main mx-auto rounded"></div>
+      </div>
+
+      <!-- KONTINER DINAMIS SANITY -->
+      <div id="business-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <!-- Loader Skeleton -->
+        <div class="col-span-full flex flex-col items-center justify-center py-12">
+          <i class="fas fa-circle-notch fa-spin text-4xl text-corporate-500 mb-4"></i>
+          <p class="text-corporate-800 font-medium animate-pulse">Menyelaraskan data dari server pusat...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER KORPORAT -->
+  <footer id="kontak" class="bg-corporate-900 text-white pt-20 pb-10 border-t-4 border-gold-main">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        
+        <!-- Kolom 1: Brand -->
+        <div>
+          <div class="text-gold-main font-serif text-3xl font-bold tracking-wider mb-6">
+            ABHINAYA <span class="text-white font-light block text-xl mt-1">GROUP</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6 pr-4">
+            Holding company pengelola ekosistem retail, wahana hiburan, dan kuliner terkemuka. Menghadirkan gaya hidup modern melalui manajemen operasional yang presisi.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-corporate-800 flex items-center justify-center text-gray-300 hover:bg-gold-main hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-corporate-800 flex items-center justify-center text-gray-300 hover:bg-gold-main hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <!-- Kolom 2: Navigasi -->
+        <div>
+          <h4 class="text-lg font-serif font-bold mb-6 text-gold-main">Jelajahi Cepat</h4>
+          <ul class="space-y-3">
+            <li><a href="#profil" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500"></i> Profil Perusahaan</a></li>
+            <li><a href="#bisnis" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500"></i> Portofolio Bisnis</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500"></i> Karir & Peluang</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolom 3: Kontak -->
+        <div>
+          <h4 class="text-lg font-serif font-bold mb-6 text-gold-main">Kantor Operasional</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-corporate-500"></i>
+              <span>Manajemen Tenant Retail<br>Pusat Perbelanjaan Utama<br>Kalimantan, Indonesia</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-3 text-corporate-500"></i>
+              <a href="mailto:info@abhinayagroup.com" class="hover:text-white transition-colors">info@abhinayagroup.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+        <p>&copy; 2026 Abhinaya Group. Hak Cipta Dilindungi Undang-Undang.</p>
+        <div class="mt-4 md:mt-0 space-x-4">
+          <a href="#" class="hover:text-gold-main">Syarat & Ketentuan</a>
+          <a href="#" class="hover:text-gold-main">Kebijakan Privasi</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <!-- Script Penarik Data dari Sanity CMS -->
+  <!-- SCRIPT PENGHUBUNG SANITY CMS -->
   <script>
     const PROJECT_ID = 'mwiphyyy';
     const DATASET = 'production';
@@ -55,17 +225,50 @@
       .then(response => response.json())
       .then(({ result }) => {
         const container = document.getElementById('business-container');
-        container.innerHTML = ''; // Menghapus teks "Memuat data..."
+        container.innerHTML = ''; // Hapus loader
         
-        // Membentuk kartu HTML untuk setiap data yang ada di Sanity
-        result.forEach(item => {
+        if(result.length === 0) {
+          container.innerHTML = '<div class="col-span-full text-center text-gray-500 py-10">Belum ada unit bisnis yang dipublikasikan.</div>';
+          return;
+        }
+
+        // Render kartu bisnis dengan UI Premium
+        result.forEach((item, index) => {
+          // Memberikan delay animasi berurutan
+          const delayClass = `delay-${(index % 4) * 100}`;
+          
           const card = `
-            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300 border border-[#F7F3F9]">
-              <img src="${item.imageUrl || 'https://via.placeholder.com/400x300?text=Belum+Ada+Foto'}" alt="${item.name}" class="w-full h-48 object-cover">
-              <div class="p-6">
-                <span class="text-xs font-bold text-[#8B5A8C] uppercase tracking-widest">${item.category}</span>
-                <h3 class="text-2xl font-bold text-[#4A2C4D] mt-2 mb-3">${item.name}</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">${item.description}</p>
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 fade-in-up ${delayClass}">
+              
+              <!-- Bungkus Gambar dengan Animasi Zoom -->
+              <div class="relative h-56 overflow-hidden bg-corporate-900 flex items-center justify-center p-6">
+                <div class="absolute inset-0 bg-corporate-900/10 group-hover:bg-transparent transition-all z-10"></div>
+                <img 
+                  src="${item.imageUrl || 'https://via.placeholder.com/400x300?text=Logo+Unit'}" 
+                  alt="${item.name}" 
+                  class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-700 ease-in-out relative z-0 drop-shadow-md"
+                >
+                
+                <!-- Badge Kategori Mengambang -->
+                <div class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur text-corporate-900 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full shadow-sm">
+                  ${item.category}
+                </div>
+              </div>
+              
+              <!-- Konten Kartu -->
+              <div class="p-8">
+                <h3 class="text-2xl font-serif font-bold text-corporate-800 mb-3 group-hover:text-corporate-500 transition-colors">${item.name}</h3>
+                
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                  ${item.description}
+                </p>
+                
+                <!-- Tombol CTA Palsu -->
+                <div class="w-full text-center border-t border-gray-100 pt-4">
+                  <span class="text-corporate-800 text-sm font-semibold group-hover:text-gold-main transition-colors inline-flex items-center">
+                    Eksplorasi Unit <i class="fas fa-arrow-right ml-2 text-xs transform group-hover:translate-x-1 transition-transform"></i>
+                  </span>
+                </div>
               </div>
             </div>
           `;
@@ -73,8 +276,12 @@
         });
       })
       .catch(error => {
-        console.error("Error narik data:", error);
-        document.getElementById('business-container').innerHTML = '<p class="text-red-500 text-center col-span-full">Gagal memuat data dari server.</p>';
+        console.error("Error fetching data:", error);
+        document.getElementById('business-container').innerHTML = `
+          <div class="col-span-full bg-red-50 border-l-4 border-red-500 p-4 rounded text-center">
+            <p class="text-red-700 font-medium">Gagal memuat data portofolio dari server pusat.</p>
+          </div>
+        `;
       });
   </script>
 </body>
