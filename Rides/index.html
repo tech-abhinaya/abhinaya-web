@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhinaya Rides | Mobil-mobilan Keliling Mall - Abhinaya Group</title>
 
+  <meta name="description" content="Abhinaya Rides — wahana mobil-mobilan keliling mall buat anak & orang tua. Cek harga paket & booking rombongan/ulang tahun via WhatsApp.">
+  <meta property="og:title" content="Abhinaya Rides | Mobil-mobilan Keliling Mall">
+  <meta property="og:description" content="Wahana mobil-mobilan keliling mall buat anak & orang tua — Abhinaya Group.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9A%97</text></svg>">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            corporate: { 900: '#2D1B2E', 800: '#4A2C4D', 500: '#8B5A8C', 100: '#F7F3F9' },
+            gold: { main: '#C9A96A', light: '#E6D3A3' }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    #mobile-menu.open { max-height: 200px; }
+  </style>
+</head>
+<body class="bg-corporate-100 text-gray-800 font-sans antialiased">
+
+  <!-- NAVBAR -->
+  <nav class="fixed w-full z-50 bg-corporate-900/95 backdrop-blur-md border-b border-white/10 py-4 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div>
+        <a href="/" class="text-gold-main font-serif text-xl font-bold tracking-wider">
+          ABHINAYA <span class="text-white font-light">RIDES</span>
+        </a>
+        <a href="/" class="block text-[11px] text-gray-400 hover:text-gold-main transition-colors mt-0.5">
+          <i class="fas fa-arrow-left text-[10px] mr-1"></i>Abhinaya Group
+        </a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+        <a href="#harga" class="hover:text-gold-main transition-colors">Harga Paket</a>
+        <a href="#lokasi" class="hover:text-gold-main transition-colors">Lokasi & Jam</a>
+        <a href="#booking" class="bg-gold-main text-corporate-900 px-4 py-1.5 rounded-full font-semibold hover:bg-gold-light transition-colors">Booking Acara</a>
+      </div>
+
+      <button id="menu-toggle" class="md:hidden text-gold-main text-2xl" aria-label="Buka menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden max-w-7xl mx-auto">
+      <div class="flex flex-col space-y-4 pt-6 pb-2 text-sm text-gray-300">
+        <a href="#harga" class="hover:text-gold-main transition-colors">Harga Paket</a>
+        <a href="#lokasi" class="hover:text-gold-main transition-colors">Lokasi & Jam</a>
+        <a href="#booking" class="text-gold-main font-semibold">Booking Acara</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-40 pb-20 px-4 bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900 text-center">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight mb-4">
+        Keliling Mall, Seru Bareng Keluarga
+      </h1>
+      <p class="text-gray-300 font-light mb-8">
+        Mobil-mobilan Abhinaya Rides — anak naik sendiri atau ditemani orang tua, muter satu lantai mall dengan aman dan menyenangkan.
+      </p>
+      <a href="#harga" class="inline-block bg-gold-main text-corporate-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gold-light transition-all">
+        Lihat Harga Paket
+      </a>
+    </div>
+  </section>
+
+  <!-- HARGA PAKET -->
+  <section id="harga" class="py-20 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Harga Paket</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-corporate-800">Pilih Paket Naiknya</h2>
+      </div>
+
+      <div id="package-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="col-span-full flex flex-col items-center py-12">
+          <i class="fas fa-circle-notch fa-spin text-3xl text-corporate-500 mb-4"></i>
+          <p class="text-corporate-800 font-medium">Memuat daftar harga...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOKASI & JAM -->
+  <section id="lokasi" class="py-20 px-4 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Lokasi & Jam Operasional</span>
+      <h2 class="text-3xl font-serif font-bold text-corporate-800 mb-6">Temukan Kami di Mall</h2>
+      <p class="text-gray-600 leading-relaxed mb-2">Area lobby lantai 1, dekat pintu masuk utama mall.</p>
+      <p class="text-gray-600 leading-relaxed">Buka setiap hari, 10.00 – 21.00 WITA.</p>
+    </div>
+  </section>
+
+  <!-- BOOKING ACARA -->
+  <section id="booking" class="py-20 px-4 bg-corporate-800 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-white mb-4">Mau Booking untuk Ulang Tahun atau Rombongan?</h2>
+      <p class="text-gray-300 mb-8">Kami bisa atur sesi khusus buat acara ulang tahun anak atau kunjungan rombongan sekolah/TK. Chat kami buat atur jadwal & harga spesial.</p>
+      <a id="booking-wa-btn" href="#" target="_blank" class="inline-flex items-center gap-2 bg-gold-main text-corporate-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gold-light transition-all">
+        <i class="fab fa-whatsapp"></i> Chat untuk Booking Acara
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-corporate-900 text-gray-400 text-sm py-10 px-4 text-center border-t-4 border-gold-main">
+    <p>&copy; 2026 Abhinaya Rides — unit bisnis dari <a href="/" class="text-gold-main hover:underline">Abhinaya Group</a>.</p>
+  </footer>
+
+  <script>
+    const PROJECT_ID = 'mwiphyyy';
+    const DATASET = 'production';
+    const WHATSAPP_NUMBER = '6283193216920'; // TODO: ganti dengan nomor WA asli Abhinaya Rides
+
+    document.getElementById('booking-wa-btn').href =
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Halo Abhinaya Rides, saya mau tanya-tanya buat booking acara (ulang tahun/rombongan). Boleh info jadwal & harganya?')}`;
+
+    function formatRupiah(num) {
+      return 'Rp ' + num.toLocaleString('id-ID');
+    }
+
+    const QUERY = encodeURIComponent('*[_type == "ridePackage"] | order(price asc){_id, name, price, sessionCount, description, highlight}');
+    const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2022-03-07/data/query/${DATASET}?query=${QUERY}`;
+
+    fetch(SANITY_URL)
+      .then(res => res.json())
+      .then(({ result }) => {
+        const grid = document.getElementById('package-grid');
+        if (!result || result.length === 0) {
+          grid.innerHTML = '<p class="col-span-full text-center text-gray-400 py-10">Paket harga belum tersedia, cek lagi nanti.</p>';
+          return;
+        }
+        grid.innerHTML = result.map(pkg => `
+          <div class="bg-white rounded-xl p-8 border ${pkg.highlight ? 'border-gold-main shadow-lg' : 'border-gray-100 shadow-sm'} relative">
+            ${pkg.highlight ? '<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-main text-corporate-900 text-[11px] font-bold px-3 py-1 rounded-full">Paling Laris</span>' : ''}
+            <h3 class="font-serif text-xl font-bold text-corporate-800 mb-2">${pkg.name}</h3>
+            <p class="text-3xl font-bold text-corporate-500 mb-3">${formatRupiah(pkg.price)}</p>
+            ${pkg.sessionCount ? `<p class="text-sm text-gray-500 mb-3">${pkg.sessionCount}x putaran</p>` : ''}
+            <p class="text-gray-600 text-sm leading-relaxed">${pkg.description || ''}</p>
+          </div>
+        `).join('');
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('package-grid').innerHTML = '<p class="col-span-full text-center text-red-600 py-10">Gagal memuat data harga.</p>';
+      });
+
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
