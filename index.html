@@ -1,22 +1,214 @@
 <!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan</title>
-<meta name="description" content="Abhinaya Group menaungi retail, lifestyle, kuliner, parfum, dan hiburan keluarga di Kalimantan.">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config={theme:{extend:{fontFamily:{display:['Playfair Display','serif'],sans:['Plus Jakarta Sans','sans-serif']}}}}</script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root{--ink:#2D1B4E;--purple:#6D28D9;--lilac:#D8B4FE;--gold:#C9A96A;--paper:#FBF9FF}*{box-sizing:border-box}body{background:var(--paper);color:#312544;font-family:'Plus Jakarta Sans',sans-serif}h1,h2,h3,h4{font-family:'Playfair Display',serif}.nav{background:rgba(45,27,78,.94);backdrop-filter:blur(18px)}.hero{background:radial-gradient(circle at 80% 20%,rgba(109,40,217,.7),transparent 33%),linear-gradient(135deg,#2D1B4E 0%,#43206f 50%,#201236 100%)}.gold{color:var(--gold)}.gold-bg{background:var(--gold)}.card{border:1px solid #eadff7;border-radius:24px;background:white;transition:.3s}.card:hover{transform:translateY(-8px);box-shadow:0 20px 45px rgba(45,27,78,.14)}a:focus-visible,button:focus-visible{outline:3px solid var(--lilac);outline-offset:3px}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-</style></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan</title>
+  <meta name="description" content="Abhinaya Group menaungi retail, lifestyle, kuliner, parfum, dan hiburan keluarga di Kalimantan.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Playfair Display','serif'],
+            sans: ['Plus Jakarta Sans','sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --ink: #2D1B4E;
+      --purple: #6D28D9;
+      --lilac: #D8B4FE;
+      --gold: #C9A96A;
+      --paper: #FBF9FF;
+      --panel: #F3EEFB;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: #312544;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+    }
+    .nav { background: rgba(45, 27, 78, 0.94); backdrop-filter: blur(16px); }
+    .hero {
+      background:
+        radial-gradient(circle at 78% 22%, rgba(109, 40, 217, 0.72), transparent 28%),
+        linear-gradient(135deg, #2D1B4E 0%, #43206f 50%, #201236 100%);
+    }
+    .gold { color: var(--gold); }
+    .gold-bg { background: var(--gold); }
+    .card {
+      border: 1px solid #e7dff7;
+      border-radius: 24px;
+      background: #fff;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 50px rgba(45, 27, 78, 0.12);
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--lilac);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto!important; transition: none!important; }
+    }
+  </style>
+</head>
 <body>
-<nav class="nav fixed inset-x-0 top-0 z-50 border-b border-white/10"><div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between"><a href="/" class="text-white tracking-[.22em] font-bold text-lg">ABHINAYA <span class="gold font-normal">GROUP</span></a><div class="hidden md:flex gap-9 text-sm text-white/75"><a href="#profil" class="hover:text-white">Profil</a><a href="#bisnis" class="hover:text-white">Pilar Bisnis</a><a href="#kontak" class="hover:text-white">Kontak</a></div><button id="menu-toggle" class="md:hidden gold text-xl" aria-label="Buka menu"><i class="fas fa-bars"></i></button></div><div id="mobile-menu" class="hidden px-6 pb-5 text-white/80 space-y-3"><a class="block" href="#profil">Profil</a><a class="block" href="#bisnis">Pilar Bisnis</a><a class="block" href="#kontak">Kontak</a></div></nav>
-<main>
-<section class="hero min-h-screen pt-32 px-6 flex items-center text-center text-white relative overflow-hidden"><div class="absolute -right-24 top-32 w-80 h-80 border border-purple-300/20 rounded-full"></div><div class="max-w-4xl mx-auto relative"><span class="gold uppercase tracking-[.3em] text-xs font-bold">Membangun ekosistem berkualitas</span><h1 class="text-5xl md:text-7xl leading-tight mt-6 mb-6">Sinergi retail & gaya hidup modern</h1><p class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-10">Mengelola dan mengembangkan beragam portofolio bisnis dengan standar operasional tinggi untuk menghadirkan pengalaman tak terlupakan.</p><a href="#bisnis" class="gold-bg text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition">Jelajahi portofolio <i class="fas fa-arrow-right"></i></a></div></section>
-<section id="profil" class="py-24 px-6"><div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center"><div class="relative"><img class="rounded-[2rem] h-[430px] w-full object-cover shadow-2xl" src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop" alt="Tim manajemen Abhinaya Group"><div class="absolute -bottom-5 -right-5 w-2/3 h-full border-2 border-[#C9A96A] rounded-[2rem] -z-10"></div></div><div><span class="gold uppercase tracking-[.25em] text-xs font-bold">Tentang perusahaan</span><h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-4 mb-6">Manajemen operasional profesional dengan visi jangka panjang.</h2><p class="text-slate-600 leading-relaxed mb-5">Abhinaya Group hadir sebagai holding company yang memadukan visi bisnis jangka panjang dengan pengalaman yang relevan untuk membangun ekosistem komersial terpadu.</p><div class="grid grid-cols-2 gap-5 mt-8"><div class="border-l-2 border-[#C9A96A] pl-4"><strong class="text-3xl text-[#2D1B4E]">4+</strong><p class="text-sm text-slate-500">Lini bisnis aktif</p></div><div class="border-l-2 border-[#C9A96A] pl-4"><strong class="text-3xl text-[#2D1B4E]">100%</strong><p class="text-sm text-slate-500">Fokus layanan</p></div></div></div></div></section>
-<section id="bisnis" class="py-24 px-6 bg-[#F3EEFB]"><div class="max-w-7xl mx-auto"><div class="text-center mb-14"><span class="text-[#6D28D9] uppercase tracking-[.25em] text-xs font-bold">Portofolio kami</span><h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-3">Empat pengalaman, satu keluarga</h2><p class="text-slate-600 mt-4">Setiap unit punya karakter sendiri—tetap terhubung oleh semangat Abhinaya.</p></div><div id="business-container" class="grid md:grid-cols-2 xl:grid-cols-4 gap-6"><p class="col-span-full text-center text-[#6D28D9]">Memuat portofolio...</p></div></div></section>
-</main><footer id="kontak" class="bg-[#2D1B4E] text-white px-6 py-16"><div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10"><div><div class="text-xl tracking-[.2em] font-bold">ABHINAYA <span class="gold">GROUP</span></div><p class="text-white/60 text-sm leading-relaxed mt-5">Holding company pengelola ekosistem retail, wahana hiburan, kuliner, dan lifestyle.</p></div><div><h3 class="gold text-lg mb-4">Jelajahi</h3><a class="block text-white/60 hover:text-white mb-2" href="#profil">Profil</a><a class="block text-white/60 hover:text-white" href="#bisnis">Pilar Bisnis</a></div><div><h3 class="gold text-lg mb-4">Kantor operasional</h3><p class="text-white/60 text-sm">Kalimantan, Indonesia<br>info@abhinayagroup.com</p></div></div><div class="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-6 text-xs text-white/40">© 2026 Abhinaya Group. Hak Cipta Dilindungi.</div></footer>
-<script>const t=document.getElementById('menu-toggle'),m=document.getElementById('mobile-menu');t.onclick=()=>{m.classList.toggle('hidden');t.innerHTML=m.classList.contains('hidden')?'<i class="fas fa-bars"></i>':'<i class="fas fa-times"></i>'};const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));fetch('https://mwiphyyy.api.sanity.io/v2022-03-07/data/query/production?query='+encodeURIComponent('*[_type == "business"] | order(_createdAt asc){name,category,description,"imageUrl":image.asset->url}')).then(r=>r.json()).then(({result=[]})=>{const links={'store':'/store/','parfume':'/parfume/','rides':'/rides/','lucky':'/lucky-cheese/'};document.getElementById('business-container').innerHTML=result.map(x=>{let n=(x.name||'').toLowerCase(),href=Object.entries(links).find(([k])=>n.includes(k))?.[1]||'#';return `<a href="${href}" class="card overflow-hidden"><div class="h-44 bg-[#2D1B4E] p-6 flex items-center justify-center"><img src="${esc(x.imageUrl||'https://via.placeholder.com/400x300?text=Abhinaya')}" alt="${esc(x.name)}" class="max-h-full max-w-full object-contain"></div><div class="p-6"><span class="text-xs uppercase tracking-widest text-[#6D28D9] font-bold">${esc(x.category||'Unit bisnis')}</span><h3 class="text-2xl text-[#2D1B4E] mt-2">${esc(x.name)}</h3><p class="text-slate-500 text-sm mt-3 leading-relaxed">${esc(x.description)}</p><span class="inline-flex gap-2 items-center text-[#6D28D9] text-sm font-bold mt-5">Lihat unit <i class="fas fa-arrow-right"></i></span></div></a>`}).join('')}).catch(()=>document.getElementById('business-container').innerHTML='<p class="col-span-full text-center text-red-600">Portofolio belum dapat dimuat.</p>');</script>
-</body></html>
+  <nav class="nav fixed inset-x-0 top-0 z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+      <a href="/" class="text-white tracking-[.22em] font-bold text-lg">
+        ABHINAYA <span class="gold font-normal">GROUP</span>
+      </a>
+      <div class="hidden md:flex gap-9 text-sm text-white/75">
+        <a href="#profil" class="hover:text-white transition">Profil</a>
+        <a href="#bisnis" class="hover:text-white transition">Pilar Bisnis</a>
+        <a href="#kontak" class="hover:text-white transition">Kontak</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden gold text-xl" aria-label="Buka menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden px-6 pb-5 text-white/80 space-y-3">
+      <a class="block" href="#profil">Profil</a>
+      <a class="block" href="#bisnis">Pilar Bisnis</a>
+      <a class="block" href="#kontak">Kontak</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero min-h-screen pt-32 px-6 flex items-center text-center text-white relative overflow-hidden">
+      <div class="absolute -right-24 top-32 w-80 h-80 border border-purple-300/20 rounded-full"></div>
+      <div class="max-w-4xl mx-auto relative">
+        <span class="gold uppercase tracking-[.3em] text-xs font-bold">Membangun ekosistem berkualitas</span>
+        <h1 class="text-5xl md:text-7xl leading-tight mt-6 mb-6">Sinergi retail & gaya hidup modern</h1>
+        <p class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+          Mengelola dan mengembangkan beragam portofolio bisnis dengan standar operasional tinggi untuk menghadirkan pengalaman tak terlupakan.
+        </p>
+        <a href="#bisnis" class="gold-bg text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition">
+          Jelajahi portofolio <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="profil" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <img class="rounded-[2rem] h-[430px] w-full object-cover shadow-2xl" src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop" alt="Tim manajemen Abhinaya Group">
+          <div class="absolute -bottom-5 -right-5 w-2/3 h-full border-2 border-[#C9A96A] rounded-[2rem] -z-10"></div>
+        </div>
+
+        <div>
+          <span class="gold uppercase tracking-[.25em] text-xs font-bold">Tentang perusahaan</span>
+          <h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-4 mb-6">Manajemen operasional profesional dengan visi jangka panjang.</h2>
+          <p class="text-slate-600 leading-relaxed mb-5">
+            Abhinaya Group hadir sebagai holding company yang memadukan visi bisnis jangka panjang dengan pengalaman yang relevan untuk membangun ekosistem komersial terpadu.
+          </p>
+
+          <div class="grid grid-cols-2 gap-5 mt-8">
+            <div class="border-l-2 border-[#C9A96A] pl-4">
+              <strong class="text-3xl text-[#2D1B4E]">4+</strong>
+              <p class="text-sm text-slate-500">Lini bisnis aktif</p>
+            </div>
+            <div class="border-l-2 border-[#C9A96A] pl-4">
+              <strong class="text-3xl text-[#2D1B4E]">100%</strong>
+              <p class="text-sm text-slate-500">Fokus layanan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bisnis" class="py-24 px-6 bg-[#F3EEFB]">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-[#6D28D9] uppercase tracking-[.25em] text-xs font-bold">Portofolio kami</span>
+          <h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-3">Empat pengalaman, satu keluarga</h2>
+          <p class="text-slate-600 mt-4">Setiap unit punya karakter sendiri—tetap terhubung oleh semangat Abhinaya.</p>
+        </div>
+        <div id="business-container" class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <p class="col-span-full text-center text-[#6D28D9]">Memuat portofolio...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="kontak" class="bg-[#2D1B4E] text-white px-6 py-16">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-10">
+      <div>
+        <div class="text-xl tracking-[.2em] font-bold">ABHINAYA <span class="gold">GROUP</span></div>
+        <p class="text-white/60 text-sm leading-relaxed mt-5">
+          Holding company pengelola ekosistem retail, wahana hiburan, kuliner, dan lifestyle.
+        </p>
+      </div>
+      <div>
+        <h3 class="gold text-lg mb-4">Jelajahi</h3>
+        <a class="block text-white/60 hover:text-white mb-2" href="#profil">Profil</a>
+        <a class="block text-white/60 hover:text-white" href="#bisnis">Pilar Bisnis</a>
+      </div>
+      <div>
+        <h3 class="gold text-lg mb-4">Kantor operasional</h3>
+        <p class="text-white/60 text-sm">Kalimantan, Indonesia<br>info@abhinayagroup.com</p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto border-t border-white/10 mt-12 pt-6 text-xs text-white/40">
+      © 2026 Abhinaya Group. Hak Cipta Dilindungi.
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.onclick = () => {
+      mobileMenu.classList.toggle('hidden');
+      menuToggle.innerHTML = mobileMenu.classList.contains('hidden') ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+    };
+
+    const esc = (s) => String(s || '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'}[c]));
+
+    fetch('https://mwiphyyy.api.sanity.io/v2022-03-07/data/query/production?query=' + encodeURIComponent('*[_type == "business"] | order(_createdAt asc){name,category,description,"imageUrl":image.asset->url}'))
+      .then(r => r.json())
+      .then(({ result = [] }) => {
+        const links = {
+          store: '/store/',
+          parfume: '/parfume/',
+          rides: '/rides/',
+          lucky: '/lucky-cheese/'
+        };
+
+        document.getElementById('business-container').innerHTML = result.map((x) => {
+          const name = (x.name || '').toLowerCase();
+          const href = Object.entries(links).find(([k]) => name.includes(k))?.[1] || '#';
+          return `
+            <a href="${href}" class="card overflow-hidden">
+              <div class="h-44 bg-[#2D1B4E] p-6 flex items-center justify-center">
+                <img src="${esc(x.imageUrl || 'https://via.placeholder.com/400x300?text=Abhinaya')}" alt="${esc(x.name)}" class="max-h-full max-w-full object-contain">
+              </div>
+              <div class="p-6">
+                <span class="text-xs uppercase tracking-widest text-[#6D28D9] font-bold">${esc(x.category || 'Unit bisnis')}</span>
+                <h3 class="text-2xl text-[#2D1B4E] mt-2">${esc(x.name)}</h3>
+                <p class="text-slate-500 text-sm mt-3 leading-relaxed">${esc(x.description)}</p>
+                <span class="inline-flex gap-2 items-center text-[#6D28D9] text-sm font-bold mt-5">Lihat unit <i class="fas fa-arrow-right"></i></span>
+              </div>
+            </a>
+          `;
+        }).join('');
+      })
+      .catch(() => {
+        document.getElementById('business-container').innerHTML = '<p class="col-span-full text-center text-red-600">Portofolio belum dapat dimuat.</p>';
+      });
+  </script>
+</body>
+</html>

@@ -1,2 +1,129 @@
 <!DOCTYPE html>
-<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Abhinaya Rides | Family Fun</title><meta name="description" content="Wahana mobil-mobilan keliling mall untuk anak dan keluarga."><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><style>:root{--indigo:#4C1D95;--blue:#6366F1;--violet:#A78BFA;--pale:#EDE9FE;--ink:#27134c}*{box-sizing:border-box}body{background:#FAF9FF;color:var(--ink);font-family:Nunito,sans-serif}h1,h2,h3{font-family:Fredoka,sans-serif}.nav{background:rgba(76,29,149,.95);backdrop-filter:blur(16px)}.hero{background:radial-gradient(circle at 80% 20%,#A78BFA88,transparent 30%),linear-gradient(135deg,#4C1D95,#6366F1 65%,#818CF8)}.card{background:#fff;border:2px solid #EDE9FE;border-radius:28px;transition:.3s}.card:hover{transform:translateY(-7px);box-shadow:0 16px 0 #A78BFA55}.pill{border-radius:999px}a:focus-visible,button:focus-visible{outline:3px solid #A78BFA;outline-offset:3px}</style></head><body><nav class="nav fixed top-0 inset-x-0 z-50 text-white"><div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"><div><a href="/" class="font-extrabold tracking-wider">ABHINAYA <span class="text-[#A78BFA]">RIDES</span></a><a href="/" class="block text-xs text-white/70 mt-1">← Abhinaya Group</a></div><div class="hidden md:flex gap-7 items-center text-sm"><a href="#harga" class="hover:text-[#A78BFA]">Harga paket</a><a href="#lokasi" class="hover:text-[#A78BFA]">Lokasi & jam</a><a href="#booking" class="bg-[#A78BFA] text-[#27134c] px-4 py-2 pill font-bold">Booking acara</a></div><button id="menu" class="md:hidden text-[#A78BFA] text-xl"><i class="fas fa-bars"></i></button></div><div id="mobile" class="hidden px-6 pb-4 space-y-3 text-sm"><a class="block" href="#harga">Harga paket</a><a class="block" href="#lokasi">Lokasi & jam</a><a class="block" href="#booking">Booking acara</a></div></nav><main><section class="hero pt-36 pb-24 px-6 text-white"><div class="max-w-5xl mx-auto"><span class="bg-[#EDE9FE] text-[#4C1D95] px-4 py-2 pill text-xs font-extrabold uppercase tracking-widest">Family fun starts here</span><h1 class="text-5xl md:text-7xl mt-7 mb-5">Keliling mall, seru bareng keluarga!</h1><p class="text-white/85 max-w-xl text-lg leading-relaxed">Mobil-mobilan aman dan menyenangkan untuk anak, orang tua, dan momen yang ingin diingat.</p><a href="#harga" class="inline-block bg-[#EDE9FE] text-[#4C1D95] font-extrabold px-7 py-3 pill mt-8">Lihat harga paket</a></div></section><section id="harga" class="max-w-5xl mx-auto px-6 py-20"><div class="text-center mb-12"><span class="text-[#6366F1] uppercase tracking-[.25em] text-xs font-extrabold">Pilih petualanganmu</span><h2 class="text-4xl mt-3">Harga paket naik</h2></div><div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><p class="col-span-full text-center text-[#6366F1]">Memuat harga...</p></div></section><section id="lokasi" class="py-16 px-6 bg-[#EDE9FE] text-center"><h2 class="text-4xl mb-4">Temukan kami di mall</h2><p class="text-slate-600">Area lobby lantai 1, dekat pintu masuk utama mall.<br>Buka setiap hari, 10.00–21.00 WITA.</p></section><section id="booking" class="py-20 px-6 bg-[#4C1D95] text-white text-center"><h2 class="text-4xl mb-4">Mau booking acara?</h2><p class="text-white/75 mb-8">Ulang tahun anak atau rombongan sekolah? Kami siap bantu atur sesi spesial.</p><a class="inline-flex items-center gap-2 bg-[#A78BFA] text-[#27134c] px-7 py-3 pill font-extrabold" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank"><i class="fab fa-whatsapp"></i> Chat untuk booking</a></section></main><footer class="bg-[#4C1D95] border-t border-white/10 text-white/60 text-center py-8 text-sm">© 2026 Abhinaya Rides · <a href="/" class="text-[#A78BFA]">Abhinaya Group</a></footer><script>document.getElementById('menu').onclick=()=>document.getElementById('mobile').classList.toggle('hidden');const esc=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));const q=encodeURIComponent('*[_type == "ridePackage"] | order(price asc){_id,name,price,duration,description,highlight}');fetch('https://mwiphyyy.api.sanity.io/v2022-03-07/data/query/production?query='+q).then(r=>r.json()).then(({result=[]})=>{document.getElementById('grid').innerHTML=result.length?result.map(p=>`<article class="card p-7 relative">${p.highlight?'<span class="absolute -top-3 left-6 bg-[#6366F1] text-white px-4 py-1 pill text-xs font-bold">Paling laris</span>':''}<h3 class="text-2xl mt-2">${esc(p.name)}</h3><strong class="block text-3xl text-[#6366F1] mt-3">Rp ${Number(p.price||0).toLocaleString('id-ID')}</strong><p class="text-sm text-[#6366F1] font-bold mt-2">${esc(p.duration?p.duration+' menit':'Paket seru')}</p><p class="text-slate-600 text-sm leading-relaxed mt-4">${esc(p.description)}</p></article>`).join(''):'<p class="col-span-full text-center text-slate-500">Paket harga belum tersedia.</p>'}).catch(()=>document.getElementById('grid').innerHTML='<p class="col-span-full text-center text-red-600">Gagal memuat harga.</p>');</script></body></html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Abhinaya Rides | Family Fun</title>
+  <meta name="description" content="Wahana mobil-mobilan keliling mall untuk anak dan keluarga.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --indigo: #4C1D95;
+      --blue: #6366F1;
+      --violet: #A78BFA;
+      --pale: #EDE9FE;
+      --ink: #27134c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background: #FAF9FF;
+      color: var(--ink);
+      font-family: Nunito, sans-serif;
+    }
+    h1, h2, h3 { font-family: Fredoka, sans-serif; }
+    .nav { background: rgba(76,29,149,.95); backdrop-filter: blur(16px); }
+    .hero {
+      background: radial-gradient(circle at 80% 20%, rgba(167,139,250,.53), transparent 30%), linear-gradient(135deg, #4C1D95, #6366F1 65%, #818CF8);
+    }
+    .card {
+      background: #fff;
+      border: 2px solid #EDE9FE;
+      border-radius: 28px;
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 0 rgba(167,139,250,.35);
+    }
+    .pill { border-radius: 999px; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #A78BFA;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav fixed top-0 inset-x-0 z-50 text-white">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div>
+        <a href="/" class="font-extrabold tracking-wider">ABHINAYA <span class="text-[#A78BFA]">RIDES</span></a>
+        <a href="/" class="block text-xs text-white/70 mt-1">← Abhinaya Group</a>
+      </div>
+      <div class="hidden md:flex gap-7 items-center text-sm">
+        <a href="#harga" class="hover:text-[#A78BFA]">Harga paket</a>
+        <a href="#lokasi" class="hover:text-[#A78BFA]">Lokasi & jam</a>
+        <a href="#booking" class="bg-[#A78BFA] text-[#27134c] px-4 py-2 pill font-bold">Booking acara</a>
+      </div>
+      <button id="menu" class="md:hidden text-[#A78BFA] text-xl"><i class="fas fa-bars"></i></button>
+    </div>
+    <div id="mobile" class="hidden px-6 pb-4 space-y-3 text-sm">
+      <a class="block" href="#harga">Harga paket</a>
+      <a class="block" href="#lokasi">Lokasi & jam</a>
+      <a class="block" href="#booking">Booking acara</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero pt-36 pb-24 px-6 text-white">
+      <div class="max-w-5xl mx-auto">
+        <span class="bg-[#EDE9FE] text-[#4C1D95] px-4 py-2 pill text-xs font-extrabold uppercase tracking-widest">Family fun starts here</span>
+        <h1 class="text-5xl md:text-7xl mt-7 mb-5">Keliling mall, seru bareng keluarga!</h1>
+        <p class="text-white/85 max-w-xl text-lg leading-relaxed">
+          Mobil-mobilan aman dan menyenangkan untuk anak, orang tua, dan momen yang ingin diingat.
+        </p>
+        <a href="#harga" class="inline-block bg-[#EDE9FE] text-[#4C1D95] font-extrabold px-7 py-3 pill mt-8">Lihat harga paket</a>
+      </div>
+    </section>
+
+    <section id="harga" class="max-w-5xl mx-auto px-6 py-20">
+      <div class="text-center mb-12">
+        <span class="text-[#6366F1] uppercase tracking-[.25em] text-xs font-extrabold">Pilih petualanganmu</span>
+        <h2 class="text-4xl mt-3">Harga paket naik</h2>
+      </div>
+      <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <p class="col-span-full text-center text-[#6366F1]">Memuat harga...</p>
+      </div>
+    </section>
+
+    <section id="lokasi" class="py-16 px-6 bg-[#EDE9FE] text-center">
+      <h2 class="text-4xl mb-4">Temukan kami di mall</h2>
+      <p class="text-slate-600">Area lobby lantai 1, dekat pintu masuk utama mall.<br>Buka setiap hari, 10.00–21.00 WITA.</p>
+    </section>
+
+    <section id="booking" class="py-20 px-6 bg-[#4C1D95] text-white text-center">
+      <h2 class="text-4xl mb-4">Mau booking acara?</h2>
+      <p class="text-white/75 mb-8">Ulang tahun anak atau rombongan sekolah? Kami siap bantu atur sesi spesial.</p>
+      <a class="inline-flex items-center gap-2 bg-[#A78BFA] text-[#27134c] px-7 py-3 pill font-extrabold" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank"><i class="fab fa-whatsapp"></i> Chat untuk booking</a>
+    </section>
+  </main>
+
+  <footer class="bg-[#4C1D95] border-t border-white/10 text-white/60 text-center py-8 text-sm">
+    © 2026 Abhinaya Rides · <a href="/" class="text-[#A78BFA]">Abhinaya Group</a>
+  </footer>
+
+  <script>
+    document.getElementById('menu').onclick = () => document.getElementById('mobile').classList.toggle('hidden');
+    const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
+    const q = encodeURIComponent('*[_type == "ridePackage"] | order(price asc){_id,name,price,duration,description,highlight}');
+
+    fetch('https://mwiphyyy.api.sanity.io/v2022-03-07/data/query/production?query=' + q)
+      .then((r) => r.json())
+      .then(({ result = [] }) => {
+        document.getElementById('grid').innerHTML = result.length ? result.map((p) => `
+          <article class="card p-7 relative">
+            ${p.highlight ? '<span class="absolute -top-3 left-6 bg-[#6366F1] text-white px-4 py-1 pill text-xs font-bold">Paling laris</span>' : ''}
+            <h3 class="text-2xl mt-2">${esc(p.name)}</h3>
+            <strong class="block text-3xl text-[#6366F1] mt-3">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</strong>
+            <p class="text-sm text-[#6366F1] font-bold mt-2">${esc(p.duration ? p.duration + ' menit' : 'Paket seru')}</p>
+            <p class="text-slate-600 text-sm leading-relaxed mt-4">${esc(p.description)}</p>
+          </article>
+        `).join('') : '<p class="col-span-full text-center text-slate-500">Paket harga belum tersedia.</p>';
+      })
+      .catch(() => {
+        document.getElementById('grid').innerHTML = '<p class="col-span-full text-center text-red-600">Gagal memuat harga.</p>';
+      });
+  </script>
+</body>
+</html>
