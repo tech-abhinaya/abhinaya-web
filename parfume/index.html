@@ -136,10 +136,20 @@
   </footer>
 
   <script>
-    const categories = ['all', 'pria', 'wanita', 'unisex'];
-    const labels = { all: 'Semua', pria: 'Pria', wanita: 'Wanita', unisex: 'Unisex' };
-    let products = [], active = 'all';
-    const q = encodeURIComponent('*[_type == "parfumeProduct" && inStock == true]{_id,name,category,size,price,notes,"imageUrl":image.asset->url}');
+            <article class="card overflow-hidden group reveal" style="transition-delay:${i * 60}ms">
+          <div class="h-60 bg-[#F5EAF7] p-6">
+            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Fragrance')}" alt="${esc(p.name)}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-6">
+            <span class="text-xs uppercase tracking-widest text-[#B276B2] font-bold">${esc(labels[p.category] || p.category)}${p.size ? ' · ' + p.size + ' ml' : ''}</span>
+            <h2 class="text-xl mt-2">${esc(p.name)}</h2>
+            <p class="text-sm text-slate-500 mt-2 leading-relaxed">${esc(p.notes)}</p>
+            <div class="flex justify-between items-center mt-5">
+              <b class="text-[#5B2A68]">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</b>
+              <a class="bg-[#5B2A68] text-white px-4 py-2 round text-sm hover:bg-[#B276B2] transition" href="https://wa.me/6283193216920?text=${encodeURIComponent('Halo Abhinaya Parfume, saya tertarik dengan ' + p.name)}" target="_blank">Pesan</a>
+            </div>
+          </div>
+        </article>
     const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
     function nav(el) {
