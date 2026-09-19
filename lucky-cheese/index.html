@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Lucky Cheese | Fun Food & Drinks</title>
   <meta name="description" content="Makanan, snack, dan minuman kekinian Lucky Cheese.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B4C8A'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Abhinaya Store | Fashion Accessories">
+  <meta property="og:description" content="Koleksi aksesori pilihan Abhinaya Store.">
+  <meta property="og:image" content="https://abhinaya-web.pages.dev/og-store.jpg">
+  <meta property="og:url" content="https://abhinaya-web.pages.dev/store/">
+  <link rel="canonical" href="https://abhinaya-web.pages.dev/store/">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -59,6 +66,32 @@
       outline: 3px solid #F5D0FE;
       outline-offset: 3px;
     }
+        /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skeleton shimmer */
+    @keyframes shimmer {
+      0% { background-position: -468px 0; }
+      100% { background-position: 468px 0; }
+    }
+    .skeleton {
+      background: linear-gradient(to right, #f0f0f0 8%, #e8e8e8 18%, #f0f0f0 33%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -69,7 +102,7 @@
         <a href="/" class="block text-xs text-white/70 mt-1">← Abhinaya Group</a>
       </div>
       <div id="cats" class="hidden md:flex gap-2"></div>
-      <button id="menu" class="md:hidden text-[#F5D0FE] text-xl"><i class="fas fa-bars"></i></button>
+      <button id="menu" class="md:hidden text-[#A78BFA] text-xl" aria-label="Buka menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
     </div>
     <div id="mobile" class="hidden px-6 pb-4"></div>
   </nav>
@@ -94,10 +127,20 @@
   <footer class="bg-[#6D28D9] text-white text-center py-10">© 2026 Lucky Cheese · <a href="/" class="text-[#F5D0FE]">Abhinaya Group</a></footer>
 
   <script>
-    const categories = ['all', 'makanan', 'snack', 'minuman'];
-    const labels = { all: 'Semua', makanan: 'Makanan', snack: 'Snack', minuman: 'Minuman' };
-    let products = [], active = 'all';
-    const q = encodeURIComponent('*[_type == "cheeseMenu" && available == true]{_id,name,category,price,description,"imageUrl":image.asset->url}');
+            <article class="card overflow-hidden group reveal" style="transition-delay:${i * 60}ms">
+          <div class="h-52 bg-[#F5D0FE] p-4">
+            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Yum')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-2xl transition duration-500 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-5">
+            <span class="text-xs uppercase tracking-widest text-[#9333EA] font-extrabold">${esc(labels[p.category] || p.category)}</span>
+            <h2 class="text-xl mt-2">${esc(p.name)}</h2>
+            <p class="text-sm text-slate-500 mt-2 leading-relaxed">${esc(p.description)}</p>
+            <div class="flex justify-between items-center mt-5">
+              <b class="text-[#6D28D9]">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</b>
+              <a class="bg-[#6D28D9] text-white px-4 py-2 round text-sm font-bold hover:bg-[#9333EA] transition" href="https://wa.me/6283193216920?text=${encodeURIComponent('Halo Lucky Cheese, saya mau pesan ' + p.name)}" target="_blank">Pesan</a>
+            </div>
+          </div>
+        </article>
     const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
     function nav(el) {
