@@ -129,15 +129,56 @@
     © 2026 Abhinaya Store · <a href="/" class="text-[#A78BFA]">Abhinaya Group</a>
   </footer>
 
-  <script>
+    <script>
+    // Skeleton component
+    function skeletonCard() {
+      return `
+        <div class="card overflow-hidden animate-pulse">
+          <div class="h-56 skeleton"></div>
+          <div class="p-5 space-y-3">
+            <div class="h-3 skeleton rounded w-1/3"></div>
+            <div class="h-5 skeleton rounded w-3/4"></div>
+            <div class="h-3 skeleton rounded w-full"></div>
+            <div class="h-3 skeleton rounded w-5/6"></div>
+            <div class="flex justify-between items-center pt-3">
+              <div class="h-5 skeleton rounded w-1/3"></div>
+              <div class="h-8 skeleton rounded-full w-20"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Inject skeleton dulu
+    document.getElementById('grid').innerHTML = Array(4).fill(skeletonCard()).join('');
+
     const categories = ['all', 'jam-tangan', 'kalung', 'gelang', 'cincin'];
     const labels = { all: 'Semua', 'jam-tangan': 'Jam Tangan', kalung: 'Kalung', gelang: 'Gelang', cincin: 'Cincin' };
     let products = [], active = 'all';
     const q = encodeURIComponent('*[_type == "storeProduct" && inStock == true]{_id,name,category,price,description,"imageUrl":image.asset->url}');
     const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
-    function buttons() {
-      document.querySelectorAll('.cat').forEach((b) => {
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    const observeReveals = () => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => revealObserver.observe(el));
+    };
+
+    function nav(el) {
+      el.innerHTML = categories.map((c) => `
+        <button data-c="${c}" class="cat ${c === active ? 'active' : ''} px-4 py-2 round text-sm text-white/80">
+          ${labels[c]}
+        </button>
+      `).join('');
+      el.querySelectorAll('.cat').forEach((b) => {
         b.onclick = () => {
           active = b.dataset.c;
           document.querySelectorAll('.cat').forEach((x) => x.classList.toggle('active', x.dataset.c === active));
@@ -146,25 +187,20 @@
       });
     }
 
-    function nav(el) {
-      el.innerHTML = categories.map((c) => `
-        <button data-c="${c}" class="cat ${c === active ? 'active' : ''} px-4 py-2 round text-sm text-white/80">
-          ${labels[c]}
-        </button>
-      `).join('');
-      buttons();
-    }
-
     nav(document.getElementById('cats'));
     nav(document.getElementById('mobile'));
-    document.getElementById('menu').onclick = () => document.getElementById('mobile').classList.toggle('hidden');
+    document.getElementById('menu').onclick = (e) => {
+      const mobile = document.getElementById('mobile');
+      const isHidden = mobile.classList.toggle('hidden');
+      e.currentTarget.setAttribute('aria-expanded', String(!isHidden));
+    };
 
     function render() {
       const list = active === 'all' ? products : products.filter((p) => p.category === active);
-      document.getElementById('grid').innerHTML = list.length ? list.map((p) => `
-        <article class="card group">
+      document.getElementById('grid').innerHTML = list.length ? list.map((p, i) => `
+        <article class="card group reveal" style="transition-delay:${i * 60}ms">
           <div class="h-56 bg-[#F3E8FF] p-5">
-            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Product')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-xl transition duration-500 group-hover:scale-105">
+            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Product')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-xl transition duration-500 group-hover:scale-105" loading="lazy">
           </div>
           <div class="p-5">
             <span class="text-xs uppercase tracking-widest text-[#6B4C8A] font-bold">${esc(labels[p.category] || p.category)}</span>
@@ -177,6 +213,8 @@
           </div>
         </article>
       `).join('') : '<p class="col-span-full text-center text-slate-500 py-12">Belum ada produk di kategori ini.</p>';
+
+      requestAnimationFrame(observeReveals);
     }
 
     fetch('https://mwiphyyy.api.sanity.io/v2022-03-07/data/query/production?query=' + q)
@@ -185,8 +223,20 @@
         products = result;
         render();
       })
-      .catch(() => {
-        document.getElementById('grid').innerHTML = '<p class="col-span-full text-center text-red-600">Gagal memuat produk.</p>';
+      .catch((err) => {
+        console.error('Fetch error:', err);
+        document.getElementById('grid').innerHTML = `
+          <div class="col-span-full text-center py-16">
+            <div class="w-16 h-16 mx-auto rounded-full bg-red-50 flex items-center justify-center mb-4">
+              <i class="fas fa-exclamation-triangle text-2xl text-red-500"></i>
+            </div>
+            <h3 class="text-xl text-[#2D1B4E] mb-2">Gagal memuat produk</h3>
+            <p class="text-slate-500 text-sm mb-5">Silakan coba lagi atau hubungi kami langsung.</p>
+            <button onclick="location.reload()" class="bg-[#6B4C8A] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#A78BFA] transition">
+              Coba Lagi
+            </button>
+          </div>
+        `;
       });
   </script>
 
