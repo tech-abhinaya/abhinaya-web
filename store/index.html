@@ -192,8 +192,21 @@
       return 'Rp ' + num.toLocaleString('id-ID');
     }
 
+    function escapeHtml(str) {
+      if (str === undefined || str === null) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
     fetch(SANITY_URL)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`Sanity error: ${res.status}`);
+        return res.json();
+      })
       .then(({ result }) => {
         allProducts = result || [];
         renderProducts();
@@ -217,23 +230,28 @@
         return;
       }
 
-      grid.innerHTML = filtered.map(p => `
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
-          <div class="h-56 bg-corporate-100 overflow-hidden">
-            <img src="${p.imageUrl ? p.imageUrl + '?w=600&h=600&fit=crop' : 'https://via.placeholder.com/400x400?text=Produk'}" alt="${p.name}" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5">
-            <span class="text-[11px] uppercase tracking-wide text-corporate-500 font-semibold">${CATEGORY_LABEL[p.category] || p.category}</span>
-            <h3 class="font-serif text-lg font-bold text-corporate-800 mt-1 mb-2">${p.name}</h3>
-            <div class="flex items-center justify-between">
-              <span class="font-semibold text-corporate-800">${formatRupiah(p.price)}</span>
-              <button type="button" aria-label="Tambahkan ${p.name} ke keranjang" onclick="addToCart('${p._id}')" class="bg-corporate-800 hover:bg-corporate-500 text-white text-sm w-9 h-9 rounded-full transition-colors">
-                <i class="fas fa-plus"></i>
-              </button>
+      grid.innerHTML = filtered.map(p => {
+        const safeName = escapeHtml(p.name || 'Produk');
+        const safeCategory = escapeHtml(CATEGORY_LABEL[p.category] || p.category || 'Produk');
+        const safeImage = p.imageUrl ? escapeHtml(p.imageUrl) : 'https://via.placeholder.com/400x400?text=Produk';
+        return `
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-gray-100">
+            <div class="h-56 bg-corporate-100 overflow-hidden">
+              <img src="${safeImage}" alt="${safeName}" class="w-full h-full object-cover">
+            </div>
+            <div class="p-5">
+              <span class="text-[11px] uppercase tracking-wide text-corporate-500 font-semibold">${safeCategory}</span>
+              <h3 class="font-serif text-lg font-bold text-corporate-800 mt-1 mb-2">${safeName}</h3>
+              <div class="flex items-center justify-between">
+                <span class="font-semibold text-corporate-800">${formatRupiah(p.price)}</span>
+                <button type="button" aria-label="Tambahkan ${safeName} ke keranjang" onclick="addToCart('${p._id}')" class="bg-corporate-800 hover:bg-corporate-500 text-white text-sm w-9 h-9 rounded-full transition-colors">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -288,19 +306,22 @@
         return;
       }
 
-      container.innerHTML = cart.map(item => `
-        <div class="flex items-center justify-between gap-3 border-b border-gray-50 pb-4">
-          <div class="flex-1">
-            <p class="font-medium text-corporate-800 text-sm">${item.name}</p>
-            <p class="text-gray-400 text-xs">${formatRupiah(item.price)}</p>
+      container.innerHTML = cart.map(item => {
+        const safeItemName = escapeHtml(item.name || 'Produk');
+        return `
+          <div class="flex items-center justify-between gap-3 border-b border-gray-50 pb-4">
+            <div class="flex-1">
+              <p class="font-medium text-corporate-800 text-sm">${safeItemName}</p>
+              <p class="text-gray-400 text-xs">${formatRupiah(item.price)}</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <button type="button" aria-label="Kurangi ${safeItemName}" onclick="updateQty('${item.id}', -1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">-</button>
+              <span class="text-sm w-4 text-center">${item.qty}</span>
+              <button type="button" aria-label="Tambah ${safeItemName}" onclick="updateQty('${item.id}', 1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">+</button>
+            </div>
           </div>
-          <div class="flex items-center gap-2">
-            <button type="button" aria-label="Kurangi ${item.name}" onclick="updateQty('${item.id}', -1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">-</button>
-            <span class="text-sm w-4 text-center">${item.qty}</span>
-            <button type="button" aria-label="Tambah ${item.name}" onclick="updateQty('${item.id}', 1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">+</button>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
 
       const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
       subtotalEl.textContent = formatRupiah(subtotal);
@@ -353,7 +374,7 @@
         alert('Keranjang masih kosong, pilih produk dulu ya!');
         return;
       }
-      const lines = cart.map(i => `- ${i.name} x${i.qty} (${formatRupiah(i.price * i.qty)})`);
+      const lines = cart.map(i => `- ${escapeHtml(i.name)} x${i.qty} (${formatRupiah(i.price * i.qty)})`);
       const subtotal = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
       const message =
         `Halo Abhinaya Store, saya mau pesan:\n\n` +
