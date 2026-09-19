@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>404 — Halaman Tidak Ditemukan | Abhinaya Group</title>
+  <meta name="description" content="Halaman yang kamu cari tidak ditemukan. Kembali ke beranda Abhinaya Group.">
+  <meta name="robots" content="noindex">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232D1B4E'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --gold: #C9A96A;
+      --ink: #2D1B4E;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(130deg, #2D1B4E 0%, #43206f 52%, #201236 100%);
+      color: white;
+      min-height: 100vh;
+    }
+    h1, h2 { font-family: 'Playfair Display', serif; }
+    .gold { color: var(--gold); }
+
+    /* Orbs */
+    .hero-orb {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 9999px;
+      filter: blur(0.5px);
+    }
+
+    /* Animasi */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+    .fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center px-6 py-12 relative overflow-hidden">
+
+  <!-- Background orbs -->
+  <div class="hero-orb right-[-70px] top-32 w-72 h-72"></div>
+  <div class="hero-orb left-[-70px] bottom-20 w-80 h-80"></div>
+  <div class="hero-orb left-[40%] top-[15%] w-40 h-40 animate-float"></div>
+
+  <div class="max-w-2xl mx-auto text-center relative z-10">
+
+    <!-- Logo -->
+    <div class="flex justify-center mb-8 fade-in-up">
+      <svg width="64" height="64" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A96A" stroke-width="0.8" opacity="0.4"/>
+        <circle cx="50" cy="50" r="36" fill="none" stroke="#C9A96A" stroke-width="1.2"/>
+        <text x="50" y="62" font-family="Playfair Display,Georgia,serif" font-size="34" font-style="italic" font-weight="700" fill="#C9A96A" text-anchor="middle">AS</text>
+      </svg>
+    </div>
+
+    <!-- 404 -->
+    <h1 class="text-[7rem] md:text-[10rem] font-bold gold leading-none fade-in-up delay-1" style="font-family: 'Playfair Display', serif;">
+      404
+    </h1>
+
+    <!-- Divider -->
+    <div class="w-16 h-0.5 bg-[#C9A96A] mx-auto my-6 fade-in-up delay-2"></div>
+
+    <!-- Message -->
+    <h2 class="text-3xl md:text-4xl mb-4 fade-in-up delay-2">Halaman tidak ditemukan</h2>
+    <p class="text-white/60 mb-10 max-w-md mx-auto leading-relaxed fade-in-up delay-3">
+      Sepertinya halaman yang kamu cari sudah dipindahkan, dihapus, atau nggak pernah ada. Yuk balik ke tempat yang benar.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 fade-in-up delay-4">
+      <a href="/" class="bg-[#C9A96A] text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition shadow-[0_16px_40px_rgba(201,169,106,0.35)]">
+        <i class="fas fa-home"></i> Kembali ke Beranda
+      </a>
+      <a href="/#bisnis" class="border border-white/25 text-white px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-white/10 transition">
+        <i class="fas fa-th-large"></i> Lihat Unit Bisnis
+      </a>
+    </div>
+
+    <!-- Footer note -->
+    <p class="text-white/30 text-xs mt-16 fade-in-up delay-4">
+      © 2026 Abhinaya Group · <a href="https://wa.me/6283193216920" target="_blank" class="text-[#C9A96A] hover:text-white transition">Butuh bantuan? Chat kami</a>
+    </p>
+  </div>
+
+</body>
+</html>
