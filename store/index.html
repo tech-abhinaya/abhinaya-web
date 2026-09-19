@@ -66,6 +66,32 @@
       outline: 3px solid #A78BFA;
       outline-offset: 3px;
     }
+        /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skeleton shimmer */
+    @keyframes shimmer {
+      0% { background-position: -468px 0; }
+      100% { background-position: 468px 0; }
+    }
+    .skeleton {
+      background: linear-gradient(to right, #f0f0f0 8%, #e8e8e8 18%, #f0f0f0 33%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 </head>
 <body>
