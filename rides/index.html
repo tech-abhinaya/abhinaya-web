@@ -31,13 +31,27 @@
       background: #fff;
       border: 2px solid #EDE9FE;
       border-radius: 28px;
-      transition: 0.3s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .card:hover {
       transform: translateY(-7px);
       box-shadow: 0 16px 0 rgba(167,139,250,.35);
     }
     .pill { border-radius: 999px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.68rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 800;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #eef2ff;
+    }
     a:focus-visible, button:focus-visible {
       outline: 3px solid #A78BFA;
       outline-offset: 3px;
@@ -68,12 +82,12 @@
   <main>
     <section class="hero pt-36 pb-24 px-6 text-white">
       <div class="max-w-5xl mx-auto">
-        <span class="bg-[#EDE9FE] text-[#4C1D95] px-4 py-2 pill text-xs font-extrabold uppercase tracking-widest">Family fun starts here</span>
-        <h1 class="text-5xl md:text-7xl mt-7 mb-5">Keliling mall, seru bareng keluarga!</h1>
+        <span class="badge">Family fun starts here</span>
+        <h1 class="text-5xl md:text-7xl mt-7 mb-5 leading-tight">Keliling mall, seru bareng keluarga!</h1>
         <p class="text-white/85 max-w-xl text-lg leading-relaxed">
           Mobil-mobilan aman dan menyenangkan untuk anak, orang tua, dan momen yang ingin diingat.
         </p>
-        <a href="#harga" class="inline-block bg-[#EDE9FE] text-[#4C1D95] font-extrabold px-7 py-3 pill mt-8">Lihat harga paket</a>
+        <a href="#harga" class="inline-block bg-[#EDE9FE] text-[#4C1D95] font-extrabold px-7 py-3 pill mt-8 shadow-[0_12px_30px_rgba(237,233,254,0.35)]">Lihat harga paket</a>
       </div>
     </section>
 
@@ -95,7 +109,7 @@
     <section id="booking" class="py-20 px-6 bg-[#4C1D95] text-white text-center">
       <h2 class="text-4xl mb-4">Mau booking acara?</h2>
       <p class="text-white/75 mb-8">Ulang tahun anak atau rombongan sekolah? Kami siap bantu atur sesi spesial.</p>
-      <a class="inline-flex items-center gap-2 bg-[#A78BFA] text-[#27134c] px-7 py-3 pill font-extrabold" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank"><i class="fab fa-whatsapp"></i> Chat untuk booking</a>
+      <a class="inline-flex items-center gap-2 bg-[#A78BFA] text-[#27134c] px-7 py-3 pill font-extrabold shadow-[0_12px_30px_rgba(167,139,250,0.4)]" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank"><i class="fab fa-whatsapp"></i> Chat untuk booking</a>
     </section>
   </main>
 

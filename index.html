@@ -11,8 +11,8 @@
       theme: {
         extend: {
           fontFamily: {
-            display: ['Playfair Display','serif'],
-            sans: ['Plus Jakarta Sans','sans-serif']
+            display: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
           }
         }
       }
@@ -28,6 +28,7 @@
       --gold: #C9A96A;
       --paper: #FBF9FF;
       --panel: #F3EEFB;
+      --soft-border: rgba(109, 40, 217, 0.12);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -36,40 +37,49 @@
       color: #312544;
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
-    h1, h2, h3, h4, h5 {
-      font-family: 'Playfair Display', serif;
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+    .nav {
+      background: rgba(45, 27, 78, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav { background: rgba(45, 27, 78, 0.94); backdrop-filter: blur(16px); }
     .hero {
       background:
-        radial-gradient(circle at 78% 22%, rgba(109, 40, 217, 0.72), transparent 28%),
-        linear-gradient(135deg, #2D1B4E 0%, #43206f 50%, #201236 100%);
+        radial-gradient(circle at 82% 18%, rgba(216, 180, 254, 0.28), transparent 26%),
+        linear-gradient(130deg, #2D1B4E 0%, #43206f 52%, #201236 100%);
     }
     .gold { color: var(--gold); }
     .gold-bg { background: var(--gold); }
+    .panel { background: var(--panel); }
     .card {
-      border: 1px solid #e7dff7;
+      border: 1px solid var(--soft-border);
       border-radius: 24px;
-      background: #fff;
-      transition: 0.3s ease;
+      background: #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 22px 50px rgba(45, 27, 78, 0.12);
+      box-shadow: 0 24px 48px rgba(45, 27, 78, 0.12);
+    }
+    .hero-orb {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 9999px;
+      filter: blur(0.5px);
     }
     a:focus-visible, button:focus-visible {
       outline: 3px solid var(--lilac);
       outline-offset: 3px;
     }
     @media (prefers-reduced-motion: reduce) {
-      * { scroll-behavior: auto!important; transition: none!important; }
+      * { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav fixed inset-x-0 top-0 z-50 border-b border-white/10">
+  <nav class="nav fixed inset-x-0 top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
-      <a href="/" class="text-white tracking-[.22em] font-bold text-lg">
+      <a href="/" class="text-white tracking-[.18em] font-bold text-lg">
         ABHINAYA <span class="gold font-normal">GROUP</span>
       </a>
       <div class="hidden md:flex gap-9 text-sm text-white/75">
@@ -90,14 +100,15 @@
 
   <main>
     <section class="hero min-h-screen pt-32 px-6 flex items-center text-center text-white relative overflow-hidden">
-      <div class="absolute -right-24 top-32 w-80 h-80 border border-purple-300/20 rounded-full"></div>
-      <div class="max-w-4xl mx-auto relative">
+      <div class="hero-orb right-[-70px] top-32 w-72 h-72"></div>
+      <div class="hero-orb left-[-70px] bottom-20 w-80 h-80"></div>
+      <div class="max-w-4xl mx-auto relative z-10">
         <span class="gold uppercase tracking-[.3em] text-xs font-bold">Membangun ekosistem berkualitas</span>
-        <h1 class="text-5xl md:text-7xl leading-tight mt-6 mb-6">Sinergi retail & gaya hidup modern</h1>
+        <h1 class="text-5xl md:text-7xl leading-[1.04] mt-6 mb-6">Sinergi retail & gaya hidup modern</h1>
         <p class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
           Mengelola dan mengembangkan beragam portofolio bisnis dengan standar operasional tinggi untuk menghadirkan pengalaman tak terlupakan.
         </p>
-        <a href="#bisnis" class="gold-bg text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition">
+        <a href="#bisnis" class="gold-bg text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition shadow-[0_16px_40px_rgba(201,169,106,0.42)]">
           Jelajahi portofolio <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -106,15 +117,18 @@
     <section id="profil" class="py-24 px-6">
       <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div class="relative">
-          <img class="rounded-[2rem] h-[430px] w-full object-cover shadow-2xl" src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop" alt="Tim manajemen Abhinaya Group">
-          <div class="absolute -bottom-5 -right-5 w-2/3 h-full border-2 border-[#C9A96A] rounded-[2rem] -z-10"></div>
+          <img class="rounded-[2rem] h-[430px] w-full object-cover shadow-[0_25px_60px_rgba(45,27,78,0.18)]" src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&w=2126&auto=format&fit=crop" alt="Tim manajemen Abhinaya Group">
+          <div class="absolute -bottom-6 -right-6 w-2/3 h-full border-2 border-[#C9A96A] rounded-[2rem] -z-10"></div>
         </div>
 
         <div>
           <span class="gold uppercase tracking-[.25em] text-xs font-bold">Tentang perusahaan</span>
-          <h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-4 mb-6">Manajemen operasional profesional dengan visi jangka panjang.</h2>
+          <h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-4 mb-6 leading-tight">Manajemen operasional profesional dengan visi jangka panjang.</h2>
           <p class="text-slate-600 leading-relaxed mb-5">
             Abhinaya Group hadir sebagai holding company yang memadukan visi bisnis jangka panjang dengan pengalaman yang relevan untuk membangun ekosistem komersial terpadu.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            Dari lifestyle, retail, kuliner, dan hiburan keluarga, setiap unit dirancang untuk memberi pengalaman yang bermakna dan konsisten bagi pelanggan.
           </p>
 
           <div class="grid grid-cols-2 gap-5 mt-8">
@@ -135,8 +149,8 @@
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-14">
           <span class="text-[#6D28D9] uppercase tracking-[.25em] text-xs font-bold">Portofolio kami</span>
-          <h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-3">Empat pengalaman, satu keluarga</h2>
-          <p class="text-slate-600 mt-4">Setiap unit punya karakter sendiri—tetap terhubung oleh semangat Abhinaya.</p>
+          <h2 class="text-4xl md:text-5xl text-[#2D1B4E] mt-3 leading-tight">Empat pengalaman, satu keluarga</h2>
+          <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Setiap unit punya karakter sendiri—tetap terhubung oleh semangat Abhinaya, kualitas, dan pengalaman yang konsisten.</p>
         </div>
         <div id="business-container" class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           <p class="col-span-full text-center text-[#6D28D9]">Memuat portofolio...</p>
@@ -176,7 +190,7 @@
       menuToggle.innerHTML = mobileMenu.classList.contains('hidden') ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
     };
 
-    const esc = (s) => String(s || '').replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'}[c]));
+    const esc = (s) => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
     fetch('https://mwiphyyy.api.sanity.io/v2022-03-07/data/query/production?query=' + encodeURIComponent('*[_type == "business"] | order(_createdAt asc){name,category,description,"imageUrl":image.asset->url}'))
       .then(r => r.json())
@@ -192,9 +206,9 @@
           const name = (x.name || '').toLowerCase();
           const href = Object.entries(links).find(([k]) => name.includes(k))?.[1] || '#';
           return `
-            <a href="${href}" class="card overflow-hidden">
+            <a href="${href}" class="card overflow-hidden group">
               <div class="h-44 bg-[#2D1B4E] p-6 flex items-center justify-center">
-                <img src="${esc(x.imageUrl || 'https://via.placeholder.com/400x300?text=Abhinaya')}" alt="${esc(x.name)}" class="max-h-full max-w-full object-contain">
+                <img src="${esc(x.imageUrl || 'https://via.placeholder.com/400x300?text=Abhinaya')}" alt="${esc(x.name)}" class="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-110">
               </div>
               <div class="p-6">
                 <span class="text-xs uppercase tracking-widest text-[#6D28D9] font-bold">${esc(x.category || 'Unit bisnis')}</span>

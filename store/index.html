@@ -15,6 +15,7 @@
       --lav: #A78BFA;
       --soft: #FAF7FC;
       --ink: #382445;
+      --line: rgba(107,76,138,0.14);
     }
     * { box-sizing: border-box; }
     body {
@@ -25,21 +26,35 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .nav { background: rgba(74,40,95,.94); backdrop-filter: blur(16px); }
     .hero {
-      background: linear-gradient(120deg, #4A285F, #6B4C8A 55%, #A78BFA);
+      background: linear-gradient(120deg, #4A285F, #6B4C8A 58%, #A78BFA);
     }
     .card {
       background: white;
-      border: 1px solid #eadff4;
+      border: 1px solid var(--line);
       border-radius: 18px;
       overflow: hidden;
-      transition: 0.3s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
     .card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 18px 35px rgba(107, 76, 138, 0.2);
+      box-shadow: 0 18px 35px rgba(107, 76, 138, 0.18);
     }
     .cat.active { background: #A78BFA; color: #382445; }
     .round { border-radius: 999px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f2eaff;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
     a:focus-visible, button:focus-visible {
       outline: 3px solid #A78BFA;
       outline-offset: 3px;
@@ -62,9 +77,9 @@
   <main>
     <section class="hero pt-36 pb-20 px-6 text-white">
       <div class="max-w-5xl mx-auto">
-        <span class="text-[#E9DDFF] uppercase tracking-[.28em] text-xs font-bold">The finishing touch</span>
-        <h1 class="text-5xl md:text-7xl mt-5 mb-5">Gaya yang terasa personal.</h1>
-        <p class="text-white/75 max-w-xl leading-relaxed">
+        <span class="badge">The finishing touch</span>
+        <h1 class="text-5xl md:text-7xl mt-5 mb-5 leading-tight">Gaya yang terasa personal.</h1>
+        <p class="text-white/75 max-w-xl leading-relaxed text-lg">
           Aksesori pilihan untuk melengkapi setiap versi dirimu—curated, effortless, dan selalu relevan.
         </p>
       </div>
@@ -114,17 +129,17 @@
     function render() {
       const list = active === 'all' ? products : products.filter((p) => p.category === active);
       document.getElementById('grid').innerHTML = list.length ? list.map((p) => `
-        <article class="card">
+        <article class="card group">
           <div class="h-56 bg-[#F3E8FF] p-5">
-            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Product')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-xl">
+            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Product')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-xl transition duration-500 group-hover:scale-105">
           </div>
           <div class="p-5">
             <span class="text-xs uppercase tracking-widest text-[#6B4C8A] font-bold">${esc(labels[p.category] || p.category)}</span>
             <h2 class="text-xl mt-2">${esc(p.name)}</h2>
-            <p class="text-sm text-slate-500 mt-2">${esc(p.description)}</p>
+            <p class="text-sm text-slate-500 mt-2 leading-relaxed">${esc(p.description)}</p>
             <div class="flex justify-between items-center mt-5">
               <b class="text-[#6B4C8A]">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</b>
-              <a class="bg-[#6B4C8A] text-white px-4 py-2 round text-sm hover:bg-[#A78BFA]" href="https://wa.me/6283193216920?text=${encodeURIComponent('Halo Abhinaya Store, saya tertarik dengan ' + p.name)}" target="_blank">Pilih</a>
+              <a class="bg-[#6B4C8A] text-white px-4 py-2 round text-sm hover:bg-[#A78BFA] transition" href="https://wa.me/6283193216920?text=${encodeURIComponent('Halo Abhinaya Store, saya tertarik dengan ' + p.name)}" target="_blank">Pilih</a>
             </div>
           </div>
         </article>
