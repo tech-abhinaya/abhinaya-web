@@ -34,8 +34,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    html { scroll-behavior: smooth; }
     #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
     #mobile-menu.open { max-height: 200px; }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #C9A96A;
+      outline-offset: 2px;
+    }
   </style>
 </head>
 <body class="bg-corporate-100 text-gray-800 font-sans antialiased">
@@ -58,7 +65,7 @@
         <a href="#booking" class="bg-gold-main text-corporate-900 px-4 py-1.5 rounded-full font-semibold hover:bg-gold-light transition-colors">Booking Acara</a>
       </div>
 
-      <button id="menu-toggle" class="md:hidden text-gold-main text-2xl" aria-label="Buka menu">
+      <button id="menu-toggle" class="md:hidden text-gold-main text-2xl" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
         <i class="fas fa-bars"></i>
       </button>
     </div>
@@ -72,58 +79,60 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="pt-40 pb-20 px-4 bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900 text-center">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight mb-4">
-        Keliling Mall, Seru Bareng Keluarga
-      </h1>
-      <p class="text-gray-300 font-light mb-8">
-        Mobil-mobilan Abhinaya Rides — anak naik sendiri atau ditemani orang tua, muter satu lantai mall dengan aman dan menyenangkan.
-      </p>
-      <a href="#harga" class="inline-block bg-gold-main text-corporate-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gold-light transition-all">
-        Lihat Harga Paket
-      </a>
-    </div>
-  </section>
-
-  <!-- HARGA PAKET -->
-  <section id="harga" class="py-20 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Harga Paket</span>
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-corporate-800">Pilih Paket Naiknya</h2>
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="pt-40 pb-20 px-4 bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight mb-4">
+          Keliling Mall, Seru Bareng Keluarga
+        </h1>
+        <p class="text-gray-300 font-light mb-8">
+          Mobil-mobilan Abhinaya Rides — anak naik sendiri atau ditemani orang tua, muter satu lantai mall dengan aman dan menyenangkan.
+        </p>
+        <a href="#harga" class="inline-block bg-gold-main text-corporate-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gold-light transition-all">
+          Lihat Harga Paket
+        </a>
       </div>
+    </section>
 
-      <div id="package-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="col-span-full flex flex-col items-center py-12">
-          <i class="fas fa-circle-notch fa-spin text-3xl text-corporate-500 mb-4"></i>
-          <p class="text-corporate-800 font-medium">Memuat daftar harga...</p>
+    <!-- HARGA PAKET -->
+    <section id="harga" class="py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Harga Paket</span>
+          <h2 class="text-3xl md:text-4xl font-serif font-bold text-corporate-800">Pilih Paket Naiknya</h2>
+        </div>
+
+        <div id="package-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="col-span-full flex flex-col items-center py-12">
+            <i class="fas fa-circle-notch fa-spin text-3xl text-corporate-500 mb-4"></i>
+            <p class="text-corporate-800 font-medium">Memuat daftar harga...</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LOKASI & JAM -->
-  <section id="lokasi" class="py-20 px-4 bg-white">
-    <div class="max-w-3xl mx-auto text-center">
-      <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Lokasi & Jam Operasional</span>
-      <h2 class="text-3xl font-serif font-bold text-corporate-800 mb-6">Temukan Kami di Mall</h2>
-      <p class="text-gray-600 leading-relaxed mb-2">Area lobby lantai 1, dekat pintu masuk utama mall.</p>
-      <p class="text-gray-600 leading-relaxed">Buka setiap hari, 10.00 – 21.00 WITA.</p>
-    </div>
-  </section>
+    <!-- LOKASI & JAM -->
+    <section id="lokasi" class="py-20 px-4 bg-white">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Lokasi & Jam Operasional</span>
+        <h2 class="text-3xl font-serif font-bold text-corporate-800 mb-6">Temukan Kami di Mall</h2>
+        <p class="text-gray-600 leading-relaxed mb-2">Area lobby lantai 1, dekat pintu masuk utama mall.</p>
+        <p class="text-gray-600 leading-relaxed">Buka setiap hari, 10.00 – 21.00 WITA.</p>
+      </div>
+    </section>
 
-  <!-- BOOKING ACARA -->
-  <section id="booking" class="py-20 px-4 bg-corporate-800 text-center">
-    <div class="max-w-2xl mx-auto">
-      <h2 class="text-3xl font-serif font-bold text-white mb-4">Mau Booking untuk Ulang Tahun atau Rombongan?</h2>
-      <p class="text-gray-300 mb-8">Kami bisa atur sesi khusus buat acara ulang tahun anak atau kunjungan rombongan sekolah/TK. Chat kami buat atur jadwal & harga spesial.</p>
-      <a id="booking-wa-btn" href="#" target="_blank" class="inline-flex items-center gap-2 bg-gold-main text-corporate-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gold-light transition-all">
-        <i class="fab fa-whatsapp"></i> Chat untuk Booking Acara
-      </a>
-    </div>
-  </section>
+    <!-- BOOKING ACARA -->
+    <section id="booking" class="py-20 px-4 bg-corporate-800 text-center">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl font-serif font-bold text-white mb-4">Mau Booking untuk Ulang Tahun atau Rombongan?</h2>
+        <p class="text-gray-300 mb-8">Kami bisa atur sesi khusus buat acara ulang tahun anak atau kunjungan rombongan sekolah/TK. Chat kami buat atur jadwal & harga spesial.</p>
+        <a id="booking-wa-btn" href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gold-main text-corporate-900 font-semibold px-8 py-3.5 rounded-full hover:bg-gold-light transition-all">
+          <i class="fab fa-whatsapp"></i> Chat untuk Booking Acara
+        </a>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="bg-corporate-900 text-gray-400 text-sm py-10 px-4 text-center border-t-4 border-gold-main">
@@ -133,7 +142,7 @@
   <script>
     const PROJECT_ID = 'mwiphyyy';
     const DATASET = 'production';
-    const WHATSAPP_NUMBER = '6283193216920'; // TODO: ganti dengan nomor WA asli Abhinaya Rides
+    const WHATSAPP_NUMBER = '6283193216920';
 
     document.getElementById('booking-wa-btn').href =
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Halo Abhinaya Rides, saya mau tanya-tanya buat booking acara (ulang tahun/rombongan). Boleh info jadwal & harganya?')}`;
@@ -168,9 +177,23 @@
         document.getElementById('package-grid').innerHTML = '<p class="col-span-full text-center text-red-600 py-10">Gagal memuat data harga.</p>';
       });
 
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('open');
-    });
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
   </script>
   <!--Start of Tawk.to Script-->
   <script type="text/javascript">
@@ -185,6 +208,6 @@
   })();
 </script>
 <!--End of Tawk.to Script-->
-  
+
 </body>
 </html>

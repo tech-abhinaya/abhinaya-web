@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    html { scroll-behavior: smooth; }
     #mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
     #mobile-menu.open { max-height: 240px; }
 
@@ -61,6 +62,12 @@
     .cat-btn.active {
       background-color: #4A2C4D;
       color: white;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid #C9A96A;
+      outline-offset: 2px;
     }
   </style>
 </head>
@@ -86,11 +93,11 @@
       </div>
 
       <div class="flex items-center space-x-4">
-        <button id="cart-toggle" class="relative text-gold-main text-xl">
+        <button id="cart-toggle" class="relative text-gold-main text-xl" aria-label="Buka keranjang" aria-expanded="false">
           <i class="fas fa-shopping-bag"></i>
           <span id="cart-count" class="absolute -top-2 -right-2 bg-gold-main text-corporate-900 text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
         </button>
-        <button id="menu-toggle" class="md:hidden text-gold-main text-2xl" aria-label="Buka menu">
+        <button id="menu-toggle" class="md:hidden text-gold-main text-2xl" aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -106,29 +113,31 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="pt-40 pb-16 px-4 bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight mb-4">
-        Gurihnya Keju, Bikin Nagih
-      </h1>
-      <p class="text-gray-300 font-light max-w-xl mx-auto">
-        Makanan, snack, dan minuman kekinian dari Lucky Cheese — pesan langsung, siap diantar atau diambil.
-      </p>
-    </div>
-  </section>
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="pt-40 pb-16 px-4 bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-white leading-tight mb-4">
+          Gurihnya Keju, Bikin Nagih
+        </h1>
+        <p class="text-gray-300 font-light max-w-xl mx-auto">
+          Makanan, snack, dan minuman kekinian dari Lucky Cheese — pesan langsung, siap diantar atau diambil.
+        </p>
+      </div>
+    </section>
 
-  <!-- KATALOG PRODUK -->
-  <section class="py-20 px-4">
-    <div class="max-w-7xl mx-auto">
-      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="col-span-full flex flex-col items-center justify-center py-16">
-          <i class="fas fa-circle-notch fa-spin text-3xl text-corporate-500 mb-4"></i>
-          <p class="text-corporate-800 font-medium">Memuat koleksi produk...</p>
+    <!-- KATALOG PRODUK -->
+    <section class="py-20 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="col-span-full flex flex-col items-center justify-center py-16">
+            <i class="fas fa-circle-notch fa-spin text-3xl text-corporate-500 mb-4"></i>
+            <p class="text-corporate-800 font-medium">Memuat koleksi produk...</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="bg-corporate-900 text-gray-400 text-sm py-10 px-4 text-center border-t-4 border-gold-main">
@@ -136,11 +145,11 @@
   </footer>
 
   <!-- CART OVERLAY & DRAWER -->
-  <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60]"></div>
-  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] shadow-2xl flex flex-col">
+  <div id="cart-overlay" class="fixed inset-0 bg-black/50 z-[60]" aria-hidden="true"></div>
+  <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] shadow-2xl flex flex-col" aria-hidden="true" aria-label="Keranjang belanja">
     <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
       <h3 class="font-serif text-xl font-bold text-corporate-800">Keranjang Belanja</h3>
-      <button id="cart-close" class="text-gray-400 hover:text-corporate-800 text-lg"><i class="fas fa-times"></i></button>
+      <button id="cart-close" class="text-gray-400 hover:text-corporate-800 text-lg" aria-label="Tutup keranjang"><i class="fas fa-times"></i></button>
     </div>
 
     <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-4 space-y-4">
@@ -159,10 +168,9 @@
   </aside>
 
   <script>
-    // ============ KONFIGURASI ============
     const PROJECT_ID = 'mwiphyyy';
     const DATASET = 'production';
-    const WHATSAPP_NUMBER = '6283193216920'; // TODO: ganti dengan nomor WA asli Lucky Cheese
+    const WHATSAPP_NUMBER = '6283193216920';
 
     const QUERY = encodeURIComponent('*[_type == "cheeseMenu" && available == true]{_id, name, category, price, description, "imageUrl": image.asset->url}');
     const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2022-03-07/data/query/${DATASET}?query=${QUERY}`;
@@ -177,12 +185,10 @@
     let activeCategory = 'all';
     let cart = JSON.parse(localStorage.getItem('luckyCheeseCart') || '[]');
 
-    // ============ FORMAT HARGA ============
     function formatRupiah(num) {
       return 'Rp ' + num.toLocaleString('id-ID');
     }
 
-    // ============ FETCH PRODUK ============
     fetch(SANITY_URL)
       .then(res => res.json())
       .then(({ result }) => {
@@ -197,7 +203,6 @@
           </div>`;
       });
 
-    // ============ RENDER PRODUK ============
     function renderProducts() {
       const grid = document.getElementById('product-grid');
       const filtered = activeCategory === 'all'
@@ -219,7 +224,7 @@
             <h3 class="font-serif text-lg font-bold text-corporate-800 mt-1 mb-2">${p.name}</h3>
             <div class="flex items-center justify-between">
               <span class="font-semibold text-corporate-800">${formatRupiah(p.price)}</span>
-              <button onclick="addToCart('${p._id}')" class="bg-corporate-800 hover:bg-corporate-500 text-white text-sm w-9 h-9 rounded-full transition-colors">
+              <button type="button" aria-label="Tambahkan ${p.name} ke keranjang" onclick="addToCart('${p._id}')" class="bg-corporate-800 hover:bg-corporate-500 text-white text-sm w-9 h-9 rounded-full transition-colors">
                 <i class="fas fa-plus"></i>
               </button>
             </div>
@@ -228,7 +233,6 @@
       `).join('');
     }
 
-    // ============ FILTER KATEGORI ============
     document.querySelectorAll('.cat-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
@@ -238,7 +242,6 @@
       });
     });
 
-    // ============ CART LOGIC ============
     function saveCart() {
       localStorage.setItem('luckyCheeseCart', JSON.stringify(cart));
       renderCart();
@@ -289,9 +292,9 @@
             <p class="text-gray-400 text-xs">${formatRupiah(item.price)}</p>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="updateQty('${item.id}', -1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">-</button>
+            <button type="button" aria-label="Kurangi ${item.name}" onclick="updateQty('${item.id}', -1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">-</button>
             <span class="text-sm w-4 text-center">${item.qty}</span>
-            <button onclick="updateQty('${item.id}', 1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">+</button>
+            <button type="button" aria-label="Tambah ${item.name}" onclick="updateQty('${item.id}', 1)" class="w-7 h-7 rounded-full border border-gray-200 text-gray-500 hover:bg-gray-50">+</button>
           </div>
         </div>
       `).join('');
@@ -300,31 +303,48 @@
       subtotalEl.textContent = formatRupiah(subtotal);
     }
 
-    // ============ DRAWER TOGGLE ============
     const cartDrawer = document.getElementById('cart-drawer');
     const cartOverlay = document.getElementById('cart-overlay');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
     function openCart() {
       cartDrawer.classList.add('open');
       cartOverlay.classList.add('open');
+      cartDrawer.setAttribute('aria-hidden', 'false');
+      cartOverlay.setAttribute('aria-hidden', 'false');
+      document.getElementById('cart-toggle').setAttribute('aria-expanded', 'true');
     }
     function closeCart() {
       cartDrawer.classList.remove('open');
       cartOverlay.classList.remove('open');
+      cartDrawer.setAttribute('aria-hidden', 'true');
+      cartOverlay.setAttribute('aria-hidden', 'true');
+      document.getElementById('cart-toggle').setAttribute('aria-expanded', 'false');
     }
 
-    document.getElementById('cart-toggle').addEventListener('click', openCart);
+    document.getElementById('cart-toggle').addEventListener('click', () => {
+      const isOpen = cartDrawer.classList.contains('open');
+      if (isOpen) closeCart(); else openCart();
+    });
     document.getElementById('cart-close').addEventListener('click', closeCart);
     cartOverlay.addEventListener('click', closeCart);
 
-    // ============ MOBILE MENU ============
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+      mobileMenu.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
 
-    // ============ CHECKOUT VIA WHATSAPP ============
     document.getElementById('checkout-btn').addEventListener('click', () => {
       if (cart.length === 0) {
         alert('Keranjang masih kosong, pilih produk dulu ya!');
@@ -337,13 +357,16 @@
         lines.join('\n') +
         `\n\nTotal: ${formatRupiah(subtotal)}\n\nMohon info ketersediaan & cara pembayarannya ya. Terima kasih!`;
 
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     });
 
-    // Render awal cart (kalau ada data tersimpan dari sesi sebelumnya)
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeCart();
+    });
+
     renderCart();
   </script>
-    <!--Start of Tawk.to Script-->
+  <!--Start of Tawk.to Script-->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
@@ -356,6 +379,5 @@
   })();
 </script>
 <!--End of Tawk.to Script-->
-  
 </body>
 </html>

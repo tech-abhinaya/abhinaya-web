@@ -6,7 +6,7 @@
   <title>Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan</title>
 
   <!-- SEO & Social Preview -->
-  <meta name="description" content="Abhinaya Group adalah holding company yang menaungi Abhinaya Store, Abhinaya Rides, Abhinaya Parfume, dan Lucky Cheese — ekosistem retail, wahana hiburan, dan kuliner di Kalimantan.">
+  <meta name="description" content="Abhinaya Group adalah holding company yang menaungi Abhinaya Store, Abhinaya Rides, Abhinaya Parfume, dan Lucky Cheese — ekosistem retail, wahana hiburan, dan kuliner berkelas di Kalimantan.">
   <link rel="canonical" href="https://abhinaya-web.pages.dev/">
   <meta name="theme-color" content="#2D1B2E">
   <meta property="og:title" content="Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan">
@@ -56,6 +56,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    html { scroll-behavior: smooth; }
     .fade-in-up {
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
@@ -71,6 +72,7 @@
 
     /* Hormati preferensi pengguna yang menonaktifkan animasi */
     @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
       .fade-in-up { animation: none; opacity: 1; transform: none; }
       .animate-bounce { animation: none; }
     }
@@ -118,90 +120,92 @@
     </div>
   </nav>
 
-  <!-- HERO BANNER SECTION -->
-  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900 overflow-hidden px-4">
-    <div class="absolute top-1/4 left-10 w-64 h-64 border border-gold-main/20 rounded-full blur-sm"></div>
-    <div class="absolute bottom-1/4 right-10 w-96 h-96 border border-corporate-500/20 rounded-full blur-md"></div>
+  <main id="main-content">
+    <!-- HERO BANNER SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-corporate-900 via-corporate-800 to-corporate-900 overflow-hidden px-4">
+      <div class="absolute top-1/4 left-10 w-64 h-64 border border-gold-main/20 rounded-full blur-sm"></div>
+      <div class="absolute bottom-1/4 right-10 w-96 h-96 border border-corporate-500/20 rounded-full blur-md"></div>
 
-    <div class="relative z-10 text-center max-w-4xl mx-auto mt-20">
-      <span class="block text-gold-main font-semibold tracking-[0.3em] uppercase text-sm mb-4 fade-in-up">Membangun Ekosistem Berkualitas</span>
-      <h1 class="text-5xl md:text-7xl font-bold text-white font-serif leading-tight mb-6 fade-in-up delay-100">
-        Sinergi Retail & Gaya Hidup Modern
-      </h1>
-      <p class="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up delay-200">
-        Mengelola dan mengembangkan beragam portofolio bisnis dengan standar operasional tinggi untuk menghadirkan pengalaman tak terlupakan.
-      </p>
-      <div class="fade-in-up delay-300">
-        <a href="#bisnis" class="inline-block bg-gold-main text-corporate-900 font-semibold px-8 py-4 rounded-full hover:bg-gold-light hover:shadow-[0_0_20px_rgba(201,169,106,0.4)] transition-all duration-300 transform hover:-translate-y-1">
-          Jelajahi Portofolio Kami <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+      <div class="relative z-10 text-center max-w-4xl mx-auto mt-20">
+        <span class="block text-gold-main font-semibold tracking-[0.3em] uppercase text-sm mb-4 fade-in-up">Membangun Ekosistem Berkualitas</span>
+        <h1 class="text-5xl md:text-7xl font-bold text-white font-serif leading-tight mb-6 fade-in-up delay-100">
+          Sinergi Retail & Gaya Hidup Modern
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 font-light mb-10 max-w-2xl mx-auto leading-relaxed fade-in-up delay-200">
+          Mengelola dan mengembangkan beragam portofolio bisnis dengan standar operasional tinggi untuk menghadirkan pengalaman tak terlupakan.
+        </p>
+        <div class="fade-in-up delay-300">
+          <a href="#bisnis" class="inline-block bg-gold-main text-corporate-900 font-semibold px-8 py-4 rounded-full hover:bg-gold-light hover:shadow-[0_0_20px_rgba(201,169,106,0.4)] transition-all">
+            Jelajahi Portofolio Kami <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#profil" class="text-gold-main/50 hover:text-gold-main transition-colors" aria-label="Gulir ke bawah">
+          <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
         </a>
       </div>
-    </div>
+    </section>
 
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <a href="#profil" class="text-gold-main/50 hover:text-gold-main transition-colors" aria-label="Gulir ke bawah">
-        <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
-      </a>
-    </div>
-  </section>
-
-  <!-- PROFIL / TENTANG KAMI SECTION -->
-  <section id="profil" class="py-24 bg-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="relative">
-          <div class="w-full h-[500px] bg-corporate-100 rounded-2xl overflow-hidden shadow-2xl relative z-10">
-            <img src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&amp;w=2126&amp;auto=format&amp;fit=crop" alt="Tim manajemen Abhinaya Group" class="w-full h-full object-cover opacity-90" loading="lazy" decoding="async">
-            <div class="absolute inset-0 bg-corporate-900/20"></div>
-          </div>
-          <div class="absolute -bottom-6 -right-6 w-3/4 h-full border-2 border-gold-main rounded-2xl z-0 hidden md:block"></div>
-        </div>
-
-        <div>
-          <div class="flex items-center space-x-4 mb-4">
-            <div class="h-px w-12 bg-gold-main"></div>
-            <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm">Tentang Perusahaan</span>
-          </div>
-          <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6 leading-tight">Manajemen Operasional & Tenant Retail Profesional</h2>
-          <p class="text-gray-600 mb-6 leading-relaxed">
-            Abhinaya Group hadir sebagai <em>holding company</em> yang berfokus pada pengelolaan dan pengembangan ekosistem komersial terpadu. Kami memadukan visi bisnis jangka panjang dengan presisi operasional sehari-hari.
-          </p>
-          <p class="text-gray-600 mb-8 leading-relaxed">
-            Berpengalaman mengelola ragam <em>tenant</em> strategis di berbagai pusat perbelanjaan terkemuka di wilayah Kalimantan, kami memastikan setiap pilar bisnis kami — mulai dari ritel aksesoris, wahana hiburan keluarga, hingga kuliner — beroperasi dengan standar mutu dan pelayanan tertinggi.
-          </p>
-
-          <div class="grid grid-cols-2 gap-6">
-            <div class="border-l-2 border-gold-main pl-4">
-              <h4 class="text-2xl font-serif font-bold text-corporate-800">4+</h4>
-              <p class="text-sm text-gray-500 font-medium">Lini Bisnis Aktif</p>
+    <!-- PROFIL / TENTANG KAMI SECTION -->
+    <section id="profil" class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="relative">
+            <div class="w-full h-[500px] bg-corporate-100 rounded-2xl overflow-hidden shadow-2xl relative z-10">
+              <img src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?q=80&amp;w=2126&amp;auto=format&amp;fit=crop" alt="Tim manajemen Abhinaya Group" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-corporate-900/20"></div>
             </div>
-            <div class="border-l-2 border-gold-main pl-4">
-              <h4 class="text-2xl font-serif font-bold text-corporate-800">100%</h4>
-              <p class="text-sm text-gray-500 font-medium">Fokus Layanan</p>
+            <div class="absolute -bottom-6 -right-6 w-3/4 h-full border-2 border-gold-main rounded-2xl z-0 hidden md:block"></div>
+          </div>
+
+          <div>
+            <div class="flex items-center space-x-4 mb-4">
+              <div class="h-px w-12 bg-gold-main"></div>
+              <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm">Tentang Perusahaan</span>
+            </div>
+            <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6 leading-tight">Manajemen Operasional & Tenant Retail Profesional</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Abhinaya Group hadir sebagai <em>holding company</em> yang berfokus pada pengelolaan dan pengembangan ekosistem komersial terpadu. Kami memadukan visi bisnis jangka panjang dengan pendekatan operasional yang presisi untuk menghadirkan pengalaman pelanggan yang konsisten dan berkesan.
+            </p>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              Berpengalaman mengelola ragam <em>tenant</em> strategis di berbagai pusat perbelanjaan terkemuka di wilayah Kalimantan, kami memastikan setiap pilar bisnis kami — mulai dari ritel aksesori, wahana hiburan, hingga kuliner kekinian — berjalan dengan standar yang terukur dan layanan yang berorientasi pada pelanggan.
+            </p>
+
+            <div class="grid grid-cols-2 gap-6">
+              <div class="border-l-2 border-gold-main pl-4">
+                <h4 class="text-2xl font-serif font-bold text-corporate-800">4+</h4>
+                <p class="text-sm text-gray-500 font-medium">Lini Bisnis Aktif</p>
+              </div>
+              <div class="border-l-2 border-gold-main pl-4">
+                <h4 class="text-2xl font-serif font-bold text-corporate-800">100%</h4>
+                <p class="text-sm text-gray-500 font-medium">Fokus Layanan</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PILAR BISNIS SECTION (TERHUBUNG KE SANITY CMS) -->
-  <section id="bisnis" class="py-24 bg-corporate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Portofolio Kami</span>
-        <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6">Pilar Bisnis Abhinaya</h2>
-        <div class="w-24 h-1 bg-gold-main mx-auto rounded"></div>
-      </div>
+    <!-- PILAR BISNIS SECTION (TERHUBUNG KE SANITY CMS) -->
+    <section id="bisnis" class="py-24 bg-corporate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-corporate-500 font-bold tracking-widest uppercase text-sm block mb-3">Portofolio Kami</span>
+          <h2 class="text-4xl font-serif font-bold text-corporate-800 mb-6">Pilar Bisnis Abhinaya</h2>
+          <div class="w-24 h-1 bg-gold-main mx-auto rounded"></div>
+        </div>
 
-      <div id="business-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-        <div class="col-span-full flex flex-col items-center justify-center py-12">
-          <i class="fas fa-circle-notch fa-spin text-4xl text-corporate-500 mb-4" aria-hidden="true"></i>
-          <p class="text-corporate-800 font-medium animate-pulse">Menyelaraskan data dari server pusat...</p>
+        <div id="business-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <div class="col-span-full flex flex-col items-center justify-center py-12">
+            <i class="fas fa-circle-notch fa-spin text-4xl text-corporate-500 mb-4" aria-hidden="true"></i>
+            <p class="text-corporate-800 font-medium animate-pulse">Menyelaraskan data dari server pusat...</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER KORPORAT -->
   <footer id="kontak" class="bg-corporate-900 text-white pt-20 pb-10 border-t-4 border-gold-main">
@@ -216,17 +220,17 @@
             Holding company pengelola ekosistem retail, wahana hiburan, dan kuliner terkemuka. Menghadirkan gaya hidup modern melalui manajemen operasional yang presisi.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 rounded-full bg-corporate-800 flex items-center justify-center text-gray-300 hover:bg-gold-main hover:text-white transition-all" aria-label="Instagram Abhinaya Group"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-            <a href="#" class="w-10 h-10 rounded-full bg-corporate-800 flex items-center justify-center text-gray-300 hover:bg-gold-main hover:text-white transition-all" aria-label="LinkedIn Abhinaya Group"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-corporate-800 flex items-center justify-center text-gray-300 hover:bg-gold-main hover:text-white transition-all" aria-label="Instagram Abhinaya Group"> <i class="fab fa-instagram" aria-hidden="true"></i> </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-corporate-800 flex items-center justify-center text-gray-300 hover:bg-gold-main hover:text-white transition-all" aria-label="LinkedIn Abhinaya Group"> <i class="fab fa-linkedin-in" aria-hidden="true"></i> </a>
           </div>
         </div>
 
         <div>
           <h4 class="text-lg font-serif font-bold mb-6 text-gold-main">Jelajahi Cepat</h4>
           <ul class="space-y-3">
-            <li><a href="#profil" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500" aria-hidden="true"></i> Profil Perusahaan</a></li>
-            <li><a href="#bisnis" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500" aria-hidden="true"></i> Portofolio Bisnis</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500" aria-hidden="true"></i> Karir & Peluang</a></li>
+            <li><a href="#profil" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500" aria-hidden="true"></i>Profil</a></li>
+            <li><a href="#bisnis" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500" aria-hidden="true"></i>Pilar Bisnis</a></li>
+            <li><a href="#kontak" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center"><i class="fas fa-chevron-right text-xs mr-2 text-corporate-500" aria-hidden="true"></i>Kontak</a></li>
           </ul>
         </div>
 
@@ -271,31 +275,31 @@
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-      menuToggle.innerHTML = isOpen ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-        menuToggle.setAttribute('aria-expanded', 'false');
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+        menuToggle.innerHTML = isOpen ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
       });
-    });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
   </script>
 
   <!-- SCRIPT PENGHUBUNG SANITY CMS (FLEKSIBEL & TAHAN BANTING) -->
   <script>
     const PROJECT_ID = 'mwiphyyy';
     const DATASET = 'production';
-    // Urutkan berdasarkan waktu dibuat supaya urutan kartu konsisten setiap kali data dimuat
     const QUERY = encodeURIComponent(
       '*[_type == "business"] | order(_createdAt asc){name, category, description, "imageUrl": image.asset->url}'
     );
     const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2022-03-07/data/query/${DATASET}?query=${QUERY}`;
 
-    // Escape sederhana supaya teks dari CMS tidak bisa menyuntikkan HTML/JS (proteksi XSS dasar)
     function escapeHtml(str) {
       if (str === undefined || str === null) return '';
       return String(str)
@@ -313,6 +317,7 @@
       })
       .then(({ result }) => {
         const container = document.getElementById('business-container');
+        if (!container) return;
         container.innerHTML = '';
 
         if (!result || result.length === 0) {
@@ -322,7 +327,6 @@
 
         result.forEach((item, index) => {
           const delayClass = `delay-${(index % 4) * 100}`;
-
           let unitHref = '#';
           const namaBisnis = (item.name || '').toLowerCase();
 
@@ -337,7 +341,7 @@
           const safeImage = item.imageUrl ? escapeHtml(item.imageUrl) : 'https://via.placeholder.com/400x300?text=Logo+Unit';
 
           const card = `
-            <a href="${unitHref}" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 fade-in-up ${delayClass}">
+            <a href="${unitHref}" class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-transparent hover:border-gold-main/30 ${delayClass}">
               <div class="relative h-56 overflow-hidden bg-corporate-900 flex items-center justify-center p-6">
                 <div class="absolute inset-0 bg-corporate-900/10 group-hover:bg-transparent transition-all z-10"></div>
                 <img
@@ -348,7 +352,7 @@
                   onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Logo+Unit';"
                   class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-700 ease-in-out relative z-0 drop-shadow-md"
                 >
-                ${safeCategory ? `<div class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur text-corporate-900 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full shadow-sm">${safeCategory}</div>` : ''}
+                ${safeCategory ? `<div class="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur text-corporate-900 text-[10px] font-bold uppercase tracking-widest py-1 px-3 rounded-full shadow-md">${safeCategory}</div>` : ''}
               </div>
 
               <div class="p-8">
@@ -369,14 +373,17 @@
       })
       .catch(error => {
         console.error('Error fetching data:', error);
-        document.getElementById('business-container').innerHTML = `
-          <div class="col-span-full bg-red-50 border-l-4 border-red-500 p-4 rounded text-center">
-            <p class="text-red-700 font-medium">Gagal memuat data portofolio dari server pusat. Coba muat ulang halaman.</p>
-          </div>
-        `;
+        const container = document.getElementById('business-container');
+        if (container) {
+          container.innerHTML = `
+            <div class="col-span-full bg-red-50 border-l-4 border-red-500 p-4 rounded text-center">
+              <p class="text-red-700 font-medium">Gagal memuat data portofolio dari server pusat. Coba muat ulang halaman.</p>
+            </div>
+          `;
+        }
       });
   </script>
-    <!--Start of Tawk.to Script-->
+  <!--Start of Tawk.to Script-->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   (function(){
@@ -389,6 +396,6 @@
   })();
 </script>
 <!--End of Tawk.to Script-->
-  
+
 </body>
 </html>
