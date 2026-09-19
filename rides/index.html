@@ -142,7 +142,7 @@
       return 'Rp ' + num.toLocaleString('id-ID');
     }
 
-    const QUERY = encodeURIComponent('*[_type == "ridePackage"] | order(price asc){_id, name, price, sessionCount, description, highlight}');
+    const QUERY = encodeURIComponent('*[_type == "ridePackage"] | order(price asc){_id, name, price, duration, description, highlight}');
     const SANITY_URL = `https://${PROJECT_ID}.api.sanity.io/v2022-03-07/data/query/${DATASET}?query=${QUERY}`;
 
     fetch(SANITY_URL)
@@ -158,7 +158,7 @@
             ${pkg.highlight ? '<span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-main text-corporate-900 text-[11px] font-bold px-3 py-1 rounded-full">Paling Laris</span>' : ''}
             <h3 class="font-serif text-xl font-bold text-corporate-800 mb-2">${pkg.name}</h3>
             <p class="text-3xl font-bold text-corporate-500 mb-3">${formatRupiah(pkg.price)}</p>
-            ${pkg.sessionCount ? `<p class="text-sm text-gray-500 mb-3">${pkg.sessionCount}x putaran</p>` : ''}
+            ${pkg.duration ? `<p class="text-sm text-gray-500 mb-3">${pkg.duration} menit</p>` : ''}
             <p class="text-gray-600 text-sm leading-relaxed">${pkg.description || ''}</p>
           </div>
         `).join('');
