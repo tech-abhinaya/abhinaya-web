@@ -1,26 +1,37 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#4A285F">
   <title>Abhinaya Store | Fashion Accessories</title>
-  <meta name="description" content="Koleksi aksesori pilihan Abhinaya Store.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B4C8A'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+  <meta name="description" content="Koleksi aksesori pilihan Abhinaya Store. Curated, effortless, dan selalu relevan.">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236B4C8A'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abhinaya Store | Fashion Accessories">
   <meta property="og:description" content="Koleksi aksesori pilihan Abhinaya Store.">
   <meta property="og:image" content="https://abhinaya-web.pages.dev/og-store.jpg">
   <meta property="og:url" content="https://abhinaya-web.pages.dev/store/">
+  <meta property="og:site_name" content="Abhinaya Store">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abhinaya Store">
+  <meta name="twitter:description" content="Aksesori pilihan, curated untuk kamu.">
+  <meta name="twitter:image" content="https://abhinaya-web.pages.dev/og-store.jpg">
   <link rel="canonical" href="https://abhinaya-web.pages.dev/store/">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --deep: #6B4C8A;
       --plum: #4A285F;
       --lav: #A78BFA;
       --soft: #FAF7FC;
+      --gold: #C9A96A;
       --ink: #382445;
       --line: rgba(107,76,138,0.14);
     }
@@ -33,7 +44,10 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .nav { background: rgba(74,40,95,.94); backdrop-filter: blur(16px); }
     .hero {
-      background: linear-gradient(120deg, #4A285F, #6B4C8A 58%, #A78BFA);
+      background:
+        radial-gradient(circle at 78% 22%, rgba(201,169,106,.18), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(167,139,250,.22), transparent 30%),
+        linear-gradient(120deg, #4A285F, #6B4C8A 58%, #A78BFA);
     }
     .card {
       background: white;
@@ -66,7 +80,7 @@
       outline: 3px solid #A78BFA;
       outline-offset: 3px;
     }
-        /* Scroll reveal */
+
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -77,7 +91,17 @@
       transform: translateY(0);
     }
 
-    /* Skeleton shimmer */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
     @keyframes shimmer {
       0% { background-position: -468px 0; }
       100% { background-position: 468px 0; }
@@ -108,29 +132,236 @@
   </nav>
 
   <main>
-    <section class="hero pt-36 pb-20 px-6 text-white">
-      <div class="max-w-5xl mx-auto">
-        <span class="badge">The finishing touch</span>
-        <h1 class="text-5xl md:text-7xl mt-5 mb-5 leading-tight">Gaya yang terasa personal.</h1>
-        <p class="text-white/75 max-w-xl leading-relaxed text-lg">
-          Aksesori pilihan untuk melengkapi setiap versi dirimu—curated, effortless, dan selalu relevan.
+    <!-- ============ HERO (UPGRADED) ============ -->
+    <section class="hero relative overflow-hidden pt-36 pb-24 px-6 text-white">
+      <!-- Floating badges -->
+      <div class="hidden lg:block absolute right-[8%] top-[28%] animate-float-slow">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#C9A96A] flex items-center justify-center">
+            <i class="fas fa-shield-halved text-[#4A285F]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">100% Original</div>
+            <div class="text-[11px] text-white/55">Produk terjamin</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute left-[6%] bottom-[22%] animate-float">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#A78BFA] flex items-center justify-center">
+            <i class="fas fa-gift text-[#4A285F]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Free Gift Wrap</div>
+            <div class="text-[11px] text-white/55">Kemasan eksklusif</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute right-[14%] bottom-[20%] animate-float-slow">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#C9A96A] flex items-center justify-center">
+            <i class="fas fa-star text-[#4A285F]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">4.9 / 5.0</div>
+            <div class="text-[11px] text-white/55">Rating pelanggan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative gem -->
+      <div class="hidden lg:block absolute right-[20%] top-[16%] text-[150px] text-white/5 rotate-12 pointer-events-none select-none">
+        <i class="fas fa-gem"></i>
+      </div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
+        <span class="badge reveal">The finishing touch</span>
+        <h1 class="text-5xl md:text-7xl mt-5 mb-5 leading-tight reveal">Gaya yang<br class="hidden md:block"> terasa personal.</h1>
+        <p class="text-white/75 max-w-xl leading-relaxed text-lg reveal">
+          Aksesori pilihan untuk melengkapi setiap versi dirimu—<span class="text-[#C9A96A] font-bold">curated, effortless,</span> dan selalu relevan.
         </p>
+        <div class="flex flex-wrap gap-4 mt-8 reveal">
+          <a href="#koleksi" class="inline-block bg-[#C9A96A] text-[#4A285F] font-bold px-7 py-3 round hover:bg-[#D8B4FE] transition shadow-[0_12px_30px_rgba(201,169,106,0.35)]">Lihat koleksi ↓</a>
+          <a href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Store%2C%20saya%20mau%20tanya%20produk" target="_blank" class="inline-block border border-white/25 text-white font-bold px-7 py-3 round hover:bg-white/10 transition">Tanya via WA</a>
+        </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-16">
+    <!-- ============ KOLEKSI ============ -->
+    <section id="koleksi" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="flex justify-between items-end mb-10 reveal">
+        <div>
+          <span class="text-[#6B4C8A] uppercase tracking-[.25em] text-xs font-bold">The collection</span>
+          <h2 class="text-4xl mt-2">Kurasi aksesori</h2>
+        </div>
+      </div>
       <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <p class="col-span-full text-center text-[#6B4C8A]">Memuat koleksi...</p>
       </div>
     </section>
+
+    <!-- ============ KENAPA PILIH KAMI ============ -->
+    <section class="py-20 px-6 bg-[#F3E8FF]/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#6B4C8A] uppercase tracking-[.25em] text-xs font-bold">Keunggulan kami</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kenapa pilih Abhinaya Store</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center reveal">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-gem text-2xl text-[#6B4C8A]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Kurasi Pilihan</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Setiap aksesori dipilih dengan teliti untuk memastikan kualitas dan gaya terbaik.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:100ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-shield-halved text-2xl text-[#6B4C8A]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Original & Terjamin</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Produk asli, tanpa kompromi. Setiap pesanan dicek sebelum dikirim.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:200ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-gift text-2xl text-[#6B4C8A]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Gift Wrap Eksklusif</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Bingkisan cantik gratis, cocok untuk hadiah ke orang tersayang.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONI ============ -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#6B4C8A] uppercase tracking-[.25em] text-xs font-bold">Testimoni</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kata mereka</h2>
+          <p class="text-slate-600 mt-4 max-w-xl mx-auto">Cerita dari pelanggan yang sudah merasakan kualitas Abhinaya Store.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-7 reveal">
+            <div class="flex gap-1 text-[#C9A96A] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Kualitasnya bagus banget, gak nyesel beli. Packing-nya rapi & mewah."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6B4C8A] text-white flex items-center justify-center font-bold">A</div>
+              <div>
+                <div class="font-bold text-[#382445] text-sm">Andini</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:100ms">
+            <div class="flex gap-1 text-[#C9A96A] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Beli buat kado, dibungkus cantik banget. Pacar gua suka. Recommended!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6B4C8A] text-white flex items-center justify-center font-bold">R</div>
+              <div>
+                <div class="font-bold text-[#382445] text-sm">Rizky</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:200ms">
+            <div class="flex gap-1 text-[#C9A96A] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Langganan dari tahun lalu. Modelnya selalu update & gak pasaran."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6B4C8A] text-white flex items-center justify-center font-bold">S</div>
+              <div>
+                <div class="font-bold text-[#382445] text-sm">Sari</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="bg-[#4A285F] text-white/60 text-center py-10 text-sm">
-    © 2026 Abhinaya Store · <a href="/" class="text-[#A78BFA]">Abhinaya Group</a>
+  <!-- ============ FOOTER 4 KOLOM ============ -->
+  <footer class="bg-[#4A285F] text-white px-6 pt-20 pb-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <svg width="40" height="40" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A96A" stroke-width="0.8" opacity="0.4"/>
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#C9A96A" stroke-width="1.2"/>
+            <text x="50" y="62" font-family="Playfair Display,Georgia,serif" font-size="34" font-style="italic" font-weight="700" fill="#C9A96A" text-anchor="middle">AS</text>
+          </svg>
+          <div class="text-base tracking-[.18em] font-bold">ABHINAYA <span class="text-[#A78BFA] font-normal">STORE</span></div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Koleksi aksesori pilihan untuk melengkapi gaya personal kamu. Bagian dari Abhinaya Group.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Jelajahi</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a class="text-white/60 hover:text-white transition" href="/store/">Abhinaya Store</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/parfume/">Abhinaya Parfume</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/rides/">Abhinaya Rides</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/lucky-cheese/">Lucky Cheese</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Kontak</h3>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li class="flex items-start gap-2">
+            <i class="fas fa-map-marker-alt text-[#A78BFA] mt-1"></i>
+            <span>Kalimantan, Indonesia</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-envelope text-[#A78BFA] mt-1"></i>
+            <a class="hover:text-white transition" href="mailto:info@abhinayagroup.com">info@abhinayagroup.com</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fab fa-whatsapp text-[#A78BFA] mt-1"></i>
+            <a class="hover:text-white transition" href="https://wa.me/6283193216920" target="_blank">+62 831-9321-6920</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#C9A96A] hover:text-[#4A285F] flex items-center justify-center transition" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#C9A96A] hover:text-[#4A285F] flex items-center justify-center transition" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#C9A96A] hover:text-[#4A285F] flex items-center justify-center transition" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <p class="text-white/40 text-xs mt-5 leading-relaxed">
+          Dapatkan update koleksi & promo terbaru.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+      <span>© 2026 Abhinaya Store. Hak Cipta Dilindungi.</span>
+      <div class="flex gap-6">
+        <a href="/privacy/" class="hover:text-white transition">Kebijakan Privasi</a>
+        <a href="/terms/" class="hover:text-white transition">Syarat & Ketentuan</a>
+      </div>
+    </div>
   </footer>
 
-    <script>
-    // Skeleton component
+  <script>
     function skeletonCard() {
       return `
         <div class="card overflow-hidden animate-pulse">
@@ -149,7 +380,6 @@
       `;
     }
 
-    // Inject skeleton dulu
     document.getElementById('grid').innerHTML = Array(4).fill(skeletonCard()).join('');
 
     const categories = ['all', 'jam-tangan', 'kalung', 'gelang', 'cincin'];
@@ -158,7 +388,6 @@
     const q = encodeURIComponent('*[_type == "storeProduct" && inStock == true]{_id,name,category,price,description,"imageUrl":image.asset->url}');
     const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
-    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -171,6 +400,8 @@
     const observeReveals = () => {
       document.querySelectorAll('.reveal:not(.visible)').forEach((el) => revealObserver.observe(el));
     };
+
+    observeReveals();
 
     function nav(el) {
       el.innerHTML = categories.map((c) => `
@@ -200,7 +431,7 @@
       document.getElementById('grid').innerHTML = list.length ? list.map((p, i) => `
         <article class="card group reveal" style="transition-delay:${i * 60}ms">
           <div class="h-56 bg-[#F3E8FF] p-5">
-            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Product')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-xl transition duration-500 group-hover:scale-105" loading="lazy">
+            <img src="${esc(p.imageUrl || 'https://placehold.co/400x400/F3E8FF/6B4C8A?text=Abhinaya+Store')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-xl transition duration-500 group-hover:scale-105" loading="lazy">
           </div>
           <div class="p-5">
             <span class="text-xs uppercase tracking-widest text-[#6B4C8A] font-bold">${esc(labels[p.category] || p.category)}</span>
@@ -230,7 +461,7 @@
             <div class="w-16 h-16 mx-auto rounded-full bg-red-50 flex items-center justify-center mb-4">
               <i class="fas fa-exclamation-triangle text-2xl text-red-500"></i>
             </div>
-            <h3 class="text-xl text-[#2D1B4E] mb-2">Gagal memuat produk</h3>
+            <h3 class="text-xl text-[#4A285F] mb-2">Gagal memuat produk</h3>
             <p class="text-slate-500 text-sm mb-5">Silakan coba lagi atau hubungi kami langsung.</p>
             <button onclick="location.reload()" class="bg-[#6B4C8A] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#A78BFA] transition">
               Coba Lagi
