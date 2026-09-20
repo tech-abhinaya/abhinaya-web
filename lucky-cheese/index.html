@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#6D28D9">
   <title>Lucky Cheese | Fun Food & Drinks</title>
   <meta name="description" content="Makanan, snack, dan minuman kekinian Lucky Cheese.">
 
@@ -138,8 +139,81 @@
     </section>
   </main>
 
-  <footer class="bg-[#6D28D9] text-white text-center py-10">
-    © 2026 Lucky Cheese · <a href="/" class="text-[#F5D0FE]">Abhinaya Group</a>
+  <!-- ============ FOOTER (4 Kolom, disamain sama root) ============ -->
+  <footer class="bg-[#6D28D9] text-white px-6 pt-20 pb-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+      <!-- Kolom 1: Brand & Deskripsi -->
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <svg width="40" height="40" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="44" fill="none" stroke="#F5D0FE" stroke-width="0.8" opacity="0.4"/>
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#F5D0FE" stroke-width="1.2"/>
+            <text x="50" y="62" font-family="Fredoka,sans-serif" font-size="34" font-weight="700" fill="#F5D0FE" text-anchor="middle">AS</text>
+          </svg>
+          <div class="text-base tracking-[.18em] font-bold">LUCKY <span class="text-[#F5D0FE] font-normal">CHEESE</span></div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Camilan seru & minuman segar untuk menemani momen bahagia kamu. Bagian dari Abhinaya Group.
+        </p>
+      </div>
+
+      <!-- Kolom 2: Jelajahi -->
+      <div>
+        <h3 class="text-[#F5D0FE] text-xs uppercase tracking-[.25em] mb-5 font-bold">Jelajahi</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a class="text-white/60 hover:text-white transition" href="/store/">Abhinaya Store</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/parfume/">Abhinaya Parfume</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/rides/">Abhinaya Rides</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/lucky-cheese/">Lucky Cheese</a></li>
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Kontak -->
+      <div>
+        <h3 class="text-[#F5D0FE] text-xs uppercase tracking-[.25em] mb-5 font-bold">Kontak</h3>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li class="flex items-start gap-2">
+            <i class="fas fa-map-marker-alt text-[#F5D0FE] mt-1"></i>
+            <span>Kalimantan, Indonesia</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-envelope text-[#F5D0FE] mt-1"></i>
+            <a class="hover:text-white transition" href="mailto:info@abhinayagroup.com">info@abhinayagroup.com</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fab fa-whatsapp text-[#F5D0FE] mt-1"></i>
+            <a class="hover:text-white transition" href="https://wa.me/6283193216920" target="_blank">+62 831-9321-6920</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Kolom 4: Sosmed -->
+      <div>
+        <h3 class="text-[#F5D0FE] text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
+        <div class="flex gap-3">
+          <a href="https://www.instagram.com/luckycheese.id" target="_blank" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <p class="text-white/40 text-xs mt-5 leading-relaxed">
+          Dapatkan update promo & menu baru.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+      <span>© 2026 Lucky Cheese. Hak Cipta Dilindungi.</span>
+      <div class="flex gap-6">
+        <a href="/privacy/" class="hover:text-white transition">Kebijakan Privasi</a>
+        <a href="/terms/" class="hover:text-white transition">Syarat & Ketentuan</a>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -213,7 +287,7 @@
       document.getElementById('grid').innerHTML = list.length ? list.map((p, i) => `
         <article class="card overflow-hidden group reveal" style="transition-delay:${i * 60}ms">
           <div class="h-52 bg-[#F5D0FE] p-4">
-            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Yum')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-2xl transition duration-500 group-hover:scale-105" loading="lazy">
+            <img src="${esc(p.imageUrl || 'https://placehold.co/400x400/F5D0FE/6D28D9?text=Lucky+Cheese')}" alt="${esc(p.name)}" class="w-full h-full object-cover rounded-2xl transition duration-500 group-hover:scale-105" loading="lazy">
           </div>
           <div class="p-5">
             <span class="text-xs uppercase tracking-widest text-[#9333EA] font-extrabold">${esc(labels[p.category] || p.category)}</span>
