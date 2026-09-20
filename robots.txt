@@ -1,4 +1,12 @@
+# robots.txt — Abhinaya Group
+# Dokumentasi: https://www.robotstxt.org/robotstxt.html
+
+# Semua bot boleh mengakses semua halaman
 User-agent: *
 Allow: /
 
+# Lokasi sitemap untuk Google, Bing, dll
 Sitemap: https://abhinaya-web.pages.dev/sitemap.xml
+
+# CATATAN: Setelah pindah ke custom domain, ganti URL di atas jadi:
+# Sitemap: https://abhinayagroup.com/sitemap.xml
