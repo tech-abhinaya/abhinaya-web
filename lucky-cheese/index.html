@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#6D28D9">
   <title>Lucky Cheese | Fun Food & Drinks</title>
-  <meta name="description" content="Makanan, snack, dan minuman kekinian Lucky Cheese.">
+  <meta name="description" content="Makanan, snack, dan minuman kekinian Lucky Cheese. Enjoy Lucky Makes You Lucky!">
 
-  <!-- Favicon: monogram AS, warna brand Lucky Cheese -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236D28D9'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23F5D0FE' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Fredoka,sans-serif' font-size='34' font-weight='700' fill='%23F5D0FE' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
 
-  <!-- OG Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lucky Cheese | Fun Food & Drinks">
   <meta property="og:description" content="Makanan, snack, dan minuman kekinian Lucky Cheese.">
@@ -79,7 +77,6 @@
       outline-offset: 3px;
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -90,7 +87,17 @@
       transform: translateY(0);
     }
 
-    /* Skeleton shimmer */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
     @keyframes shimmer {
       0% { background-position: -468px 0; }
       100% { background-position: 468px 0; }
@@ -123,26 +130,157 @@
   </nav>
 
   <main>
-    <section class="hero pt-36 pb-20 px-6 text-white">
-      <div class="max-w-5xl mx-auto">
-        <span class="badge">Cheesy. Happy. Lucky.</span>
-        <h1 class="text-5xl md:text-7xl mt-7 mb-5 leading-tight">Gurihnya keju, bikin nagih!</h1>
-        <p class="text-white/85 max-w-xl text-lg leading-relaxed">Camilan seru, minuman segar, dan mood baik dalam satu gigitan.</p>
-        <a href="#menu-list" class="inline-block bg-[#F5D0FE] text-[#6D28D9] font-extrabold px-7 py-3 round mt-8 shadow-[0_12px_30px_rgba(245,208,254,0.5)]">Lihat menu ↓</a>
+    <!-- ============ HERO ============ -->
+    <section class="hero relative overflow-hidden pt-36 pb-24 px-6 text-white">
+      <div class="hidden lg:block absolute right-[8%] top-[28%] animate-float-slow">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#F5D0FE] flex items-center justify-center">
+            <i class="fas fa-certificate text-[#6D28D9]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Halal Certified</div>
+            <div class="text-[11px] text-white/60">Aman & terpercaya</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute left-[6%] bottom-[22%] animate-float">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#F5D0FE] flex items-center justify-center">
+            <i class="fas fa-store text-[#6D28D9]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">180+ Outlets</div>
+            <div class="text-[11px] text-white/60">Seluruh Indonesia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute right-[12%] bottom-[18%] animate-float-slow">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#F5D0FE] flex items-center justify-center">
+            <i class="fas fa-fire text-[#6D28D9]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Viral di TikTok</div>
+            <div class="text-[11px] text-white/60">Korean Cheese Pancake</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute right-[18%] top-[18%] text-[160px] text-white/5 rotate-12 pointer-events-none select-none">
+        <i class="fas fa-cheese"></i>
+      </div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
+        <span class="badge reveal">Annyeong Lucky People! 🧀</span>
+        <h1 class="text-5xl md:text-7xl mt-7 mb-5 leading-tight reveal">Gurihnya keju,<br class="hidden md:block"> bikin nagih!</h1>
+        <p class="text-white/85 max-w-xl text-lg leading-relaxed reveal">
+          Camilan seru, minuman segar, dan mood baik dalam satu gigitan. <span class="text-[#F5D0FE] font-bold">Enjoy Lucky Makes You Lucky.</span>
+        </p>
+        <div class="flex flex-wrap gap-4 mt-8 reveal">
+          <a href="#menu-list" class="inline-block bg-[#F5D0FE] text-[#6D28D9] font-extrabold px-7 py-3 round shadow-[0_12px_30px_rgba(245,208,254,0.5)] hover:bg-white transition">Lihat menu ↓</a>
+          <a href="https://wa.me/6283193216920?text=Halo%20Lucky%20Cheese%2C%20saya%20mau%20pesan" target="_blank" class="inline-block border border-white/30 text-white font-extrabold px-7 py-3 round hover:bg-white/10 transition">Pesan via WA</a>
+        </div>
       </div>
     </section>
 
+    <!-- ============ MENU GRID ============ -->
     <section id="menu-list" class="max-w-7xl mx-auto px-6 py-16">
       <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
         <p class="col-span-full text-center text-[#6D28D9]">Memuat menu...</p>
       </div>
     </section>
+
+    <!-- ============ KENAPA LUCKY CHEESE ============ -->
+    <section class="py-20 px-6 bg-[#F5D0FE]/30">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#6D28D9] uppercase tracking-[.25em] text-xs font-extrabold">Kenapa Lucky Cheese</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Alasan jadi favorit</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center reveal">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-[#F5D0FE] flex items-center justify-center mb-5">
+              <i class="fas fa-certificate text-2xl text-[#6D28D9]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">100% Halal</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Semua bahan bersertifikat halal, aman dinikmati seluruh keluarga.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:100ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-[#F5D0FE] flex items-center justify-center mb-5">
+              <i class="fas fa-camera-retro text-2xl text-[#6D28D9]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Instagramable</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Keju meleleh yang bikin konten kamu makin estetik & bikin nagih.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:200ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-[#F5D0FE] flex items-center justify-center mb-5">
+              <i class="fas fa-tags text-2xl text-[#6D28D9]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Harga Terjangkau</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Nikmat maksimal tanpa bikin dompet kaget. Cocok buat semua kalangan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONI ============ -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#6D28D9] uppercase tracking-[.25em] text-xs font-extrabold">Testimoni</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kata mereka</h2>
+          <p class="text-slate-600 mt-4 max-w-xl mx-auto">Cerita dari pelanggan yang udah nyobain sensasi Lucky Cheese.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-7 reveal">
+            <div class="flex gap-1 text-[#6D28D9] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Cheese pancake-nya meleleh banget, anak-anak suka! Wajib coba!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6D28D9] text-white flex items-center justify-center font-bold">N</div>
+              <div>
+                <div class="font-bold text-[#35115f] text-sm">Nadia</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:100ms">
+            <div class="flex gap-1 text-[#6D28D9] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Harga ramah kantong, rasa premium. Langganan tiap weekend!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6D28D9] text-white flex items-center justify-center font-bold">F</div>
+              <div>
+                <div class="font-bold text-[#35115f] text-sm">Fajar</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:200ms">
+            <div class="flex gap-1 text-[#6D28D9] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Pelayanan cepat, produk fresh, dan selalu konsisten enak."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6D28D9] text-white flex items-center justify-center font-bold">S</div>
+              <div>
+                <div class="font-bold text-[#35115f] text-sm">Sinta</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- ============ FOOTER (4 Kolom, disamain sama root) ============ -->
+  <!-- ============ FOOTER ============ -->
   <footer class="bg-[#6D28D9] text-white px-6 pt-20 pb-8">
     <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
-      <!-- Kolom 1: Brand & Deskripsi -->
       <div class="md:col-span-1">
         <div class="flex items-center gap-3 mb-5">
           <svg width="40" height="40" viewBox="0 0 100 100">
@@ -157,7 +295,6 @@
         </p>
       </div>
 
-      <!-- Kolom 2: Jelajahi -->
       <div>
         <h3 class="text-[#F5D0FE] text-xs uppercase tracking-[.25em] mb-5 font-bold">Jelajahi</h3>
         <ul class="space-y-3 text-sm">
@@ -168,7 +305,6 @@
         </ul>
       </div>
 
-      <!-- Kolom 3: Kontak -->
       <div>
         <h3 class="text-[#F5D0FE] text-xs uppercase tracking-[.25em] mb-5 font-bold">Kontak</h3>
         <ul class="space-y-3 text-sm text-white/60">
@@ -187,17 +323,16 @@
         </ul>
       </div>
 
-      <!-- Kolom 4: Sosmed -->
       <div>
         <h3 class="text-[#F5D0FE] text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
         <div class="flex gap-3">
-          <a href="https://www.instagram.com/luckycheese.id" target="_blank" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="Instagram">
+          <a href="https://www.instagram.com/luckycheese.id" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#F5D0FE] hover:text-[#6D28D9] flex items-center justify-center transition" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="TikTok">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#F5D0FE] hover:text-[#6D28D9] flex items-center justify-center transition" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="WhatsApp">
+          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#F5D0FE] hover:text-[#6D28D9] flex items-center justify-center transition" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
@@ -217,7 +352,6 @@
   </footer>
 
   <script>
-    // Skeleton component
     function skeletonCard() {
       return `
         <div class="card overflow-hidden animate-pulse">
@@ -236,7 +370,6 @@
       `;
     }
 
-    // Inject skeleton dulu
     document.getElementById('grid').innerHTML = Array(4).fill(skeletonCard()).join('');
 
     const categories = ['all', 'makanan', 'snack', 'minuman'];
@@ -245,7 +378,6 @@
     const q = encodeURIComponent('*[_type == "cheeseMenu" && available == true]{_id,name,category,price,description,"imageUrl":image.asset->url}');
     const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
-    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -258,6 +390,8 @@
     const observeReveals = () => {
       document.querySelectorAll('.reveal:not(.visible)').forEach((el) => revealObserver.observe(el));
     };
+
+    observeReveals();
 
     function nav(el) {
       el.innerHTML = categories.map((c) => `
