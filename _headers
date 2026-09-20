@@ -5,11 +5,4 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains
-
-  Tailwind Play CDN, inline scripts/styles, Font Awesome, Google Fonts,
-  Sanity CMS, Tawk.to, Unsplash, and WhatsApp are intentionally allowed.
-  Tighten this policy further after migrating Tailwind to a build step.
-  The report-only policy helps identify blocked resources without breaking
-  the current site.
-*/
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://embed.tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://images.unsplash.com https://cdn.sanity.io https://via.placeholder.com; connect-src 'self' https://mwiphyyy.api.sanity.io https://*.sanity.io; frame-src https://embed.tawk.to; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://embed.tawk.to https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://images.unsplash.com https://cdn.sanity.io https://placehold.co https://via.placeholder.com; connect-src 'self' https://mwiphyyy.api.sanity.io https://*.sanity.io https://*.tawk.to wss://*.tawk.to https://cloudflareinsights.com; frame-src https://embed.tawk.to https://*.tawk.to; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests
