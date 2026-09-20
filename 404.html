@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2D1B4E">
   <title>404 — Halaman Tidak Ditemukan | Abhinaya Group</title>
   <meta name="description" content="Halaman yang kamu cari tidak ditemukan. Kembali ke beranda Abhinaya Group.">
   <meta name="robots" content="noindex">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232D1B4E'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+
+  <!-- OG Tags (jaga-jaga kalau link ke-share) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="404 — Halaman Tidak Ditemukan">
+  <meta property="og:description" content="Sepertinya halaman yang kamu cari sudah dipindahkan atau nggak pernah ada.">
+  <meta property="og:image" content="https://abhinaya-web.pages.dev/og-image.jpg">
+  <meta property="og:url" content="https://abhinaya-web.pages.dev/404">
+  <meta property="og:site_name" content="Abhinaya Group">
+  <meta name="twitter:card" content="summary_large_image">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +27,10 @@
   <style>
     :root {
       --gold: #C9A96A;
+      --gold-light: #E0C88D;
       --ink: #2D1B4E;
+      --purple: #6D28D9;
+      --lilac: #D8B4FE;
     }
     * { box-sizing: border-box; }
     body {
@@ -25,9 +38,11 @@
       background: linear-gradient(130deg, #2D1B4E 0%, #43206f 52%, #201236 100%);
       color: white;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     h1, h2 { font-family: 'Playfair Display', serif; }
     .gold { color: var(--gold); }
+    .gold-bg { background: var(--gold); }
 
     /* Orbs */
     .hero-orb {
@@ -35,6 +50,16 @@
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 9999px;
       filter: blur(0.5px);
+      pointer-events: none;
+    }
+
+    /* Gradient text untuk 404 */
+    .text-gradient-gold {
+      background: linear-gradient(180deg, #E0C88D 0%, #C9A96A 55%, #8B7340 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
 
     /* Animasi */
@@ -53,12 +78,18 @@
     .delay-3 { animation-delay: 0.3s; }
     .delay-4 { animation-delay: 0.4s; }
 
+    /* Focus state */
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--lilac);
+      outline-offset: 3px;
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; }
+      * { animation: none !important; transition: none !important; }
     }
   </style>
 </head>
-<body class="flex items-center justify-center px-6 py-12 relative overflow-hidden">
+<body class="flex items-center justify-center px-6 py-12 relative">
 
   <!-- Background orbs -->
   <div class="hero-orb right-[-70px] top-32 w-72 h-72"></div>
@@ -67,17 +98,17 @@
 
   <div class="max-w-2xl mx-auto text-center relative z-10">
 
-    <!-- Logo -->
+    <!-- Logo monogram -->
     <div class="flex justify-center mb-8 fade-in-up">
-      <svg width="64" height="64" viewBox="0 0 100 100">
+      <svg width="64" height="64" viewBox="0 0 100 100" aria-hidden="true">
         <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A96A" stroke-width="0.8" opacity="0.4"/>
         <circle cx="50" cy="50" r="36" fill="none" stroke="#C9A96A" stroke-width="1.2"/>
         <text x="50" y="62" font-family="Playfair Display,Georgia,serif" font-size="34" font-style="italic" font-weight="700" fill="#C9A96A" text-anchor="middle">AS</text>
       </svg>
     </div>
 
-    <!-- 404 -->
-    <h1 class="text-[7rem] md:text-[10rem] font-bold gold leading-none fade-in-up delay-1" style="font-family: 'Playfair Display', serif;">
+    <!-- 404 number dengan gradient gold -->
+    <h1 class="text-[6rem] sm:text-[8rem] md:text-[10rem] font-bold leading-none fade-in-up delay-1 text-gradient-gold" style="font-family: 'Playfair Display', serif;">
       404
     </h1>
 
@@ -92,7 +123,7 @@
 
     <!-- CTA Buttons -->
     <div class="flex flex-wrap justify-center gap-4 fade-in-up delay-4">
-      <a href="/" class="bg-[#C9A96A] text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition shadow-[0_16px_40px_rgba(201,169,106,0.35)]">
+      <a href="/" class="gold-bg text-[#2D1B4E] px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-[#D8B4FE] transition shadow-[0_16px_40px_rgba(201,169,106,0.35)]">
         <i class="fas fa-home"></i> Kembali ke Beranda
       </a>
       <a href="/#bisnis" class="border border-white/25 text-white px-8 py-4 rounded-full font-bold inline-flex items-center gap-3 hover:bg-white/10 transition">
@@ -100,11 +131,36 @@
       </a>
     </div>
 
+    <!-- Quick links sub-brand -->
+    <div class="mt-14 fade-in-up delay-4">
+      <p class="text-white/40 text-[10px] uppercase tracking-[.3em] mb-5">Atau kunjungi unit kami</p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
+        <a href="/store/" class="text-white/60 hover:text-[#C9A96A] transition inline-flex items-center gap-2">
+          <i class="fas fa-gem text-xs"></i> Store
+        </a>
+        <a href="/parfume/" class="text-white/60 hover:text-[#C9A96A] transition inline-flex items-center gap-2">
+          <i class="fas fa-spray-can-sparkles text-xs"></i> Parfume
+        </a>
+        <a href="/rides/" class="text-white/60 hover:text-[#C9A96A] transition inline-flex items-center gap-2">
+          <i class="fas fa-car-side text-xs"></i> Rides
+        </a>
+        <a href="/lucky-cheese/" class="text-white/60 hover:text-[#C9A96A] transition inline-flex items-center gap-2">
+          <i class="fas fa-cheese text-xs"></i> Lucky Cheese
+        </a>
+      </div>
+    </div>
+
     <!-- Footer note -->
     <p class="text-white/30 text-xs mt-16 fade-in-up delay-4">
-      © 2026 Abhinaya Group · <a href="https://wa.me/6283193216920" target="_blank" class="text-[#C9A96A] hover:text-white transition">Butuh bantuan? Chat kami</a>
+      © 2026 Abhinaya Group · 
+      <a href="https://wa.me/6283193216920" target="_blank" rel="noopener" class="text-[#C9A96A] hover:text-white transition">Butuh bantuan? Chat kami</a>
     </p>
   </div>
+
+  <!-- Cloudflare Web Analytics (uncomment setelah setup + ganti token) -->
+  <!--
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "GANTI_DENGAN_TOKEN_LU"}'></script>
+  -->
 
 </body>
 </html>
