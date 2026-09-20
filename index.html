@@ -6,10 +6,8 @@
   <title>Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan</title>
   <meta name="description" content="Abhinaya Group menaungi retail, lifestyle, kuliner, parfum, dan hiburan keluarga di Kalimantan.">
 
-  <!-- Favicon: SVG monogram AS -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232D1B4E'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abhinaya Group | Ekosistem Retail & Hiburan Kalimantan">
   <meta property="og:description" content="Retail, lifestyle, kuliner, parfum, dan hiburan keluarga di Kalimantan.">
@@ -37,6 +35,10 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- ★ CENTRALIZED CONFIG & SHARED SCRIPT ★ -->
+  <script src="/config.js"></script>
+  <script src="/shared.js" defer></script>
 
   <style>
     :root {
@@ -91,7 +93,6 @@
       outline-offset: 3px;
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -102,7 +103,6 @@
       transform: translateY(0);
     }
 
-    /* Float animations */
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
@@ -139,7 +139,6 @@
   <nav class="nav fixed inset-x-0 top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3 group text-white">
-        <!-- LOGO SVG - Ganti dengan <img> kalau ada PNG asli -->
         <svg width="40" height="40" viewBox="0 0 100 100" class="transition group-hover:scale-110">
           <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A96A" stroke-width="0.8" opacity="0.4"/>
           <circle cx="50" cy="50" r="36" fill="none" stroke="#C9A96A" stroke-width="1.2"/>
@@ -174,7 +173,6 @@
       <div class="hero-orb right-[-70px] top-32 w-72 h-72"></div>
       <div class="hero-orb left-[-70px] bottom-20 w-80 h-80"></div>
 
-      <!-- Floating badges -->
       <div class="hidden lg:block absolute right-[10%] top-[30%] animate-float-slow">
         <div class="bg-white/8 backdrop-blur-xl border border-white/15 rounded-2xl px-5 py-3 flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-[#C9A96A] flex items-center justify-center">
@@ -432,15 +430,15 @@
         <ul class="space-y-3 text-sm text-white/60">
           <li class="flex items-start gap-2">
             <i class="fas fa-map-marker-alt gold mt-1"></i>
-            <span>Kalimantan, Indonesia</span>
+            <span data-address>Kalimantan, Indonesia</span>
           </li>
           <li class="flex items-start gap-2">
             <i class="fas fa-envelope gold mt-1"></i>
-            <a class="hover:text-white transition" href="mailto:info@abhinayagroup.com">info@abhinayagroup.com</a>
+            <a class="hover:text-white transition" data-email data-email-display>info@abhinayagroup.com</a>
           </li>
           <li class="flex items-start gap-2">
             <i class="fab fa-whatsapp gold mt-1"></i>
-            <a class="hover:text-white transition" href="https://wa.me/6283193216920" target="_blank">+62 831-9321-6920</a>
+            <a class="hover:text-white transition" data-wa data-wa-display>+62 831-9321-6920</a>
           </li>
         </ul>
       </div>
@@ -448,16 +446,16 @@
       <div>
         <h3 class="gold text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
         <div class="flex gap-3">
-          <a href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="Instagram">
+          <a data-ig href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="TikTok">
+          <a data-tiktok href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="WhatsApp">
+          <a data-wa href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="Facebook">
+          <a data-facebook href="#" class="w-10 h-10 rounded-full bg-white/8 hover:bg-[#C9A96A] hover:text-[#2D1B4E] flex items-center justify-center transition" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
         </div>
@@ -468,7 +466,7 @@
     </div>
 
     <div class="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
-      <span>© 2026 Abhinaya Group. Hak Cipta Dilindungi.</span>
+      <span>© <span data-year>2026</span> <span data-site-name>Abhinaya Group</span>. Hak Cipta Dilindungi.</span>
       <div class="flex gap-6">
         <a href="/privacy/" class="hover:text-white transition">Kebijakan Privasi</a>
         <a href="/terms/" class="hover:text-white transition">Syarat & Ketentuan</a>
@@ -486,10 +484,10 @@
       menuToggle.setAttribute('aria-expanded', String(!isHidden));
     };
 
-    // ===== Esc helper =====
-    const esc = (s) => String(s || '').replace(/[&<>"']/g, c => ({
+    // ===== Esc helper (fallback kalau shared.js belum load) =====
+    const esc = window.esc || ((s) => String(s || '').replace(/[&<>"']/g, c => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
-    }[c]));
+    }[c])));
 
     // ===== Scroll reveal =====
     const revealObserver = new IntersectionObserver((entries) => {
@@ -505,10 +503,9 @@
       document.querySelectorAll('.reveal:not(.visible)').forEach((el) => revealObserver.observe(el));
     };
 
-    // Observe elemen statis saat load
     observeReveals();
 
-    // ===== Routing map (pakai category, bukan name.includes) =====
+    // ===== Routing map =====
     const routes = {
       store: '/store/',
       parfum: '/parfume/',
@@ -532,7 +529,7 @@
           return `
             <a href="${href}" class="card overflow-hidden group reveal" style="transition-delay:${i * 80}ms">
               <div class="h-44 bg-[#2D1B4E] p-6 flex items-center justify-center">
-                <img src="${esc(x.imageUrl || 'https://via.placeholder.com/400x300?text=Abhinaya')}" alt="${esc(x.name)}" class="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-110" loading="lazy">
+                <img src="${esc(x.imageUrl || 'https://placehold.co/400x300/2D1B4E/C9A96A?text=Abhinaya')}" alt="${esc(x.name)}" class="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-110" loading="lazy">
               </div>
               <div class="p-6">
                 <span class="text-xs uppercase tracking-widest text-[#6D28D9] font-bold">${esc(x.category || 'Unit bisnis')}</span>
