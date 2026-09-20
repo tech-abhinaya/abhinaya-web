@@ -3,8 +3,20 @@
 // "MAGIC" YANG NGISI DATA DARI config.js KE SEMUA HTML
 // ============================================================
 // GAK PERLU DIEDIT — kecuali lu mau nambah jenis data baru.
-// Kalau lu nambah key baru di config.js (misal `waAdmin`),
-// tinggal tambahin blok querySelector di bawah.
+// ============================================================
+//
+// CARA PAKAI:
+//   WhatsApp link:       <a data-wa>...</a>
+//   WhatsApp + text:     <a data-wa data-wa-text="Halo, saya mau tanya...">...</a>
+//   WhatsApp text only:  <span data-wa-display></span>
+//   Email link:          <a data-email>...</a>
+//   Email text:          <span data-email-display></span>
+//   Alamat:              <span data-address></span>
+//   Instagram:           <a data-ig>...</a>
+//   TikTok:              <a data-tiktok>...</a>
+//   Facebook:            <a data-facebook>...</a>
+//   Tahun copyright:     <span data-year></span>
+//   Nama situs:          <span data-site-name></span>
 // ============================================================
 
 (function () {
@@ -32,9 +44,13 @@
 
   // ---- Auto-inject ----
 
-  // WhatsApp
+  // WhatsApp (support custom text via data-wa-text)
   document.querySelectorAll('[data-wa]').forEach((el) => {
-    setHref(el, 'https://wa.me/' + C.waNumber);
+    const customText = el.dataset.waText;
+    const url = customText
+      ? 'https://wa.me/' + C.waNumber + '?text=' + encodeURIComponent(customText)
+      : 'https://wa.me/' + C.waNumber;
+    setHref(el, url);
   });
   document.querySelectorAll('[data-wa-display]').forEach((el) => {
     setText(el, C.waDisplay);
@@ -63,6 +79,5 @@
   document.querySelectorAll('[data-site-name]').forEach((el) => setText(el, C.siteName));
 
   // ---- Expose ke window buat script inline ----
-  // Biar di dalam <script> halaman bisa pakai: SITE.waNumber
   window.SITE = C;
 })();
