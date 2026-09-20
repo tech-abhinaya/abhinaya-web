@@ -25,6 +25,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- ★ CENTRALIZED CONFIG & SHARED SCRIPT ★ -->
+  <script src="/config.js"></script>
+  <script src="/shared.js" defer></script>
+
   <style>
     :root {
       --indigo: #4C1D95;
@@ -114,7 +118,7 @@
     }
   </style>
 </head>
-<body>
+<body data-brand="rides">
   <nav class="nav fixed top-0 inset-x-0 z-50 text-white">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div>
@@ -138,9 +142,8 @@
   </nav>
 
   <main>
-    <!-- ============ HERO (UPGRADED) ============ -->
+    <!-- ============ HERO ============ -->
     <section class="hero relative overflow-hidden pt-36 pb-28 px-6 text-white">
-      <!-- Floating badges -->
       <div class="hidden lg:block absolute right-[8%] top-[30%] animate-float-slow">
         <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
           <div class="w-10 h-10 rounded-full bg-[#A78BFA] flex items-center justify-center">
@@ -177,7 +180,6 @@
         </div>
       </div>
 
-      <!-- Decorative car icon -->
       <div class="hidden lg:block absolute right-[18%] top-[16%] text-[160px] text-white/5 -rotate-6 pointer-events-none select-none">
         <i class="fas fa-car-side"></i>
       </div>
@@ -207,7 +209,7 @@
       </div>
     </section>
 
-    <!-- ============ KENAPA PILIH RIDES (BARU) ============ -->
+    <!-- ============ KENAPA PILIH RIDES ============ -->
     <section class="py-20 px-6 bg-[#EDE9FE]">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-14 reveal">
@@ -270,7 +272,7 @@
       </div>
     </section>
 
-    <!-- ============ TESTIMONI (BARU) ============ -->
+    <!-- ============ TESTIMONI ============ -->
     <section class="py-20 px-6 bg-[#EDE9FE]/60">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-14 reveal">
@@ -324,7 +326,6 @@
 
     <!-- ============ BOOKING CTA ============ -->
     <section id="booking" class="py-24 px-6 bg-[#4C1D95] text-white relative overflow-hidden">
-      <!-- Decorative orbs -->
       <div class="absolute right-[-80px] top-16 w-72 h-72 rounded-full border border-white/10 pointer-events-none"></div>
       <div class="absolute left-[-60px] bottom-10 w-64 h-64 rounded-full border border-white/10 pointer-events-none"></div>
 
@@ -334,14 +335,14 @@
         <p class="text-white/75 mb-8 max-w-lg mx-auto leading-relaxed reveal">
           Ulang tahun anak atau rombongan sekolah? Kami siap bantu atur sesi spesial yang gak bakal terlupakan.
         </p>
-        <a class="inline-flex items-center gap-3 bg-[#A78BFA] text-[#27134c] px-8 py-4 pill font-extrabold shadow-[0_16px_40px_rgba(167,139,250,0.4)] hover:bg-[#EDE9FE] transition reveal" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank">
+        <a data-wa data-wa-text="Halo Abhinaya Rides, saya mau booking acara" class="inline-flex items-center gap-3 bg-[#A78BFA] text-[#27134c] px-8 py-4 pill font-extrabold shadow-[0_16px_40px_rgba(167,139,250,0.4)] hover:bg-[#EDE9FE] transition reveal">
           <i class="fab fa-whatsapp text-lg"></i> Chat untuk booking
         </a>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER 4 KOLOM ============ -->
+  <!-- ============ FOOTER ============ -->
   <footer class="bg-[#4C1D95] border-t border-white/10 text-white px-6 pt-20 pb-8">
     <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
       <div class="md:col-span-1">
@@ -373,15 +374,15 @@
         <ul class="space-y-3 text-sm text-white/60">
           <li class="flex items-start gap-2">
             <i class="fas fa-map-marker-alt text-[#A78BFA] mt-1"></i>
-            <span>Kalimantan, Indonesia</span>
+            <span data-address>Kalimantan, Indonesia</span>
           </li>
           <li class="flex items-start gap-2">
             <i class="fas fa-envelope text-[#A78BFA] mt-1"></i>
-            <a class="hover:text-white transition" href="mailto:info@abhinayagroup.com">info@abhinayagroup.com</a>
+            <a class="hover:text-white transition" data-email data-email-display>info@abhinayagroup.com</a>
           </li>
           <li class="flex items-start gap-2">
             <i class="fab fa-whatsapp text-[#A78BFA] mt-1"></i>
-            <a class="hover:text-white transition" href="https://wa.me/6283193216920" target="_blank">+62 831-9321-6920</a>
+            <a class="hover:text-white transition" data-wa data-wa-display>+62 831-9321-6920</a>
           </li>
         </ul>
       </div>
@@ -389,13 +390,13 @@
       <div>
         <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
         <div class="flex gap-3">
-          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="Instagram">
+          <a data-ig href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="TikTok">
+          <a data-tiktok href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="TikTok">
             <i class="fab fa-tiktok"></i>
           </a>
-          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="WhatsApp">
+          <a data-wa href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="WhatsApp">
             <i class="fab fa-whatsapp"></i>
           </a>
         </div>
@@ -406,7 +407,7 @@
     </div>
 
     <div class="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
-      <span>© 2026 Abhinaya Rides. Hak Cipta Dilindungi.</span>
+      <span>© <span data-year>2026</span> Abhinaya Rides. Hak Cipta Dilindungi.</span>
       <div class="flex gap-6">
         <a href="/privacy/" class="hover:text-white transition">Kebijakan Privasi</a>
         <a href="/terms/" class="hover:text-white transition">Syarat & Ketentuan</a>
@@ -415,16 +416,14 @@
   </footer>
 
   <script>
-    // Menu mobile
     document.getElementById('menu').onclick = (e) => {
       const mobile = document.getElementById('mobile');
       const isHidden = mobile.classList.toggle('hidden');
       e.currentTarget.setAttribute('aria-expanded', String(!isHidden));
     };
 
-    const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
+    const esc = window.esc || ((s) => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])));
 
-    // Skeleton untuk paket harga
     function skeletonCard() {
       return `
         <div class="card p-7 animate-pulse">
