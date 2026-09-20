@@ -14,6 +14,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- ★ CENTRALIZED CONFIG & SHARED SCRIPT ★ -->
+  <script src="/config.js"></script>
+  <script src="/shared.js" defer></script>
+
   <style>
     :root {
       --ink: #2D1B4E;
@@ -39,7 +43,6 @@
       outline-offset: 3px;
     }
     .prose-section h2 { margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.75rem; }
-    .prose-section h3 { margin-top: 1.75rem; margin-bottom: 0.75rem; font-size: 1.25rem; }
     .prose-section p { margin-bottom: 1rem; line-height: 1.8; color: #4a3c60; }
     .prose-section ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style-type: disc; }
     .prose-section li { margin-bottom: 0.5rem; line-height: 1.7; color: #4a3c60; }
@@ -70,14 +73,12 @@
 
   <main class="pt-32 pb-20 px-6">
     <div class="max-w-3xl mx-auto">
-      <!-- Header -->
       <div class="text-center mb-12">
         <span class="gold uppercase tracking-[.25em] text-xs font-bold">Legal</span>
         <h1 class="text-4xl md:text-5xl mt-4 mb-4">Syarat & Ketentuan</h1>
         <p class="text-slate-500 text-sm">Terakhir diperbarui: 20 September 2026</p>
       </div>
 
-      <!-- Content -->
       <article class="prose-section bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_40px_rgba(45,27,78,0.06)] border border-[#6D28D9]/10">
 
         <p>
@@ -142,9 +143,9 @@
         <h2>10. Hubungi Kami</h2>
         <p>Untuk pertanyaan terkait Syarat & Ketentuan ini, hubungi kami di:</p>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:info@abhinayagroup.com" class="text-[#6D28D9] hover:underline">info@abhinayagroup.com</a></li>
-          <li><strong>WhatsApp:</strong> <a href="https://wa.me/6283193216920" target="_blank" class="text-[#6D28D9] hover:underline">+62 831-9321-6920</a></li>
-          <li><strong>Alamat:</strong> Kalimantan, Indonesia</li>
+          <li><strong>Email:</strong> <a class="text-[#6D28D9] hover:underline" data-email data-email-display>info@abhinayagroup.com</a></li>
+          <li><strong>WhatsApp:</strong> <a class="text-[#6D28D9] hover:underline" data-wa data-wa-display>+62 831-9321-6920</a></li>
+          <li><strong>Alamat:</strong> <span data-address>Kalimantan, Indonesia</span></li>
         </ul>
 
         <div class="mt-12 pt-8 border-t border-[#6D28D9]/10 text-sm text-slate-500 italic">
@@ -154,7 +155,6 @@
         </div>
       </article>
 
-      <!-- Navigation -->
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a href="/" class="inline-flex items-center gap-2 bg-[#2D1B4E] text-white px-6 py-3 rounded-full font-bold hover:bg-[#6D28D9] transition text-sm">
           <i class="fas fa-home"></i> Beranda
@@ -167,7 +167,7 @@
   </main>
 
   <footer class="bg-[#2D1B4E] text-white/40 text-center py-6 text-xs">
-    © 2026 Abhinaya Group · <a href="/" class="text-[#C9A96A] hover:text-white transition">Kembali ke Beranda</a>
+    © <span data-year>2026</span> <span data-site-name>Abhinaya Group</span> · <a href="/" class="text-[#C9A96A] hover:text-white transition">Kembali ke Beranda</a>
   </footer>
 </body>
 </html>
