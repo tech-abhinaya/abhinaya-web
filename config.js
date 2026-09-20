@@ -21,8 +21,8 @@
 
 window.ABHINAYA = {
   // === KONTAK UTAMA ===
-  waNumber: '6283193216920',        // format internasional tanpa '+', tanpa spasi
-  waDisplay: '+62 831-9321-6920',   // yang muncul sebagai teks
+  waNumber: '6282311835807',        // format internasional tanpa '+', tanpa spasi
+  waDisplay: '+62 823-1183-5807',   // yang muncul sebagai teks
   email: 'info@abhinayagroup.com',
   address: 'Kalimantan, Indonesia',
 
