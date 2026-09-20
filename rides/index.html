@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#4C1D95">
   <title>Abhinaya Rides | Family Fun</title>
-  <meta name="description" content="Wahana mobil-mobilan keliling mall untuk anak dan keluarga.">
+  <meta name="description" content="Wahana mobil-mobilan keliling mall untuk anak dan keluarga. Paket harga terjangkau, aman, dan menyenangkan.">
 
-  <!-- Favicon: monogram AS, warna brand Rides -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234C1D95'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23A78BFA' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Fredoka,sans-serif' font-size='34' font-weight='700' fill='%23A78BFA' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
 
-  <!-- OG Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abhinaya Rides | Family Fun">
   <meta property="og:description" content="Wahana mobil-mobilan keliling mall untuk anak dan keluarga.">
@@ -43,7 +42,10 @@
     h1, h2, h3 { font-family: Fredoka, sans-serif; }
     .nav { background: rgba(76,29,149,.95); backdrop-filter: blur(16px); }
     .hero {
-      background: radial-gradient(circle at 80% 20%, rgba(167,139,250,.53), transparent 30%), linear-gradient(135deg, #4C1D95, #6366F1 65%, #818CF8);
+      background:
+        radial-gradient(circle at 82% 18%, rgba(167,139,250,.45), transparent 30%),
+        radial-gradient(circle at 15% 78%, rgba(99,102,241,.25), transparent 32%),
+        linear-gradient(135deg, #4C1D95, #6366F1 65%, #818CF8);
     }
     .card {
       background: #fff;
@@ -75,7 +77,6 @@
       outline-offset: 3px;
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -86,7 +87,17 @@
       transform: translateY(0);
     }
 
-    /* Skeleton shimmer */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
     @keyframes shimmer {
       0% { background-position: -468px 0; }
       100% { background-position: 468px 0; }
@@ -127,43 +138,280 @@
   </nav>
 
   <main>
-    <section class="hero pt-36 pb-24 px-6 text-white">
-      <div class="max-w-5xl mx-auto">
+    <!-- ============ HERO (UPGRADED) ============ -->
+    <section class="hero relative overflow-hidden pt-36 pb-28 px-6 text-white">
+      <!-- Floating badges -->
+      <div class="hidden lg:block absolute right-[8%] top-[30%] animate-float-slow">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#A78BFA] flex items-center justify-center">
+            <i class="fas fa-shield-heart text-[#27134c]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Aman & Terjamin</div>
+            <div class="text-[11px] text-white/65">Standar keselamatan</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute left-[6%] bottom-[24%] animate-float">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#A78BFA] flex items-center justify-center">
+            <i class="fas fa-clock text-[#27134c]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Buka Setiap Hari</div>
+            <div class="text-[11px] text-white/65">10.00 – 21.00 WITA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute right-[12%] bottom-[18%] animate-float-slow">
+        <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#A78BFA] flex items-center justify-center">
+            <i class="fas fa-star text-[#27134c]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">4.9 / 5.0</div>
+            <div class="text-[11px] text-white/65">Rating keluarga</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative car icon -->
+      <div class="hidden lg:block absolute right-[18%] top-[16%] text-[160px] text-white/5 -rotate-6 pointer-events-none select-none">
+        <i class="fas fa-car-side"></i>
+      </div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
         <span class="badge reveal">Family fun starts here</span>
-        <h1 class="text-5xl md:text-7xl mt-7 mb-5 leading-tight reveal">Keliling mall, seru bareng keluarga!</h1>
+        <h1 class="text-5xl md:text-7xl mt-7 mb-5 leading-tight reveal">Keliling mall,<br class="hidden md:block"> seru bareng keluarga!</h1>
         <p class="text-white/85 max-w-xl text-lg leading-relaxed reveal">
-          Mobil-mobilan aman dan menyenangkan untuk anak, orang tua, dan momen yang ingin diingat.
+          Mobil-mobilan <span class="text-[#EDE9FE] font-bold">aman dan menyenangkan</span> untuk anak, orang tua, dan momen yang ingin diingat.
         </p>
-        <a href="#harga" class="inline-block bg-[#EDE9FE] text-[#4C1D95] font-extrabold px-7 py-3 pill mt-8 shadow-[0_12px_30px_rgba(237,233,254,0.35)] hover:bg-white transition reveal">Lihat harga paket</a>
+        <div class="flex flex-wrap gap-4 mt-8 reveal">
+          <a href="#harga" class="inline-block bg-[#EDE9FE] text-[#4C1D95] font-extrabold px-7 py-3 pill shadow-[0_12px_30px_rgba(237,233,254,0.35)] hover:bg-white transition">Lihat harga paket</a>
+          <a href="#booking" class="inline-block border border-white/30 text-white font-extrabold px-7 py-3 pill hover:bg-white/10 transition">Booking acara</a>
+        </div>
       </div>
     </section>
 
+    <!-- ============ HARGA PAKET ============ -->
     <section id="harga" class="max-w-5xl mx-auto px-6 py-20">
       <div class="text-center mb-12 reveal">
         <span class="text-[#6366F1] uppercase tracking-[.25em] text-xs font-extrabold">Pilih petualanganmu</span>
         <h2 class="text-4xl mt-3">Harga paket naik</h2>
+        <p class="text-slate-500 mt-3 max-w-md mx-auto text-sm">Setiap paket dirancang buat keseruan maksimal dengan harga yang ramah kantong.</p>
       </div>
       <div id="grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <p class="col-span-full text-center text-[#6366F1]">Memuat harga...</p>
       </div>
     </section>
 
-    <section id="lokasi" class="py-16 px-6 bg-[#EDE9FE] text-center">
-      <h2 class="text-4xl mb-4 reveal">Temukan kami di mall</h2>
-      <p class="text-slate-600 reveal">Area lobby lantai 1, dekat pintu masuk utama mall.<br>Buka setiap hari, 10.00–21.00 WITA.</p>
+    <!-- ============ KENAPA PILIH RIDES (BARU) ============ -->
+    <section class="py-20 px-6 bg-[#EDE9FE]">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#4C1D95] uppercase tracking-[.25em] text-xs font-extrabold">Keunggulan kami</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kenapa pilih Abhinaya Rides</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center reveal">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-shield-heart text-2xl text-[#4C1D95]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Aman & Bersih</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Semua unit dicek rutin dan dibersihkan setiap hari sebelum beroperasi.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:100ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-face-laugh-beam text-2xl text-[#4C1D95]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Seru & Menyenangkan</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Beragam pilihan unit lucu yang bikin anak betah dan orang tua senang.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:200ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-tags text-2xl text-[#4C1D95]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Harga Terjangkau</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Banyak pilihan paket dengan harga bersahabat untuk semua keluarga.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="booking" class="py-20 px-6 bg-[#4C1D95] text-white text-center">
-      <h2 class="text-4xl mb-4 reveal">Mau booking acara?</h2>
-      <p class="text-white/75 mb-8 reveal">Ulang tahun anak atau rombongan sekolah? Kami siap bantu atur sesi spesial.</p>
-      <a class="inline-flex items-center gap-2 bg-[#A78BFA] text-[#27134c] px-7 py-3 pill font-extrabold shadow-[0_12px_30px_rgba(167,139,250,0.4)] hover:bg-[#EDE9FE] transition reveal" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank">
-        <i class="fab fa-whatsapp"></i> Chat untuk booking
-      </a>
+    <!-- ============ LOKASI & JAM ============ -->
+    <section id="lokasi" class="py-20 px-6">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <span class="text-[#6366F1] uppercase tracking-[.25em] text-xs font-extrabold">Kunjungi kami</span>
+          <h2 class="text-4xl mt-3">Temukan kami di mall</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card p-8 reveal">
+            <div class="w-12 h-12 rounded-2xl bg-[#EDE9FE] flex items-center justify-center mb-5">
+              <i class="fas fa-map-location-dot text-xl text-[#4C1D95]"></i>
+            </div>
+            <h3 class="text-2xl mb-2">Lokasi</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Area lobby lantai 1, dekat pintu masuk utama mall. Gampang ditemukan, gampang dijangkau.
+            </p>
+          </div>
+          <div class="card p-8 reveal" style="transition-delay:100ms">
+            <div class="w-12 h-12 rounded-2xl bg-[#EDE9FE] flex items-center justify-center mb-5">
+              <i class="fas fa-clock text-xl text-[#4C1D95]"></i>
+            </div>
+            <h3 class="text-2xl mb-2">Jam Operasional</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Buka setiap hari, <b class="text-[#4C1D95]">10.00 – 21.00 WITA</b>. Termasuk akhir pekan & hari libur nasional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONI (BARU) ============ -->
+    <section class="py-20 px-6 bg-[#EDE9FE]/60">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#4C1D95] uppercase tracking-[.25em] text-xs font-extrabold">Testimoni</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kata mereka</h2>
+          <p class="text-slate-600 mt-4 max-w-xl mx-auto">Cerita dari keluarga yang sudah merasakan keseruan Abhinaya Rides.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-7 reveal">
+            <div class="flex gap-1 text-[#6366F1] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Anak gua seneng banget, gak mau pulang. Unitnya lucu-lucu & bersih!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6366F1] text-white flex items-center justify-center font-bold">S</div>
+              <div>
+                <div class="font-bold text-[#27134c] text-sm">Sari</div>
+                <div class="text-xs text-slate-400">Ibu rumah tangga</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:100ms">
+            <div class="flex gap-1 text-[#6366F1] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Harga paketnya masuk akal, bisa main puas tanpa khawatir kantong jebol."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6366F1] text-white flex items-center justify-center font-bold">H</div>
+              <div>
+                <div class="font-bold text-[#27134c] text-sm">Hendra</div>
+                <div class="text-xs text-slate-400">Ayah dua anak</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:200ms">
+            <div class="flex gap-1 text-[#6366F1] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Pernah booking buat ulang tahun anak. Pelayanannya ramah & profesional!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#6366F1] text-white flex items-center justify-center font-bold">L</div>
+              <div>
+                <div class="font-bold text-[#27134c] text-sm">Lina</div>
+                <div class="text-xs text-slate-400">Ibu muda</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING CTA ============ -->
+    <section id="booking" class="py-24 px-6 bg-[#4C1D95] text-white relative overflow-hidden">
+      <!-- Decorative orbs -->
+      <div class="absolute right-[-80px] top-16 w-72 h-72 rounded-full border border-white/10 pointer-events-none"></div>
+      <div class="absolute left-[-60px] bottom-10 w-64 h-64 rounded-full border border-white/10 pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto text-center relative z-10">
+        <span class="badge reveal">Sesi spesial</span>
+        <h2 class="text-4xl md:text-5xl mt-6 mb-4 reveal">Mau booking acara?</h2>
+        <p class="text-white/75 mb-8 max-w-lg mx-auto leading-relaxed reveal">
+          Ulang tahun anak atau rombongan sekolah? Kami siap bantu atur sesi spesial yang gak bakal terlupakan.
+        </p>
+        <a class="inline-flex items-center gap-3 bg-[#A78BFA] text-[#27134c] px-8 py-4 pill font-extrabold shadow-[0_16px_40px_rgba(167,139,250,0.4)] hover:bg-[#EDE9FE] transition reveal" href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Rides%2C%20saya%20mau%20booking%20acara" target="_blank">
+          <i class="fab fa-whatsapp text-lg"></i> Chat untuk booking
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer class="bg-[#4C1D95] border-t border-white/10 text-white/60 text-center py-8 text-sm">
-    © 2026 Abhinaya Rides · <a href="/" class="text-[#A78BFA] hover:text-white transition">Abhinaya Group</a>
+  <!-- ============ FOOTER 4 KOLOM ============ -->
+  <footer class="bg-[#4C1D95] border-t border-white/10 text-white px-6 pt-20 pb-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <svg width="40" height="40" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="44" fill="none" stroke="#A78BFA" stroke-width="0.8" opacity="0.4"/>
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#A78BFA" stroke-width="1.2"/>
+            <text x="50" y="62" font-family="Fredoka,sans-serif" font-size="34" font-weight="700" fill="#A78BFA" text-anchor="middle">AS</text>
+          </svg>
+          <div class="text-base tracking-[.18em] font-bold">ABHINAYA <span class="text-[#A78BFA] font-normal">RIDES</span></div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Wahana mobil-mobilan keluarga yang seru, aman, dan berkesan. Bagian dari Abhinaya Group.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Jelajahi</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a class="text-white/60 hover:text-white transition" href="/store/">Abhinaya Store</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/parfume/">Abhinaya Parfume</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/rides/">Abhinaya Rides</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/lucky-cheese/">Lucky Cheese</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Kontak</h3>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li class="flex items-start gap-2">
+            <i class="fas fa-map-marker-alt text-[#A78BFA] mt-1"></i>
+            <span>Kalimantan, Indonesia</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-envelope text-[#A78BFA] mt-1"></i>
+            <a class="hover:text-white transition" href="mailto:info@abhinayagroup.com">info@abhinayagroup.com</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fab fa-whatsapp text-[#A78BFA] mt-1"></i>
+            <a class="hover:text-white transition" href="https://wa.me/6283193216920" target="_blank">+62 831-9321-6920</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#A78BFA] text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#A78BFA] hover:text-[#27134c] flex items-center justify-center transition" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <p class="text-white/40 text-xs mt-5 leading-relaxed">
+          Dapatkan update promo & wahana baru.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+      <span>© 2026 Abhinaya Rides. Hak Cipta Dilindungi.</span>
+      <div class="flex gap-6">
+        <a href="/privacy/" class="hover:text-white transition">Kebijakan Privasi</a>
+        <a href="/terms/" class="hover:text-white transition">Syarat & Ketentuan</a>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -190,7 +438,6 @@
     }
     document.getElementById('grid').innerHTML = Array(3).fill(skeletonCard()).join('');
 
-    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -204,7 +451,6 @@
       document.querySelectorAll('.reveal:not(.visible)').forEach((el) => revealObserver.observe(el));
     };
 
-    // Observe elemen statis saat load
     observeReveals();
 
     const q = encodeURIComponent('*[_type == "ridePackage"] | order(price asc){_id,name,price,duration,description,highlight}');
@@ -214,7 +460,7 @@
       .then(({ result = [] }) => {
         document.getElementById('grid').innerHTML = result.length ? result.map((p, i) => `
           <article class="card p-7 relative reveal" style="transition-delay:${i * 60}ms">
-            ${p.highlight ? '<span class="absolute -top-3 left-6 bg-[#6366F1] text-white px-4 py-1 pill text-xs font-bold">Paling laris</span>' : ''}
+            ${p.highlight ? '<span class="absolute -top-3 left-6 bg-[#6366F1] text-white px-4 py-1 pill text-xs font-bold shadow-lg">Paling laris</span>' : ''}
             <h3 class="text-2xl mt-2">${esc(p.name)}</h3>
             <strong class="block text-3xl text-[#6366F1] mt-3">Rp ${Number(p.price || 0).toLocaleString('id-ID')}</strong>
             <p class="text-sm text-[#6366F1] font-bold mt-2">${esc(p.duration ? p.duration + ' menit' : 'Paket seru')}</p>
