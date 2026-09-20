@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#24112F">
   <title>Abhinaya Parfume | Boutique Fragrance</title>
-  <meta name="description" content="Koleksi parfum pria, wanita, dan unisex Abhinaya Parfume.">
+  <meta name="description" content="Koleksi parfum pria, wanita, dan unisex Abhinaya Parfume. Temukan signature scent yang terasa intim, elegan, dan sepenuhnya milikmu.">
 
-  <!-- Favicon: monogram AS, warna brand Parfume -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%235B2A68'/%3E%3Ccircle cx='50' cy='50' r='32' fill='none' stroke='%23C9A96A' stroke-width='1.5'/%3E%3Ctext x='50' y='63' font-family='Playfair Display,Georgia,serif' font-size='34' font-style='italic' font-weight='700' fill='%23C9A96A' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
 
-  <!-- OG Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Abhinaya Parfume | Boutique Fragrance">
   <meta property="og:description" content="Koleksi parfum pria, wanita, dan unisex Abhinaya Parfume.">
@@ -32,6 +31,7 @@
       --violet: #5B2A68;
       --mauve: #B276B2;
       --rose: #F5EAF7;
+      --gold: #C9A96A;
       --ink: #32183c;
       --line: rgba(91,42,104,0.12);
     }
@@ -44,7 +44,10 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .nav { background: rgba(36,17,47,.94); backdrop-filter: blur(16px); }
     .hero {
-      background: radial-gradient(circle at 75% 30%, rgba(178,118,178,.35), transparent 30%), linear-gradient(135deg, #24112F, #5B2A68 60%, #32183c);
+      background:
+        radial-gradient(circle at 78% 25%, rgba(201,169,106,.16), transparent 28%),
+        radial-gradient(circle at 75% 30%, rgba(178,118,178,.35), transparent 30%),
+        linear-gradient(135deg, #24112F, #5B2A68 60%, #32183c);
     }
     .card {
       background: #fff;
@@ -78,7 +81,6 @@
       outline-offset: 3px;
     }
 
-    /* Scroll reveal */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -89,7 +91,17 @@
       transform: translateY(0);
     }
 
-    /* Skeleton shimmer */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes float-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+
     @keyframes shimmer {
       0% { background-position: -468px 0; }
       100% { background-position: 468px 0; }
@@ -122,18 +134,66 @@
   </nav>
 
   <main>
-    <section class="hero pt-36 pb-24 px-6 text-white">
-      <div class="max-w-5xl mx-auto">
-        <span class="badge">Scent stories</span>
-        <h1 class="text-5xl md:text-7xl mt-5 mb-5 leading-tight">Aroma yang membekas.</h1>
-        <p class="text-white/70 max-w-xl leading-relaxed text-lg">
-          Temukan signature scent yang terasa intim, elegan, dan sepenuhnya milikmu.
+    <!-- ============ HERO (UPGRADED) ============ -->
+    <section class="hero relative overflow-hidden pt-36 pb-24 px-6 text-white">
+      <!-- Floating badges -->
+      <div class="hidden lg:block absolute right-[8%] top-[28%] animate-float-slow">
+        <div class="bg-white/8 backdrop-blur-xl border border-white/15 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#C9A96A] flex items-center justify-center">
+            <i class="fas fa-clock text-[#24112F]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Long Lasting</div>
+            <div class="text-[11px] text-white/55">Tahan hingga 8 jam</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute left-[6%] bottom-[22%] animate-float">
+        <div class="bg-white/8 backdrop-blur-xl border border-white/15 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#B276B2] flex items-center justify-center">
+            <i class="fas fa-venus-mars text-white"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">Pria · Wanita · Unisex</div>
+            <div class="text-[11px] text-white/55">Untuk semua</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hidden lg:block absolute right-[14%] bottom-[18%] animate-float-slow">
+        <div class="bg-white/8 backdrop-blur-xl border border-white/15 rounded-2xl px-5 py-3 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#C9A96A] flex items-center justify-center">
+            <i class="fas fa-star text-[#24112F]"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold">4.9 / 5.0</div>
+            <div class="text-[11px] text-white/55">Rating pelanggan</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative icon -->
+      <div class="hidden lg:block absolute right-[20%] top-[16%] text-[150px] text-white/5 rotate-12 pointer-events-none select-none">
+        <i class="fas fa-spray-can-sparkles"></i>
+      </div>
+
+      <div class="max-w-5xl mx-auto relative z-10">
+        <span class="badge reveal">Scent stories</span>
+        <h1 class="text-5xl md:text-7xl mt-5 mb-5 leading-tight reveal">Aroma yang<br class="hidden md:block"> membekas.</h1>
+        <p class="text-white/70 max-w-xl leading-relaxed text-lg reveal">
+          Temukan <span class="text-[#C9A96A] font-bold">signature scent</span> yang terasa intim, elegan, dan sepenuhnya milikmu.
         </p>
+        <div class="flex flex-wrap gap-4 mt-8 reveal">
+          <a href="#koleksi" class="inline-block bg-[#C9A96A] text-[#24112F] font-bold px-7 py-3 round hover:bg-[#B276B2] hover:text-white transition shadow-[0_12px_30px_rgba(201,169,106,0.35)]">Jelajahi koleksi ↓</a>
+          <a href="https://wa.me/6283193216920?text=Halo%20Abhinaya%20Parfume%2C%20saya%20mau%20konsultasi%20aroma" target="_blank" class="inline-block border border-white/25 text-white font-bold px-7 py-3 round hover:bg-white/10 transition">Konsultasi aroma</a>
+        </div>
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-20">
-      <div class="flex justify-between items-end mb-10">
+    <!-- ============ KOLEKSI ============ -->
+    <section id="koleksi" class="max-w-7xl mx-auto px-6 py-20">
+      <div class="flex justify-between items-end mb-10 reveal">
         <div>
           <span class="text-[#B276B2] uppercase tracking-[.25em] text-xs font-bold">The collection</span>
           <h2 class="text-4xl mt-2">Kurasi wewangian</h2>
@@ -143,14 +203,167 @@
         <p class="col-span-full text-center text-[#5B2A68]">Memuat koleksi...</p>
       </div>
     </section>
+
+    <!-- ============ KENAPA PILIH KAMI ============ -->
+    <section class="py-20 px-6 bg-[#F5EAF7]/70">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#5B2A68] uppercase tracking-[.25em] text-xs font-bold">Keunggulan kami</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kenapa pilih Abhinaya Parfume</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center reveal">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-flask text-2xl text-[#5B2A68]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Notes Berkualitas</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Bahan baku pilihan dengan komposisi notes yang tahan lama & seimbang.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:100ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-gem text-2xl text-[#5B2A68]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Elegan & Personal</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Setiap aroma dirancang untuk jadi tanda pengenal yang khas milikmu.</p>
+          </div>
+          <div class="text-center reveal" style="transition-delay:200ms">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-white flex items-center justify-center mb-5 shadow-sm">
+              <i class="fas fa-comments text-2xl text-[#5B2A68]"></i>
+            </div>
+            <h3 class="text-2xl mb-3">Konsultasi Gratis</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Bingung pilih aroma? Kami siap bantu rekomendasi via WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONI ============ -->
+    <section class="py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-14 reveal">
+          <span class="text-[#5B2A68] uppercase tracking-[.25em] text-xs font-bold">Testimoni</span>
+          <h2 class="text-4xl md:text-5xl mt-3 leading-tight">Kata mereka</h2>
+          <p class="text-slate-600 mt-4 max-w-xl mx-auto">Cerita dari pelanggan yang sudah menemukan signature scent mereka.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card p-7 reveal">
+            <div class="flex gap-1 text-[#C9A96A] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Aromanya tahan lama, wanginya elegan. Banyak yang nanya parfum apa!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#5B2A68] text-white flex items-center justify-center font-bold">R</div>
+              <div>
+                <div class="font-bold text-[#32183c] text-sm">Rizky</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:100ms">
+            <div class="flex gap-1 text-[#C9A96A] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Dibantu pilih aroma sesuai kepribadian. Pelayanannya ramah banget."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#5B2A68] text-white flex items-center justify-center font-bold">M</div>
+              <div>
+                <div class="font-bold text-[#32183c] text-sm">Maya</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+          <div class="card p-7 reveal" style="transition-delay:200ms">
+            <div class="flex gap-1 text-[#C9A96A] mb-4 text-sm">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="text-slate-600 leading-relaxed mb-5 italic">"Kemasan mewah, cocok buat kado. Harga masih masuk akal."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#5B2A68] text-white flex items-center justify-center font-bold">D</div>
+              <div>
+                <div class="font-bold text-[#32183c] text-sm">Dimas</div>
+                <div class="text-xs text-slate-400">Pelanggan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="bg-[#24112F] text-white/60 text-center py-10 text-sm">
-    © 2026 Abhinaya Parfume · <a href="/" class="text-[#B276B2]">Abhinaya Group</a>
+  <!-- ============ FOOTER 4 KOLOM ============ -->
+  <footer class="bg-[#24112F] text-white px-6 pt-20 pb-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-5">
+          <svg width="40" height="40" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="44" fill="none" stroke="#C9A96A" stroke-width="0.8" opacity="0.4"/>
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#C9A96A" stroke-width="1.2"/>
+            <text x="50" y="62" font-family="Playfair Display,Georgia,serif" font-size="34" font-style="italic" font-weight="700" fill="#C9A96A" text-anchor="middle">AS</text>
+          </svg>
+          <div class="text-base tracking-[.18em] font-bold">ABHINAYA <span class="text-[#B276B2] font-normal">PARFUME</span></div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Boutique fragrance dengan koleksi pria, wanita, dan unisex. Bagian dari Abhinaya Group.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-[#B276B2] text-xs uppercase tracking-[.25em] mb-5 font-bold">Jelajahi</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a class="text-white/60 hover:text-white transition" href="/store/">Abhinaya Store</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/parfume/">Abhinaya Parfume</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/rides/">Abhinaya Rides</a></li>
+          <li><a class="text-white/60 hover:text-white transition" href="/lucky-cheese/">Lucky Cheese</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#B276B2] text-xs uppercase tracking-[.25em] mb-5 font-bold">Kontak</h3>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li class="flex items-start gap-2">
+            <i class="fas fa-map-marker-alt text-[#B276B2] mt-1"></i>
+            <span>Kalimantan, Indonesia</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fas fa-envelope text-[#B276B2] mt-1"></i>
+            <a class="hover:text-white transition" href="mailto:info@abhinayagroup.com">info@abhinayagroup.com</a>
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fab fa-whatsapp text-[#B276B2] mt-1"></i>
+            <a class="hover:text-white transition" href="https://wa.me/6283193216920" target="_blank">+62 831-9321-6920</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#B276B2] text-xs uppercase tracking-[.25em] mb-5 font-bold">Ikuti Kami</h3>
+        <div class="flex gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#C9A96A] hover:text-[#24112F] flex items-center justify-center transition" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#C9A96A] hover:text-[#24112F] flex items-center justify-center transition" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/6283193216920" target="_blank" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#C9A96A] hover:text-[#24112F] flex items-center justify-center transition" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <p class="text-white/40 text-xs mt-5 leading-relaxed">
+          Dapatkan update aroma baru & promo eksklusif.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+      <span>© 2026 Abhinaya Parfume. Hak Cipta Dilindungi.</span>
+      <div class="flex gap-6">
+        <a href="/privacy/" class="hover:text-white transition">Kebijakan Privasi</a>
+        <a href="/terms/" class="hover:text-white transition">Syarat & Ketentuan</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    // Skeleton component
     function skeletonCard() {
       return `
         <div class="card overflow-hidden animate-pulse">
@@ -169,7 +382,6 @@
       `;
     }
 
-    // Inject skeleton dulu
     document.getElementById('grid').innerHTML = Array(4).fill(skeletonCard()).join('');
 
     const categories = ['all', 'pria', 'wanita', 'unisex'];
@@ -178,7 +390,6 @@
     const q = encodeURIComponent('*[_type == "parfumeProduct" && inStock == true]{_id,name,category,size,price,notes,"imageUrl":image.asset->url}');
     const esc = s => String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c]));
 
-    // Scroll reveal
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -191,6 +402,8 @@
     const observeReveals = () => {
       document.querySelectorAll('.reveal:not(.visible)').forEach((el) => revealObserver.observe(el));
     };
+
+    observeReveals();
 
     function nav(el) {
       el.innerHTML = categories.map((c) => `
@@ -220,7 +433,7 @@
       document.getElementById('grid').innerHTML = list.length ? list.map((p, i) => `
         <article class="card overflow-hidden group reveal" style="transition-delay:${i * 60}ms">
           <div class="h-60 bg-[#F5EAF7] p-6">
-            <img src="${esc(p.imageUrl || 'https://via.placeholder.com/400?text=Fragrance')}" alt="${esc(p.name)}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+            <img src="${esc(p.imageUrl || 'https://placehold.co/400x400/F5EAF7/5B2A68?text=Abhinaya+Parfume')}" alt="${esc(p.name)}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
           </div>
           <div class="p-6">
             <span class="text-xs uppercase tracking-widest text-[#B276B2] font-bold">
