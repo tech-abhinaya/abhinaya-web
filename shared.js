@@ -80,4 +80,19 @@
 
   // ---- Expose ke window buat script inline ----
   window.SITE = C;
+
+  // ---- Live chat Tawk.to (auto-load di semua halaman) ----
+  // Guard: kalau sudah ada, skip biar gak double-load.
+  if (!window.__tawkLoaded) {
+    window.__tawkLoaded = true;
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+    var tawkScript = document.createElement('script');
+    var firstScript = document.getElementsByTagName('script')[0];
+    tawkScript.async = true;
+    tawkScript.src = 'https://embed.tawk.to/6aae64fa8909643446a8cbe9/1k2sjktd6';
+    tawkScript.charset = 'UTF-8';
+    tawkScript.setAttribute('crossorigin', '*');
+    firstScript.parentNode.insertBefore(tawkScript, firstScript);
+  }
 })();
